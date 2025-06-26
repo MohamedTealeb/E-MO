@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over ons",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "services": "Services"
+  },
+  "hero": {
+    "headline": "Renoveer je huis in stijl",
+    "subtext": "Complete en moderne renovatieoplossingen"
+  },
+  "buttons": {
+    "getStarted": "Begin nu",
+    "contactUs": "Neem contact op",
+    "viewPortfolio": "Bekijk ons portfolio",
+    "learnMore": "Meer weten"
+  },
+  "about": {
+    "title": "Wie zijn wij?",
+    "text": "Wij zijn een bedrijf gespecialiseerd in binnen- en buitenrenovatie, met meer dan 10 jaar ervaring in comfort en esthetiek.",
+    "experience": "Meer dan 10 jaar ervaring",
+    "quality": "Vakmanschap en hoogwaardige materialen"
+  },
+  "services": {
+    "title": "Onze diensten",
+    "items": {
+      "kitchen": "Keukenrenovatie",
+      "bathroom": "Badkamerrenovatie",
+      "painting": "Schilderwerk & decoratie",
+      "flooring": "Vloerbekleding",
+      "insulation": "Thermische & akoestische isolatie"
+    }
+  },
+  "portfolio": {
+    "title": "Onze realisaties",
+    "text": "Bekijk enkele van onze recente renovatieprojecten. Elk project weerspiegelt onze toewijding aan kwaliteit en design."
+  },
+  "contact": {
+    "title": "Neem contact op",
+    "text": "Vertel ons over je renovatieproject. We nemen zo snel mogelijk contact met je op.",
+    "form": {
+      "name": "Naam",
+      "email": "E-mail",
+      "message": "Bericht",
+      "submit": "Versturen"
+    }
+  },
+  "footer": {
+    "rights": "Alle rechten voorbehouden.",
+    "followUs": "Volg ons",
+    "address": "Adres",
+    "phone": "Telefoon",
+    "email": "E-mail"
+  }
+}
