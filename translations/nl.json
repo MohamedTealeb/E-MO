@@ -10,6 +10,12 @@
     "headline": "Renoveer je huis in stijl",
     "subtext": "Complete en moderne renovatieoplossingen"
   },
+  "gallery": {
+    "title": "Onze recente werk"
+  },
+  "quickLinks": {
+    "title": "Snelle links"
+  },
   "buttons": {
     "getStarted": "Begin nu",
     "contactUs": "Neem contact op",
@@ -23,15 +29,24 @@
     "quality": "Vakmanschap en hoogwaardige materialen"
   },
   "services": {
-    "title": "Onze diensten",
-    "items": {
-      "kitchen": "Keukenrenovatie",
-      "bathroom": "Badkamerrenovatie",
-      "painting": "Schilderwerk & decoratie",
-      "flooring": "Vloerbekleding",
-      "insulation": "Thermische & akoestische isolatie"
-    }
-  },
+  "title": "Onze diensten",
+  "items": {
+    "kitchen": "Keukenrenovatie",
+    "kitchen_caption": "Keukenrenovatie met een nieuw ontwerp en moderne afwerkingen.",
+    
+    "bathroom": "Badkamerrenovatie",
+    "bathroom_caption": "Gemoderniseerde badkamer met verlaagd plafond en ingebouwde verlichting.",
+    
+    "painting": "Schilderwerk & decoratie",
+    "painting_caption": "Binnenmuurschilderwerk met nette afwerking en decoratieve lijsten.",
+    
+    "flooring": "Vloerbekleding",
+    "flooring_caption": "Plaatsing van moderne tegels voor een stijlvolle en duurzame entree.",
+    
+    "insulation": "Thermische & akoestische isolatie",
+    "insulation_caption": "Geïsoleerd plafond met ingebouwde verlichting voor optimaal thermisch en akoestisch comfort."
+  }
+},
   "portfolio": {
     "title": "Onze realisaties",
     "text": "Bekijk enkele van onze recente renovatieprojecten. Elk project weerspiegelt onze toewijding aan kwaliteit en design."

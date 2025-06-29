@@ -10,6 +10,12 @@
     "headline": "Rénovez votre maison avec style",
     "subtext": "Des solutions de rénovation complètes et modernes"
   },
+  "gallery": {
+    "title": "Nos travaux récents"
+  },
+  "quickLinks": {
+    "title": "Liens rapides"
+  },
   "buttons": {
     "getStarted": "Commencer",
     "contactUs": "Contactez-nous",
@@ -19,19 +25,29 @@
   "about": {
     "title": "Qui sommes-nous ?",
     "text": "Nous sommes une entreprise spécialisée dans la rénovation intérieure et extérieure, au service de votre confort et de votre esthétique depuis plus de 10 ans.",
-    "experience": "Plus de 10 ans d’expérience",
+    "experience": "Plus de 10 ans d'expérience",
     "quality": "Travail soigné et matériaux de qualité"
   },
   "services": {
-    "title": "Nos services",
-    "items": {
-      "kitchen": "Rénovation de cuisine",
-      "bathroom": "Rénovation de salle de bain",
-      "painting": "Peinture & décoration",
-      "flooring": "Pose de revêtements",
-      "insulation": "Isolation thermique & acoustique"
-    }
-  },
+  "title": "Nos services",
+  "items": {
+    "kitchen": "Rénovation de cuisine",
+    "kitchen_caption": "Cuisine en rénovation avec nouvelle disposition et surfaces modernes.",
+    
+    "bathroom": "Rénovation de salle de bain",
+    "bathroom_caption": "Salle de bain modernisée avec faux plafond et éclairage intégré.",
+    
+    "painting": "Peinture & décoration",
+    "painting_caption": "Travaux de peinture intérieure avec finitions soignées et moulures décoratives.",
+    
+    "flooring": "Pose de revêtements",
+    "flooring_caption": "Installation de carrelage moderne pour une entrée élégante et durable.",
+    
+    "insulation": "Isolation thermique & acoustique",
+    "insulation_caption": "Plafond isolé avec éclairage intégré pour un confort thermique et acoustique optimal."
+  }
+},
+
   "portfolio": {
     "title": "Nos réalisations",
     "text": "Découvrez quelques-uns de nos projets de rénovation récents. Chaque projet reflète notre engagement envers la qualité et le design."

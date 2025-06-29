@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import hero from '@/public/hero.jpg';
 const Hero = () => {
   const [locale, setLocale] = useState("fr");
@@ -28,12 +29,16 @@ const Hero = () => {
         </h1>
         <p className="text-lg md:text-xl mb-8">{t.hero.subtext}</p>
         <div className="flex flex-col md:flex-row justify-center gap-4">
-          <button className="bg-accent text-white px-6 py-3 rounded-md font-semibold hover:opacity-90 transition">
-            {t.buttons.getStarted}
-          </button>
-          <button className="bg-white text-main px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition border border-main">
-            {t.buttons.contactUs}
-          </button>
+          <Link href={`/${locale}/about`}>
+            <button className="bg-accent cursor-pointer text-white px-6 py-3 rounded-md font-semibold hover:opacity-90 transition">
+              {t.buttons.getStarted}
+            </button>
+          </Link>
+          <Link href={`/${locale}/contact`}>
+            <button className="bg-white cursor-pointer text-main px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition border border-main">
+              {t.buttons.contactUs}
+            </button>
+          </Link>
         </div>
       </div>
       <div className="flex lg:w-1/2 w-full p-12">
