@@ -11,7 +11,10 @@
     "subtext": "Des solutions de rénovation complètes et modernes"
   },
   "gallery": {
-    "title": "Nos travaux récents"
+    "title": "Nos travaux récents",
+    "subtitle": "Découvrez nos derniers projets de rénovation et voyez la transformation en action",
+    "professionalWork": "Travaux de rénovation professionnels",
+    "viewAllProjects": "Voir tous les projets"
   },
   "quickLinks": {
     "title": "Liens rapides"

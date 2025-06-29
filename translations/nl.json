@@ -11,7 +11,10 @@
     "subtext": "Complete en moderne renovatieoplossingen"
   },
   "gallery": {
-    "title": "Onze recente werk"
+    "title": "Onze recente werk",
+    "subtitle": "Ontdek onze nieuwste renovatieprojecten en zie de transformatie in actie",
+    "professionalWork": "Professioneel renovatiewerk",
+    "viewAllProjects": "Bekijk alle projecten"
   },
   "quickLinks": {
     "title": "Snelle links"
