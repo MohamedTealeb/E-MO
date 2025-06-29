@@ -24,10 +24,10 @@ const Hero = () => {
   return (
     <section className="flex lg:flex-row flex-col-reverse  text-white  text-center">
       <div className="flex flex-col lg:w-1/2 w-full justify-center items-center">
-        <h1 className="text-xl md:text-3xl font-bold mb-4">
+        <h1 className="text-xl md:text-3xl text-black font-bold mb-4">
           {t.hero.headline}
         </h1>
-        <p className="text-lg md:text-xl mb-8">{t.hero.subtext}</p>
+        <p className="text-lg md:text-xl text-black mb-8">{t.hero.subtext}</p>
         <div className="flex flex-col md:flex-row justify-center gap-4">
           <Link href={`/${locale}/about`}>
             <button className="bg-accent cursor-pointer text-white px-6 py-3 rounded-md font-semibold hover:opacity-90 transition">
