@@ -3,7 +3,7 @@
 import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { HiMenu } from "react-icons/hi";
 import logo from "@/public/HLogo.jpg";
@@ -53,7 +53,7 @@ const Navbar = () => {
       </h1>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center gap-6 py-2 px-4 border border-secondary rounded-full">
+      <nav className="hidden md:flex  items-center gap-6 py-2 px-4 border border-secondary rounded-full">
         {navItems.map((item) => (
           <Link
             key={item.href}
@@ -76,7 +76,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu (Sheet) */}
-      <div className="md:hidden flex items-center gap-2">
+      <div className="md:hidden  flex items-center gap-2">
         <select
           value={locale}
           onChange={handleLocaleChange}
@@ -87,17 +87,18 @@ const Navbar = () => {
         </select>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" className="text-white p-0 cursor-pointer">
+            <Button variant="ghost" className="text-white bg-black p-0 cursor-pointer">
               <HiMenu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="bg-light text-main p-4">
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
             <nav className="mt-10 flex flex-col gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-lg font-semibold hover:text-accent"
+                  className="text-lg font-semibold  hover:text-accent"
                 >
                   {item.label}
                 </Link>
