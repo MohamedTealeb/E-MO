@@ -60,7 +60,7 @@ export const Contact = () => {
             <FaPhoneAlt /> <span>+32 123 45 67 89</span>
           </div>
           <div className="flex items-center gap-3 text-main text-lg">
-            <FaEnvelope /> <span>contact@email.com</span>
+            <FaEnvelope /> <span>info@e-morenovation.be</span>
           </div>
           <div className="flex items-center gap-3 text-main text-lg">
             <FaAddressBook />

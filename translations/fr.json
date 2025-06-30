@@ -71,5 +71,36 @@
     "address": "Adresse",
     "phone": "Téléphone",
     "email": "Email"
-  }
+  },
+  "serviceCards": [
+    {
+      "icon": "house",
+      "title": "Travaux de rénovation et de construction",
+      "points": [
+        "Rénovation intérieure et extérieure",
+        "Nouvelles constructions",
+        "Installation de plafonds"
+      ],
+      "button": "Demander un devis"
+    },
+    {
+      "icon": "paint-roller",
+      "title": "Finitions et décoration",
+      "points": [
+        "Tous types de peinture",
+        "Tous types de carrelage",
+        "Travaux de décoration intérieure"
+      ],
+      "button": "Demander un devis"
+    },
+    {
+      "icon": "kitchen-set",
+      "title": "Menuiserie et cuisines",
+      "points": [
+        "Installation de cuisines modernes",
+        "Placards et rangements sur mesure"
+      ],
+      "button": "Demander un devis"
+    }
+  ]
 }

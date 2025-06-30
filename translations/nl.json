@@ -70,5 +70,36 @@
     "address": "Adres",
     "phone": "Telefoon",
     "email": "E-mail"
-  }
+  },
+  "serviceCards": [
+    {
+      "icon": "house",
+      "title": "Renovatie- en bouwwerkzaamheden",
+      "points": [
+        "Binnen- en buitenrenovatie",
+        "Nieuwe constructies",
+        "Plafondinstallatie"
+      ],
+      "button": "Offerte aanvragen"
+    },
+    {
+      "icon": "paint-roller",
+      "title": "Afwerking en decoratie",
+      "points": [
+        "Alle soorten schilderwerk",
+        "Alle soorten betegeling",
+        "Interieurdecoratie"
+      ],
+      "button": "Offerte aanvragen"
+    },
+    {
+      "icon": "kitchen-set",
+      "title": "Timmerwerk en keukens",
+      "points": [
+        "Installatie van moderne keukens",
+        "Op maat gemaakte kasten en opbergruimte"
+      ],
+      "button": "Offerte aanvragen"
+    }
+  ]
 }
