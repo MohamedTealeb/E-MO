@@ -32,9 +32,7 @@ const ImageGallery = ({ t }) => {
                     <li key={i}>{point}</li>
                   ))}
                 </ul>
-                <button className="bg-blue-600 text-white px-5 py-2 rounded-md font-semibold hover:bg-blue-700 transition w-fit">
-                  {card.button}
-                </button>
+                
               </div>
               {/* Image */}
               <div className="md:w-1/3 w-full h-48 md:h-auto relative flex-shrink-0">

@@ -30,7 +30,7 @@ const Hero = () => {
   if (!t) return null; // Optional: add a spinner/loading fallback
 
   const carouselImages = [
-    { src: "@/p/hero.jpg", alt: "Hero Image" },
+    { src: "/hero.jpg", alt: "Hero Image" },
     { src: "/kitchen.jpg", alt: "Kitchen Renovation" },
     { src: "/bathroom.jpg", alt: "Bathroom Renovation" },
     { src: "/painting.jpg", alt: "Painting Services" },

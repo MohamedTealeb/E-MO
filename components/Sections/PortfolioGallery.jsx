@@ -36,6 +36,68 @@ const PortfolioGallery = ({ t }) => {
     }
   ];
 
+  const ImageComparisonSlider = ({ before, after, beforeLabel = 'Avant', afterLabel = 'Après' }) => {
+    const [pos, setPos] = React.useState(50);
+    const ref = React.useRef(null);
+
+    const handleMove = (e) => {
+      const rect = ref.current.getBoundingClientRect();
+      let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+      let percent = ((x - rect.left) / rect.width) * 100;
+      percent = Math.max(0, Math.min(100, percent));
+      setPos(percent);
+    };
+
+    return (
+      <div
+        ref={ref}
+        className="relative w-full aspect-[4/3] bg-gray-200 overflow-hidden rounded-2xl shadow-lg select-none mb-6"
+        style={{ userSelect: 'none' }}
+        onMouseMove={e => e.buttons === 1 && handleMove(e)}
+        onMouseDown={handleMove}
+        onTouchMove={handleMove}
+        onTouchStart={handleMove}
+      >
+        {pos < 100 && (
+          <img src={before} alt={beforeLabel} className="absolute inset-0 w-full h-full object-cover" />
+        )}
+        {pos > 0 && (
+          <img
+            src={after}
+            alt={afterLabel}
+            className="absolute inset-0 h-full object-cover transition-all duration-200"
+            style={{ width: `${pos}%`, clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+          />
+        )}
+        <div
+          className="absolute top-0 left-0 h-full flex items-center justify-center z-10 cursor-ew-resize"
+          style={{ left: `calc(${pos}% - 24px)`, width: '48px' }}
+          onMouseDown={e => e.preventDefault()}
+        >
+          <div className="w-12 h-12 bg-white rounded-full border-2 border-yellow-400 flex items-center justify-center shadow-lg">
+            <span className="text-3xl text-yellow-500">⇄</span>
+          </div>
+        </div>
+        {pos > 0 && (
+          <span
+            className="absolute left-4 bottom-4 bg-white/80 px-4 py-1 rounded text-gray-800 font-semibold text-lg"
+            style={{ opacity: pos / 100 }}
+          >
+            {afterLabel}
+          </span>
+        )}
+        {pos < 100 && (
+          <span
+            className="absolute right-4 bottom-4 bg-white/80 px-4 py-1 rounded text-gray-800 font-semibold text-lg"
+            style={{ opacity: 1 - pos / 100 }}
+          >
+            {beforeLabel}
+          </span>
+        )}
+      </div>
+    );
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
@@ -49,29 +111,14 @@ const PortfolioGallery = ({ t }) => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-          {portfolioImages.map((image, index) => (
-            <div key={index} className="group relative">
-              {/* Main Image Container */}
-              <div className="relative overflow-hidden cursor-pointer rounded-3xl shadow-2xl bg-white p-4">
-                <div className="aspect-[4/3]  overflow-hidden rounded-2xl">
-                  <img
-                    src={image.src}
-                    alt={image.alt} 
-                    className="w-full  h-full object-cover transition-all duration-700 group-hover:scale-125"
-                  />
-                </div>
-                
-                {/* Overlay with title */}
-                <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl">
-                  <div className="absolute bottom-4 left-4 right-4">
-                   
-                  </div>
-                </div>
-              </div>
-              
-              {/* Decorative element */}
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-0 group-hover:scale-100"></div>
-            </div>
+          {Array.from({length: Math.floor(portfolioImages.length/2)}).map((_, i) => (
+            <ImageComparisonSlider
+              key={i}
+              before={portfolioImages[i*2].src}
+              after={portfolioImages[i*2+1].src}
+              beforeLabel={t?.before || 'Avant'}
+              afterLabel={t?.after || 'Après'}
+            />
           ))}
         </div>
         

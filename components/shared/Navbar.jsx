@@ -43,7 +43,9 @@ const Navbar = () => {
     { href: `/${locale}/about`, label: labels.about },
     { href: `/${locale}/portfolio`, label: labels.portfolio },
     { href: `/${locale}/services`, label: labels.services },
+    { href: `/${locale}/blogs`, label: labels.blogs },
     { href: `/${locale}/contact`, label: labels.contact },
+    { href: `/${locale}/testimonials`, label: labels.testimonials },
   ];
 
   return (

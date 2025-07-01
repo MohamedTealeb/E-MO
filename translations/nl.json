@@ -4,7 +4,9 @@
     "about": "Over ons",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "services": "Services"
+    "services": "Services",
+    "testimonials": "Getuigenissen",
+    "blogs": "Blogs"
   },
   "hero": {
     "headline": "Renoveer je huis in stijl",
@@ -101,5 +103,44 @@
       ],
       "button": "Offerte aanvragen"
     }
-  ]
+  ],
+  "before": "Voor",
+  "after": "Na",
+  "testimonials": {
+    "title": "Wat onze klanten zeggen",
+    "items": [
+      {
+        "name": "Jan Jansen",
+        "text": "Snelle service en topkwaliteit werk. Zeker aan te raden!"
+      },
+      {
+        "name": "Sophie de Vries",
+        "text": "Professioneel team en goed geluisterd naar mijn wensen. Perfect resultaat."
+      },
+      {
+        "name": "Pieter Bakker",
+        "text": "Heel tevreden met de renovatie van mijn huis. Bedankt!"
+      }
+    ]
+  },
+  "blogs": {
+    "title": "Onze blogartikelen",
+    "items": [
+      {
+        "title": "5 tips voor een geslaagde renovatie",
+        "excerpt": "Ontdek onze praktische tips voor een succesvolle en betaalbare renovatie.",
+        "author": "E-Mo Team"
+      },
+      {
+        "title": "Interieurtrends 2024",
+        "excerpt": "De nieuwste trends op het gebied van interieurdecoratie voor dit jaar.",
+        "author": "Sarah Morel"
+      },
+      {
+        "title": "Hoe kies je een betrouwbare aannemer?",
+        "excerpt": "De belangrijkste punten om de juiste vakman voor je project te kiezen.",
+        "author": "Paul Martin"
+      }
+    ]
+  }
 }

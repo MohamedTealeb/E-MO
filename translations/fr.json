@@ -4,7 +4,9 @@
     "about": "À propos",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "services" : "Services"
+    "services" : "Services",
+    "testimonials": "Témoignages",
+    "blogs": "Blogues"
   },
   "hero": {
     "headline": "Rénovez votre maison avec style",
@@ -102,5 +104,44 @@
       ],
       "button": "Demander un devis"
     }
-  ]
+  ],
+  "before": "Avant",
+  "after": "Après",
+  "testimonials": {
+    "title": "Ce que disent nos clients",
+    "items": [
+      {
+        "name": "Jean Dupont",
+        "text": "Service rapide et travail de qualité. Je recommande vivement !"
+      },
+      {
+        "name": "Marie Lefevre",
+        "text": "Une équipe professionnelle et à l'écoute. Résultat impeccable."
+      },
+      {
+        "name": "Paul Martin",
+        "text": "Très satisfait de la rénovation de ma maison. Merci !"
+      }
+    ]
+  },
+  "blogs": {
+    "title": "Nos articles de blog",
+    "items": [
+      {
+        "title": "5 astuces pour rénover votre maison",
+        "excerpt": "Découvrez nos conseils pratiques pour une rénovation réussie et économique.",
+        "author": "Equipe E-Mo"
+      },
+      {
+        "title": "Tendances déco 2024",
+        "excerpt": "Les dernières tendances en matière de décoration intérieure pour cette année.",
+        "author": "Sarah Morel"
+      },
+      {
+        "title": "Comment choisir un entrepreneur fiable?",
+        "excerpt": "Les points clés pour sélectionner le bon professionnel pour vos travaux.",
+        "author": "Paul Martin"
+      }
+    ]
+  }
 }
