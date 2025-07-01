@@ -45,14 +45,15 @@ const Hero = () => {
       <Carousel className="w-full h-full" opts={{ loop: true, autoplay: { delay: 5000 } }}>
         <CarouselContent className="h-full">
           {carouselImages.map((image, index) => (
-            <CarouselItem key={index} className="h-screen">
-              <div className="relative w-full h-screen">
-                <img
+            <CarouselItem key={index} className="h-[60vw] min-h-[300px] h-screen">
+              <div className="relative w-full h-[60vw] min-h-[300px] max-h-screen">
+                <Image
                   src={image.src}
                   alt={image.alt}
-                  loading="lazy"
+                  fill
                   className="object-cover"
                   priority={index === 0}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 100vw"
                 />
               </div>
             </CarouselItem>
