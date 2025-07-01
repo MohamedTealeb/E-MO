@@ -47,10 +47,10 @@ const Hero = () => {
           {carouselImages.map((image, index) => (
             <CarouselItem key={index} className="h-screen">
               <div className="relative w-full h-screen">
-                <Image
+                <img
                   src={image.src}
                   alt={image.alt}
-                  fill
+                  loading="lazy"
                   className="object-cover"
                   priority={index === 0}
                 />
