@@ -1,2 +1,5 @@
-module.exports = {
-}
+const nextConfig = {
+    output: "export",
+};
+
+export default nextConfig;
