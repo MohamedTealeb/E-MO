@@ -1,10 +1,16 @@
 'use client'
 import React from 'react';
+import { motion } from 'framer-motion';
 import kitchen from '@/public/kitchen.jpg';
 import painting from '@/public/painting.jpg';
 import home from '@/public/home.jpg';
 
 const cardImages = [home.src, painting.src, kitchen.src];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
 
 const ImageGallery = ({ t }) => {
   const cards = t?.serviceCards || [];
@@ -16,9 +22,13 @@ const ImageGallery = ({ t }) => {
           // Alternate layout for even/odd cards
           const isEven = idx % 2 === 1;
           return (
-            <div
+            <motion.div
               key={idx}
               className={`flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : ''} bg-white rounded-2xl shadow-lg overflow-hidden mb-10`}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 0.3 }}
             >
               {/* Text */}
               <div className="flex-1 p-6 flex flex-col justify-center">
@@ -42,7 +52,7 @@ const ImageGallery = ({ t }) => {
                   className="object-cover w-full h-full"
                 />
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
