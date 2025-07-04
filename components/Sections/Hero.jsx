@@ -1,22 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-
+import gsap from "gsap";
+import { ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 const Hero = () => {
   const [locale, setLocale] = useState("fr");
   const [t, setT] = useState(null);
   const [current, setCurrent] = useState(0);
 
+  const imageRefs = useRef([]);
+  const textRef = useRef(null);
+
   const carouselImages = [
-    { src: "/hero.jpg", alt: "Hero Image" },
-    { src: "/kitchen.jpg", alt: "Kitchen Renovation" },
-    { src: "/bathroom.jpg", alt: "Bathroom Renovation" },
-    { src: "/painting.jpg", alt: "Painting Services" },
-    { src: "/flooring.jpg", alt: "Flooring Services" },
-    { src: "/insulation.jpg", alt: "Insulation Services" },
+    { src: "/home.jpg", alt: "Kitchen Renovation", label: "Kitchen" },
+    { src: "/home2.jpg", alt: "Home Renovation", label: "Home" },
+    { src: "/bathroom.jpg", alt: "Bathroom Renovation", label: "Bathroom" },
+    { src: "/painting.jpg", alt: "Painting Services", label: "Painting" },
+    { src: "/flooring.jpg", alt: "Flooring Services", label: "Flooring" },
+    { src: "/insulation.jpg", alt: "Insulation Services", label: "Insulation" },
   ];
 
   useEffect(() => {
@@ -31,105 +34,111 @@ const Hero = () => {
     loadTranslation();
   }, []);
 
-  // Auto slide every 3 seconds
+  const animateSlide = (index) => {
+    const images = imageRefs.current;
+    gsap.to(images, { opacity: 0, duration: 1, ease: "power2.out" });
+
+    gsap.fromTo(
+      images[index],
+      { opacity: 0, scale: 1.05 },
+      { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+      textRef.current,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.4, ease: "power3.out" }
+    );
+  };
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrent((prev) => (prev + 1) % carouselImages.length);
-    }, 3000);
-    return () => clearTimeout(timer);
+    animateSlide(current);
   }, [current]);
 
-  if (!t) return null; // Optional: add a spinner/loading fallback
+  const handleNext = () => {
+    setCurrent((prev) => (prev + 1) % carouselImages.length);
+  };
+
+  const handlePrev = () => {
+    setCurrent(
+      (prev) => (prev - 1 + carouselImages.length) % carouselImages.length
+    );
+  };
+
+  if (!t) return null;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Slider Images */}
-      <div className="relative w-full h-[60vw] min-h-[300px] max-h-screen">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={carouselImages[current].src}
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -100, opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full"
-          >
-            <Image
-              src={carouselImages[current].src}
-              alt={carouselImages[current].alt}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 100vw"
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-      {/* Manual Controls (Indicators) */}
-      <div className="mt-2 flex justify-center md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:z-10">
-        {carouselImages.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`w-3 h-3 rounded-full border-2 ${current === idx ? 'bg-accent border-accent' : 'bg-white border-gray-300'} transition mx-1`}
-            aria-label={`Go to slide ${idx + 1}`}
+    <section className="relative h-screen w-full overflow-hidden bg-white transition-colors duration-500">
+      {/* Background images */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        {carouselImages.map((img, index) => (
+          <img
+            key={img.src}
+            src={img.src}
+            alt={img.alt}
+            ref={(el) => (imageRefs.current[index] = el)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              index === current ? "z-10" : "z-0"
+            }`}
+            style={{ opacity: index === current ? 1 : 0 }}
           />
         ))}
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A3C57]/80 to-transparent z-10" />
       </div>
 
-      {/* Overlay with text content */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center z-5"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true, amount: 0.3 }}
+      {/* Text content */}
+      <div
+        ref={textRef}
+        className="absolute inset-0 z-20 flex items-center lg:justify-start justify-center px-6 md:px-16"
       >
-        <motion.div
-          className="text-center text-white max-w-4xl mx-auto px-4"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
+        <div className="text-white max-w-4xl space-y-6">
+          <h1 className="text-2xl md:text-3xl font-bold drop-shadow-xl transition-colors duration-500">
             {t.hero.headline}
-          </motion.h1>
-          <motion.p
-            className="text-xl md:text-2xl mb-8 opacity-90 drop-shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
+          </h1>
+          <p className="text-xl md:text-2xl opacity-90 drop-shadow-md transition-colors duration-500">
             {t.hero.subtext}
-          </motion.p>
-          <motion.div
-            className="flex flex-col md:flex-row justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
+          </p>
+          <div className="flex flex-row gap-4">
             <Link href={`/${locale}/about`}>
-              <button className="bg-accent cursor-pointer text-white px-8 py-4 rounded-md font-semibold hover:opacity-90 transition text-lg shadow-lg">
+              <button className="bg-main cursor-pointer text-white px-4 py-4 rounded-md font-semibold  transition  shadow-md">
                 {t.buttons.getStarted}
               </button>
             </Link>
             <Link href={`/${locale}/contact`}>
-              <button className="bg-white cursor-pointer text-main px-8 py-4 rounded-md font-semibold hover:bg-gray-100 transition border border-white text-lg shadow-lg">
+              <button className="bg-white/20 text-white cursor-pointer px-4 py-4 rounded-md font-semibold  transition border border-white hover:bg-white hover:text-black  shadow-md">
                 {t.buttons.contactUs}
               </button>
             </Link>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom-right controls */}
+      <div className="absolute bottom-6 right-6 z-30 flex items-center gap-3 bg-white/20 text-white px-4 py-2 rounded-lg shadow-lg backdrop-blur-sm lg:w-1/4 w-3/4">
+        <div className="flex justify-between items-center gap-4">
+          <div className="flex flex-col items-center gap-2">
+            <button
+              onClick={handlePrev}
+              className="text-white hover:text-[#F9A826] transition-colors duration-300 text-lg cursor-pointer"
+              aria-label="Previous"
+            >
+              <ArrowLeft />
+            </button>
+            <hr className="w-px h-8 bg-gray-300" />
+            <button
+              onClick={handleNext}
+              className="text-white hover:text-[#F9A826] transition-colors duration-300 text-lg cursor-pointer"
+              aria-label="Next"
+            >
+              <ArrowRight />
+            </button>
+          </div>
+          <span className="text-sm md:text-base font-semibold  text-center">
+            {carouselImages[current].label}
+          </span>
+        </div>
+      </div>
     </section>
   );
 };

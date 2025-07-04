@@ -1,13 +1,13 @@
 // app/layout.js
-import { Inter } from "next/font/google";
+import { Spectral } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-sans",
+const spectral = Spectral({
   subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-spectral",
   display: "swap",
 });
-
 export const metadata = {
   title: "E&Mo",
   description: "Solutions de rénovation modernes pour maisons et appartements",
@@ -16,7 +16,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body
+        className={`${spectral.variable}`}
+        style={{ fontFamily: "var(--font-spectral)" }}
+      >
         {children}
       </body>
     </html>

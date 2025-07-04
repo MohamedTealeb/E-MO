@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Link from 'next/link';
-
+import logo from '@/public/HLogo.png'; // Adjust the path as necessary
 const Footer = ({ t, locale }) => {
   return (
     <footer className="bg-main text-white">
@@ -11,9 +11,9 @@ const Footer = ({ t, locale }) => {
           <div className="text-center md:text-left">
             <div className="flex justify-center md:justify-start mb-4">
               <img 
-                src="/HLogo.jpg" 
+                src={logo.src}
                 alt="Company Logo" 
-                className="w-16 h-16 rounded-full object-cover"
+                className=" h-16  object-cover"
               />
             </div>
             <h3 className="text-xl font-bold mb-4">E-Mo Renovation</h3>

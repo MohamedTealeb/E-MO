@@ -35,12 +35,11 @@ const ImageSlider = () => {
               key={idx}
               className="min-w-[200px] max-w-xs h-[350px] flex-shrink-0 rounded-2xl shadow-lg overflow-hidden bg-gray-100 snap-center relative"
             >
-              <Image
+              <img
                 src={img.src}
                 alt={img.alt}
-                fill
+                
                 className="object-cover"
-                sizes="(max-width: 768px) 90vw, 350px"
                 priority={idx === 0}
               />
             </div>

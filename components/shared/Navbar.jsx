@@ -1,12 +1,18 @@
-"use client";
+'use client';
 
 import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { HiMenu } from "react-icons/hi";
-import logo from "@/public/HLogo.jpg";
+import logo from "@/public/HLogo.png";
+
 const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -15,14 +21,24 @@ const Navbar = () => {
   const currentLocale = pathname.startsWith("/nl") ? "nl" : "fr";
   const [locale, setLocale] = useState(currentLocale);
   const [labels, setLabels] = useState({});
+  const [scrolled, setScrolled] = useState(false);
 
-  // Load translation file
+  // Scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     const loadTranslations = async () => {
       const saved = localStorage.getItem("preferred-locale") || currentLocale;
       setLocale(saved);
       const translations = await import(`@/translations/${saved}.json`);
-      setLabels(translations.default.nav); // Assuming { nav: { home, about... } }
+      setLabels(translations.default.nav);
     };
 
     loadTranslations();
@@ -31,11 +47,8 @@ const Navbar = () => {
   const handleLocaleChange = (e) => {
     const newLocale = e.target.value;
     localStorage.setItem("preferred-locale", newLocale);
-
     const newPath = pathname.replace(/^\/(fr|nl)/, `/${newLocale}`);
-    startTransition(() => {
-      router.push(newPath);
-    });
+    startTransition(() => router.push(newPath));
   };
 
   const navItems = [
@@ -49,49 +62,69 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-white text-black px-6 py-4 flex items-center justify-between shadow-md  border-b border-secondary">
-      <h1 className="text-xl font-bold text-black">
-        <img src={logo.src} className="w-36 h-16" />
+    <header
+      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
+        scrolled
+          ? "bg-white text-[#1A3C57] shadow-md"
+          : "bg-transparent text-white"
+      }`}
+    >
+      <h1 className="text-xl font-bold">
+        <img src={logo.src} className="w-auto h-16" />
       </h1>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex  items-center gap-6 py-2 px-4 border border-secondary rounded-full">
+      <nav
+        className={`hidden md:flex items-center gap-6 py-2 px-4 border bg-white/30 rounded-full transition-all duration-300 ${
+          scrolled ? "border-[#1A3C57]" : "border-white"
+        }`}
+      >
         {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="hover:text-accent transition-colors font-semibold"
+            className={`hover:text-secondary transition-colors font-semibold `}
           >
             {item.label}
           </Link>
         ))}
       </nav>
+
       <div className="hidden md:flex">
         <select
           value={locale}
           onChange={handleLocaleChange}
-          className="bg-secondary text-white font-semibold text-sm px-4 py-2 rounded-md cursor-pointer outline-none"
+          className={`font-semibold text-sm px-4 py-2 rounded-md cursor-pointer outline-none transition-all ${
+            scrolled
+              ? "bg-white/30 text-[#1A3C57] border border-[#1A3C57]"
+              : "bg-white/30 text-white border border-white"
+          }`}
         >
           <option value="fr">FR</option>
           <option value="nl">NL</option>
         </select>
       </div>
 
-      {/* Mobile Menu (Sheet) */}
-      <div className="md:hidden  flex items-center gap-2">
+      {/* Mobile Menu */}
+      <div className="md:hidden flex items-center gap-2">
         <select
           value={locale}
           onChange={handleLocaleChange}
-          className="bg-white text-main font-semibold text-sm px-2 py-1 rounded-md cursor-pointer outline-none"
+          className={`text-sm px-2 py-1 rounded-md cursor-pointer outline-none font-semibold ${
+            scrolled ? "bg-white text-[#1A3C57]" : "bg-white text-main"
+          }`}
         >
           <option value="fr">FR</option>
           <option value="nl">NL</option>
         </select>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" className="text-white bg-black p-0 cursor-pointer">
+            <button
+              className={`p-0 cursor-pointer ${
+                scrolled ? "text-[#1A3C57] bg-white/20" : "text-white bg-white/20"
+              }`}
+            >
               <HiMenu className="h-6 w-6" />
-            </Button>
+            </button>
           </SheetTrigger>
           <SheetContent side="left" className="bg-light text-main p-4">
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
@@ -100,7 +133,7 @@ const Navbar = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-lg font-semibold  hover:text-accent"
+                  className="text-lg font-semibold hover:text-accent"
                 >
                   {item.label}
                 </Link>
