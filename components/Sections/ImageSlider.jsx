@@ -4,15 +4,13 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const images = [
-  { src: '/hero.jpg', alt: 'Hero' },
+ 
   { src: '/kitchen.jpg', alt: 'Kitchen' },
   { src: '/bathroom.jpg', alt: 'Bathroom' },
   { src: '/painting.jpg', alt: 'Painting' },
   { src: '/flooring.jpg', alt: 'Flooring' },
-  { src: '/insulation.jpg', alt: 'Insulation' },
-  { src: '/painting.jpg', alt: 'Painting' },
-  { src: '/flooring.jpg', alt: 'Flooring' },
-  { src: '/insulation.jpg', alt: 'Insulation' },
+
+
 ];
 
 const SLIDE_WIDTH = 200; // نفس min-w لكل صورة
@@ -33,14 +31,12 @@ const ImageSlider = () => {
           {marqueeImages.map((img, idx) => (
             <div
               key={idx}
-              className="min-w-[200px] max-w-xs h-[350px] flex-shrink-0 rounded-2xl shadow-lg overflow-hidden bg-gray-100 snap-center relative"
+              className="w-[280px] h-[280px] flex-shrink-0 rounded-2xl shadow-lg overflow-hidden bg-gray-100 snap-center relative"
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                
-                className="object-cover"
-                priority={idx === 0}
+                className="w-full h-full object-cover"
               />
             </div>
           ))}

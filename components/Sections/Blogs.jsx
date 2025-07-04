@@ -1,19 +1,50 @@
-import React from 'react';
+'use client'
+import React, { useRef, useEffect } from 'react';
+import gsap from 'gsap';
 
 const Blogs = ({ t }) => {
   if (!t?.blogs) return null;
   const { title, items } = t.blogs;
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    if (cardsRef.current.length) {
+      gsap.fromTo(
+        cardsRef.current,
+        {
+          opacity: 0,
+          y: 60,
+          scale: 0.8,
+          rotate: -8
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotate: 0,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: 'back.out(1.7)'
+        }
+      );
+    }
+  }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section className="py-20 bg-gradient-to-br mt-20 from-[#f8fafc] to-[#e0e7ef] min-h-screen">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-main mb-10 text-center">{title}</h2>
-        <div className="flex flex-wrap justify-center gap-8">
+        <h2 className="text-5xl font-extrabold text-main mb-14 text-center tracking-tight drop-shadow-lg">{title}</h2>
+        <div className="flex flex-wrap justify-center gap-12">
           {items.map((item, idx) => (
-            <div key={idx} className="bg-white rounded-2xl shadow-lg p-6 max-w-xs min-w-[250px] flex flex-col items-start border-t-4 border-accent">
-              <div className="text-xl font-bold text-accent mb-2">{item.title}</div>
-              <div className="text-gray-700 text-base mb-3">{item.excerpt}</div>
-              <div className="text-sm text-gray-500 mt-auto self-end">{item.author}</div>
+            <div
+              key={idx}
+              ref={el => (cardsRef.current[idx] = el)}
+              className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-8 max-w-xs min-w-[270px] flex flex-col items-start border-t-4 border-accent hover:scale-105 hover:shadow-accent/30 transition-all duration-300 cursor-pointer group"
+              style={{ minHeight: 270 }}
+            >
+              <div className="text-2xl font-bold text-accent mb-3 group-hover:text-main transition-colors duration-200">{item.title}</div>
+              <div className="text-gray-700 text-base mb-4 leading-relaxed group-hover:text-dark/90 transition-colors duration-200">{item.excerpt}</div>
+              <div className="text-sm text-gray-500 mt-auto self-end group-hover:text-accent transition-colors duration-200">{item.author}</div>
             </div>
           ))}
         </div>

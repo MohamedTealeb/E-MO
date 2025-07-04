@@ -28,7 +28,7 @@ export const Services = ({ t }) => {
   const getImage = idx => serviceImages[idx] || serviceImages[serviceImages.length - 1];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-light px-2 py-8">
+    <div className="flex flex-col items-center justify-center min-h-screen mt-20 bg-light px-2 py-8">
       <h1 className="text-4xl font-bold text-main mb-2 text-center">{t.title}</h1>
       {t.text && <p className="text-lg text-dark mb-8 text-center">{t.text}</p>}
       <div className="w-full  max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">

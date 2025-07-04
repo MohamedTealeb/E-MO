@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { HiMenu } from "react-icons/hi";
 import logo from "@/public/HLogo.png";
 
-const Navbar = () => {
+const Navbar = ({ forceDarkText = false }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [, startTransition] = useTransition();
@@ -64,7 +64,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
-        scrolled
+        (forceDarkText || scrolled)
           ? "bg-white text-[#1A3C57] shadow-md"
           : "bg-transparent text-white"
       }`}
@@ -75,7 +75,7 @@ const Navbar = () => {
 
       <nav
         className={`hidden md:flex items-center gap-6 py-2 px-4 border bg-white/30 rounded-full transition-all duration-300 ${
-          scrolled ? "border-[#1A3C57]" : "border-white"
+          (forceDarkText || scrolled) ? "border-[#1A3C57]" : "border-white"
         }`}
       >
         {navItems.map((item) => (
@@ -94,7 +94,7 @@ const Navbar = () => {
           value={locale}
           onChange={handleLocaleChange}
           className={`font-semibold text-sm px-4 py-2 rounded-md cursor-pointer outline-none transition-all ${
-            scrolled
+            (forceDarkText || scrolled)
               ? "bg-white/30 text-[#1A3C57] border border-[#1A3C57]"
               : "bg-white/30 text-white border border-white"
           }`}
@@ -110,7 +110,7 @@ const Navbar = () => {
           value={locale}
           onChange={handleLocaleChange}
           className={`text-sm px-2 py-1 rounded-md cursor-pointer outline-none font-semibold ${
-            scrolled ? "bg-white text-[#1A3C57]" : "bg-white text-main"
+            (forceDarkText || scrolled) ? "bg-white text-[#1A3C57]" : "bg-white text-main"
           }`}
         >
           <option value="fr">FR</option>
@@ -120,7 +120,7 @@ const Navbar = () => {
           <SheetTrigger asChild>
             <button
               className={`p-0 cursor-pointer ${
-                scrolled ? "text-[#1A3C57] bg-white/20" : "text-white bg-white/20"
+                (forceDarkText || scrolled) ? "text-[#1A3C57] bg-white/20" : "text-white bg-white/20"
               }`}
             >
               <HiMenu className="h-6 w-6" />
