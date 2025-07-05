@@ -65,7 +65,7 @@ const Navbar = ({ forceDarkText = false }) => {
     <header
       className={`fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between transition-all duration-300 ${
         (forceDarkText || scrolled)
-          ? "bg-white text-[#1A3C57] shadow-md"
+          ? "bg-white text-black shadow-md"
           : "bg-transparent text-white"
       }`}
     >
@@ -74,15 +74,17 @@ const Navbar = ({ forceDarkText = false }) => {
       </h1>
 
       <nav
-        className={`hidden md:flex items-center gap-6 py-2 px-4 border bg-white/30 rounded-full transition-all duration-300 ${
-          (forceDarkText || scrolled) ? "border-[#1A3C57]" : "border-white"
+        className={`hidden md:flex items-center gap-6 py-2 px-4 border bg-black/30 rounded-full transition-all duration-300 ${
+          (forceDarkText || scrolled) ? "border-black" : "border-white"
         }`}
       >
         {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className={`hover:text-secondary transition-colors font-semibold `}
+            className={`hover:text-secondary transition-colors font-semibold ${
+              (forceDarkText || scrolled) ? "text-black" : "text-white"
+            }`}
           >
             {item.label}
           </Link>
@@ -95,7 +97,7 @@ const Navbar = ({ forceDarkText = false }) => {
           onChange={handleLocaleChange}
           className={`font-semibold text-sm px-4 py-2 rounded-md cursor-pointer outline-none transition-all ${
             (forceDarkText || scrolled)
-              ? "bg-white/30 text-[#1A3C57] border border-[#1A3C57]"
+              ? "bg-white/30 text-black border border-black"
               : "bg-white/30 text-white border border-white"
           }`}
         >
@@ -110,7 +112,7 @@ const Navbar = ({ forceDarkText = false }) => {
           value={locale}
           onChange={handleLocaleChange}
           className={`text-sm px-2 py-1 rounded-md cursor-pointer outline-none font-semibold ${
-            (forceDarkText || scrolled) ? "bg-white text-[#1A3C57]" : "bg-white text-main"
+            (forceDarkText || scrolled) ? "bg-white text-black" : "bg-white text-main"
           }`}
         >
           <option value="fr">FR</option>
@@ -120,7 +122,7 @@ const Navbar = ({ forceDarkText = false }) => {
           <SheetTrigger asChild>
             <button
               className={`p-0 cursor-pointer ${
-                (forceDarkText || scrolled) ? "text-black bg-white/20" : "text-white bg-white/20"
+                (forceDarkText || scrolled) ? "text-black bg-black/20" : "text-black bg-black/20"
               }`}
             >
               <HiMenu className="h-6 w-6" />
