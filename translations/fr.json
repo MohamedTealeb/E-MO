@@ -155,5 +155,21 @@
         "author": "Paul Martin"
       }
     ]
+  },
+  "different": {
+    "sectionTitle": "Pourquoi nous sommes différents",
+    "certifiedTitle": "Certifié correctement",
+    "certifiedDesc": "Nous sommes certifiés CPP, RAMS, CIP. Soyez assuré que notre travail sera du plus haut niveau.",
+    "areaTitle": "Zone desservie étendue",
+    "areaDesc": "Andover, Winchester, Southampton, Gosport, Portsmouth et environs.",
+    "shopTitle": "Service tout-en-un",
+    "shopDesc": "Quel que soit le travail, nous pouvons le faire ou trouver la bonne personne.",
+    "friendlyTitle": "Amical & Fiable",
+    "friendlyDesc": "Nous sommes fiers de notre service client et de notre savoir-faire exceptionnel. Consultez nos avis !"
+  },
+  "heroPromise": {
+    "subtitle": "NOTRE PROMESSE",
+    "title": "Une expérience inégalée du début à la fin.",
+    "button": "NOUS CONTACTER"
   }
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
 import { ArrowLeft } from "lucide-react";
+
 const Hero = () => {
   const [locale, setLocale] = useState("fr");
   const [t, setT] = useState(null);
@@ -139,6 +140,7 @@ const Hero = () => {
           </span>
         </div>
       </div>
+    
     </section>
   );
 };

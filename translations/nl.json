@@ -154,5 +154,21 @@
         "author": "Paul Martin"
       }
     ]
+  },
+  "different": {
+    "sectionTitle": "Waarom wij anders zijn",
+    "certifiedTitle": "Correct gecertificeerd",
+    "certifiedDesc": "Wij zijn CPP, RAMS, CIP gecertificeerd. U kunt er dus op vertrouwen dat ons werk van de hoogste standaard is.",
+    "areaTitle": "Groot werkgebied",
+    "areaDesc": "Andover, Winchester, Southampton, Gosport, Portsmouth en omliggende gebieden.",
+    "shopTitle": "Alles onder één dak",
+    "shopDesc": "Welk klusje u ook heeft, wij kunnen het doen of de juiste persoon vinden.",
+    "friendlyTitle": "Vriendelijk & Betrouwbaar",
+    "friendlyDesc": "Wij zijn trots op onze klantenservice en uitstekende vakmanschap. Bekijk onze recensies!"
+  },
+  "heroPromise": {
+    "subtitle": "ONZE BELOFTE",
+    "title": "Een ongeëvenaarde ervaring van begin tot eind.",
+    "button": "NEEM CONTACT OP"
   }
 }

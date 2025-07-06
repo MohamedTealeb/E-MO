@@ -31,7 +31,7 @@ const ImageSlider = () => {
           {marqueeImages.map((img, idx) => (
             <div
               key={idx}
-              className="w-[280px] h-[280px] flex-shrink-0 rounded-2xl shadow-lg overflow-hidden bg-gray-100 snap-center relative"
+              className="w-[280px] h-[280px] flex-shrink-0 shadow-lg overflow-hidden bg-gray-100 snap-center relative"
             >
               <img
                 src={img.src}

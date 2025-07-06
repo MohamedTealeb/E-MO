@@ -58,7 +58,7 @@ const Navbar = ({ forceDarkText = false }) => {
     { href: `/${locale}/services`, label: labels.services },
     { href: `/${locale}/blogs`, label: labels.blogs },
     { href: `/${locale}/contact`, label: labels.contact },
-    { href: `/${locale}/testimonials`, label: labels.testimonials },
+    { href: `/${locale}/testmonialsBg`, label: labels.testimonials },
   ];
 
   return (

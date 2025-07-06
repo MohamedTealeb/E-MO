@@ -1,10 +1,10 @@
-import Testmonials from '@/components/Sections/Testmonials';
+import TestmonialsBg from '@/components/Sections/TestmonialsBg';
 import fr from '@/translations/fr.json';
 
 export default function Page() {
   return (
     <>
-      <Testmonials t={fr} />
+      <TestmonialsBg t={fr} />
     </>
   );
 } 
