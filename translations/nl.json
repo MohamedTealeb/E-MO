@@ -170,5 +170,30 @@
     "subtitle": "ONZE BELOFTE",
     "title": "Een ongeëvenaarde ervaring van begin tot eind.",
     "button": "NEEM CONTACT OP"
+  },
+  "quoteSection": {
+    "image": "/home.jpg",
+    "subtitle": "VRAAG VANDAAG NOG EEN OFFERTE AAN",
+    "title": "Maak bouwen van je droomhuis stressvrij",
+    "desc": "Het proces is simpel: klik op de knop 'Offerte aanvragen', vul je gegevens in, stuur ons de benodigde foto's en wacht tot we aan de slag gaan!",
+    "button": "Offerte aanvragen",
+    "steps": [
+      {
+        "title": "Vraag een offerte aan",
+        "desc": "Vul het offerteformulier in zodat we de details van je project weten."
+      },
+      {
+        "title": "We nemen contact op",
+        "desc": "We kunnen om foto's of extra informatie over het werk vragen."
+      },
+      {
+        "title": "Offerte verstuurd",
+        "desc": "We komen bij je terug met een prijs en een tijdschema voor de bouw of renovatie."
+      },
+      {
+        "title": "Werk begint",
+        "desc": "Ontspan en verheug je, jouw droom wordt werkelijkheid!"
+      }
+    ]
   }
 }

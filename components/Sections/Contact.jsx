@@ -36,7 +36,7 @@ export const Contact = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#f8fafc] to-[#e0e7ef] px-2 py-8">
+    <div className="flex flex-col items-center mt-12 justify-center min-h-screen bg-gradient-to-br from-[#f8fafc] to-[#e0e7ef] px-2 py-8">
       <h1 className="text-4xl font-bold text-main mb-2 text-center drop-shadow-lg">{t.title}</h1>
       <p className="text-lg text-dark mb-8 text-center opacity-90">{t.text}</p>
       <div className="w-full max-w-4xl flex flex-col md:flex-row gap-8">

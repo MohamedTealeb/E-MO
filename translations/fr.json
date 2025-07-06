@@ -171,5 +171,30 @@
     "subtitle": "NOTRE PROMESSE",
     "title": "Une expérience inégalée du début à la fin.",
     "button": "NOUS CONTACTER"
+  },
+  "quoteSection": {
+    "image": "/home.jpg",
+    "subtitle": "OBTENEZ VOTRE DEVIS AUJOURD'HUI",
+    "title": "Éliminez le stress de la construction de votre maison de rêve",
+    "desc": "Le processus est simple, cliquez sur le bouton 'Obtenir un devis' ci-dessous, remplissez vos informations, envoyez-nous les photos nécessaires, et attendez que les travaux commencent !",
+    "button": "Obtenir un devis",
+    "steps": [
+      {
+        "title": "Demander un devis",
+        "desc": "Remplissez le formulaire pour que nous connaissions les détails de votre projet."
+      },
+      {
+        "title": "Nous vous contacterons",
+        "desc": "Nous pourrons demander des photos ou des informations supplémentaires sur les travaux."
+      },
+      {
+        "title": "Devis envoyé",
+        "desc": "Nous reviendrons vers vous avec un prix et un délai pour la construction ou la rénovation."
+      },
+      {
+        "title": "Début des travaux",
+        "desc": "Détendez-vous et réjouissez-vous, vos rêves vont devenir réalité !"
+      }
+    ]
   }
 }

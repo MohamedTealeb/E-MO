@@ -1,6 +1,9 @@
 'use client';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight, BadgeCheck, MapPin, Briefcase, Users } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Slider_Hero() {
   const [current, setCurrent] = useState(0);
@@ -158,12 +161,41 @@ function FeaturesSection({ t }) {
       desc: t.different?.friendlyDesc || "We pride ourselves on our customer service and outstanding workmanship. Check our reviews!",
     },
   ];
+  const cardsRef = useRef([]);
+  useEffect(() => {
+    if (cardsRef.current.length) {
+      gsap.set(cardsRef.current, { opacity: 0, y: 40 });
+      gsap.to(cardsRef.current, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: cardsRef.current[0]?.parentNode,
+          start: "top 80%",
+        }
+      });
+    }
+  }, [t]);
+  const handleMouseEnter = (idx) => {
+    gsap.to(cardsRef.current[idx], { scale: 1.07, boxShadow: '0 8px 32px 0 rgba(30, 64, 175, 0.15)', duration: 0.3, ease: 'power2.out' });
+  };
+  const handleMouseLeave = (idx) => {
+    gsap.to(cardsRef.current[idx], { scale: 1, boxShadow: '0 1px 6px 0 rgba(30, 64, 175, 0.07)', duration: 0.3, ease: 'power2.out' });
+  };
   return (
     <div className="w-full mt-16 flex flex-col items-center">
       <span className="uppercase tracking-widest text-xs text-gray-500 mb-2">{t.different?.sectionTitle || "Why we're different"}</span>
       <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-4 md:gap-0 bg-[#f8f9fb] rounded-xl p-4 md:p-0">
         {features.map((f, i) => (
-          <div key={i} className="flex-1 flex flex-col items-center bg-white m-2 p-6 rounded-xl shadow-sm border border-gray-100">
+          <div
+            key={i}
+            ref={el => cardsRef.current[i] = el}
+            className="flex-1 flex flex-col items-center bg-white m-2 p-6 rounded-xl shadow-sm border border-gray-100 cursor-pointer"
+            onMouseEnter={() => handleMouseEnter(i)}
+            onMouseLeave={() => handleMouseLeave(i)}
+          >
             <div className="mb-4">{f.icon}</div>
             <h3 className="text-lg font-bold text-[#1A3C57] mb-2 text-center">{f.title}</h3>
             <p className="text-gray-500 text-center text-sm">{f.desc}</p>

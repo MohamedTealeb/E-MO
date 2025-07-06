@@ -9,6 +9,7 @@ import fr from '@/translations/fr.json';
 import Slider_Hero from '@/components/Sections/Slider_Hero'
 import Testmonials from './../../components/Sections/Testmonials';
 import HeroPromise from '@/components/Sections/HeroPromise';
+import QuoteSection from '@/components/Sections/QuoteSection'
 
 function page() {
   return (
@@ -18,6 +19,7 @@ function page() {
     <Testmonials t={fr} />
     <About t={fr.about} />
     <HeroPromise />
+    <QuoteSection />
     <ImageSlider />
 
     <Footer t={translations} locale="fr" />
