@@ -122,7 +122,7 @@ const Navbar = ({ forceDarkText = false }) => {
           <SheetTrigger asChild>
             <button
               className={`p-0 cursor-pointer ${
-                (forceDarkText || scrolled) ? "text-black bg-black/20" : "text-black bg-black/20"
+                (forceDarkText || scrolled) ? "text-black " : "text-black"
               }`}
             >
               <HiMenu className="h-6 w-6" />

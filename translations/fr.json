@@ -27,41 +27,189 @@
     "viewPortfolio": "Voir notre portfolio",
     "learnMore": "En savoir plus"
   },
-  "about": {
-    "title": "Qui sommes-nous ?",
-    "text": "Nous sommes une entreprise spécialisée dans la rénovation intérieure et extérieure, au service de votre confort et de votre esthétique depuis plus de 10 ans.",
+  "AboutUS": {
+    "title": "À propos de nous – E&MO, entreprise de construction et rénovation en Belgique",
+    "text": "E&MO est votre partenaire idéal en Belgique pour tous vos travaux de construction, rénovation, finitions, menuiserie et aménagement paysager. Nous nous engageons à fournir des services de haute qualité à des prix compétitifs, utilisant des techniques modernes adaptées à tous vos besoins résidentiels et commerciaux.",
     "experience": "Plus de 10 ans d'expérience",
-    "quality": "Travail soigné et matériaux de qualité"
+    "quality": "Travail soigné et matériaux de qualité",
+    "experienceDesc": "Expertise spécialisée en construction et rénovation",
+    "qualityDesc": "Matériaux certifiés et techniques modernes"
+  },
+  "about": {
+    "title": "À propos de nous – E&MO, entreprise de construction et rénovation en Belgique",
+    "text": "E&MO est votre partenaire idéal en Belgique pour tous vos travaux de construction, rénovation, finitions, menuiserie et aménagement paysager. Nous nous engageons à fournir des services de haute qualité à des prix compétitifs, utilisant des techniques modernes adaptées à tous vos besoins résidentiels et commerciaux.",
+    "experience": "Plus de 10 ans d'expérience",
+    "quality": "Travail soigné et matériaux de qualité",
+    "experienceDesc": "Expertise spécialisée en construction et rénovation",
+    "qualityDesc": "Matériaux certifiés et techniques modernes",
+    "expertise": {
+      "title": "Expertise spécialisée en construction et rénovation",
+      "text": "Avec plus de 10 années d'expérience, E&MO propose des solutions complètes en construction, incluant :",
+      "services": [
+        "Construction intérieure et extérieure",
+        "Rénovation de maisons et bâtiments commerciaux",
+        "Travaux de finition et peinture de haute qualité",
+        "Conception et réalisation de menuiserie et cuisines sur mesure",
+        "Aménagement et embellissement de jardins et espaces extérieurs"
+      ],
+      "guarantee": "Nos experts garantissent des résultats solides et esthétiques qui répondent aux attentes de nos clients. Chez E&MO, nous assurons la réalisation de projets de construction intérieure et extérieure avec un niveau élevé de précision et de professionnalisme."
+    },
+    "values": {
+      "title": "Nos valeurs et principes",
+      "principles": [
+        {
+          "title": "Qualité et professionnalisme",
+          "desc": "Nous utilisons des matériaux certifiés et les dernières techniques de construction et finition."
+        },
+        {
+          "title": "Respect des délais",
+          "desc": "Nous livrons les projets dans les temps impartis."
+        },
+        {
+          "title": "Transparence et confiance",
+          "desc": "Nous entretenons une relation claire et honnête avec nos clients pour assurer leur entière satisfaction."
+        },
+        {
+          "title": "Durabilité",
+          "desc": "Nous privilégions des solutions de construction écologiques et économes en énergie qui préservent l'environnement et réduisent les coûts."
+        }
+      ]
+    },
+    "whyChoose": {
+      "title": "Pourquoi choisir E&MO ?",
+      "text": "Chez E&MO, nos clients sont au cœur de nos préoccupations. Nous offrons :",
+      "benefits": [
+        "Des services de construction et rénovation de haute qualité",
+        "Des tarifs compétitifs et des offres personnalisées selon le projet",
+        "Une équipe professionnelle spécialisée dans tous les domaines de la construction et finition",
+        "Des consultations gratuites et un suivi continu"
+      ],
+      "conclusion": "E&MO est votre choix numéro un pour la construction et la rénovation en Belgique, avec un engagement total envers la qualité et des prix attractifs."
+    },
+    "vision": {
+      "title": "Notre vision et mission",
+      "text": "Nous aspirons à être l'entreprise leader en Belgique répondant à tous les besoins en construction et rénovation, convaincus que chaque projet est une opportunité de créer des designs alliant beauté et fonctionnalité. Nos services incluent des finitions variées, de la menuiserie sur mesure, ainsi que l'aménagement de jardins pour transformer votre maison en un espace unique."
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "text": "Vous cherchez une entreprise fiable pour vos travaux de construction et rénovation ? Contactez E&MO dès aujourd'hui pour une consultation gratuite et un devis personnalisé adapté à votre projet. Nous sommes là pour réaliser vos projets de construction avec la meilleure qualité et un professionnalisme inégalé."
+    }
   },
   "services": {
-  "title": "Nos services",
-  "items": {
-    "kitchen": "Rénovation de cuisine",
-    "kitchen_caption": "Cuisine en rénovation avec nouvelle disposition et surfaces modernes.",
-    
-    "bathroom": "Rénovation de salle de bain",
-    "bathroom_caption": "Salle de bain modernisée avec faux plafond et éclairage intégré.",
-    
-    "painting": "Peinture & décoration",
-    "painting_caption": "Travaux de peinture intérieure avec finitions soignées et moulures décoratives.",
-    
-    "flooring": "Pose de revêtements",
-    "flooring_caption": "Installation de carrelage moderne pour une entrée élégante et durable.",
-    
-    "insulation": "Isolation thermique & acoustique",
-    "insulation_caption": "Plafond isolé avec éclairage intégré pour un confort thermique et acoustique optimal."
-  }
-},
+    "title": "Nos Services",
+    "subtitle": "Découvrez notre gamme complète de services de construction et rénovation",
+    "items": [
+      {
+        "id": 0,
+        "icon": "🧱",
+        "title": "Travaux de construction et rénovation",
+        "description": "Services complets de construction et rénovation pour vos projets",
+        "details": [
+          "Nouvelles constructions et extensions",
+          "Rénovation intérieure et extérieure",
+          "Installation et finition de plafonds",
+          "Fondations et travaux de structure",
+          "Installations électriques et sanitaires"
+        ],
+        "longDescription": "🧱 Travaux de construction et rénovation\n\nNous réalisons tous les travaux de construction et rénovation, intérieurs et extérieurs, avec un haut niveau de professionnalisme pour vous offrir une maison neuve ou un espace renouvelé au design moderne.\n\nNos services incluent :\n\t•\tRénovation intérieure et extérieure : redonner vie à vos espaces avec une amélioration du design.\n\t•\tConstruction neuve : réalisation de projets de construction de A à Z selon les normes les plus strictes.\n\t•\tInstallation de toitures : conception et pose de différents types de toits adaptés à vos goûts et besoins.\n\nNotre expertise garantit un résultat solide et esthétique."
+      },
+      {
+        "id": 1,
+        "icon": "🎨",
+        "title": "Travaux de finition et restauration",
+        "description": "Finition et restauration professionnelles de vos espaces",
+        "details": [
+          "Tous types de peinture",
+          "Papier peint et décoration",
+          "Revêtements de sol et carrelage",
+          "Plâtrage et enduits",
+          "Restauration d'éléments historiques"
+        ],
+        "longDescription": "🎨 Travaux de finition et restauration\n\nNous prenons soin de chaque détail final qui rend votre maison élégante et accueillante, avec une gamme complète de services de finition.\n\nNos prestations comprennent :\n\t•\tTous types de peinture intérieure et extérieure avec des couleurs modernes et une haute qualité.\n\t•\tTous types de carrelage, en diverses formes et tailles pour s’adapter à chaque espace.\n\t•\tTravaux de décoration pour apporter une touche artistique et esthétique à votre intérieur.\n\nNous utilisons les meilleurs matériaux et techniques modernes pour satisfaire vos goûts et obtenir les meilleurs résultats."
+      },
+      {
+        "id": 2,
+        "icon": "🪟",
+        "title": "Menuiserie et cuisines sur mesure",
+        "description": "Menuiserie et solutions de cuisine sur mesure",
+        "details": [
+          "Cuisines sur mesure",
+          "Armoires et rangements",
+          "Portes et fenêtres",
+          "Rénovation et installation d'escaliers",
+          "Travail du bois et meubles"
+        ],
+        "longDescription": "🪟 Menuiserie et cuisines sur mesure\n\nSpécialisés dans la conception et la réalisation de menuiserie et cuisines personnalisées, nous répondons à toutes vos exigences fonctionnelles et esthétiques.\n\nNos services comprennent :\n\t•\tInstallation de cuisines équipées avec des designs modernes.\n\t•\tPose de tiroirs et placards de haute qualité avec des finitions soignées.\n\nChaque détail est conçu avec précision pour durer et s’adapter à votre mode de vie."
+      },
+      {
+        "id": 3,
+        "icon": "🌳",
+        "title": "Coordination et embellissement de jardins",
+        "description": "Conception et aménagement complets de jardins pour votre espace extérieur",
+        "details": [
+          "Conception et planification de jardins",
+          "Aménagement de terrasses et allées",
+          "Plantation et entretien des espaces verts",
+          "Éclairage et irrigation",
+          "Mobilier de jardin et accessoires"
+        ],
+        "longDescription": "🌳 Aménagement et embellissement des jardins\n\nParce que les espaces extérieurs sont une partie importante de la maison, nous offrons des services d’aménagement paysager pour faire de votre jardin un véritable havre de paix.\n\nNos prestations incluent :\n\t•\tEmbellissement des jardins avec des designs innovants et confortables.\n\t•\tPose de revêtements extérieurs ajoutant une touche pratique et élégante au jardin.\n\nFaites de votre jardin un espace de détente et de beauté naturelle avec les experts E&MO."
+      },
+      {
+        "id": 4,
+        "icon": "🛡",
+        "title": "Isolation externe",
+        "description": "Isolation professionnelle pour l'efficacité énergétique et le confort",
+        "details": [
+          "Isolation de façade et isolation de murs creux",
+          "Isolation de toiture et de combles",
+          "Isolation de sol et de cave",
+          "Isolation thermique et acoustique",
+          "Mesures d'économie d'énergie"
+        ],
+        "longDescription": "🛡 Isolation extérieure\n\nProtégez votre maison de l’humidité et des intempéries grâce à nos services professionnels d’isolation extérieure.\n\nNos solutions incluent :\n\t•\tIsolation extérieure en pierre : protection et esthétique réunies.\n\t•\tIsolation crépie : une finition moderne avec une efficacité thermique optimale.\n\nNous utilisons les meilleures techniques pour garder votre maison confortable et sécurisée."
+      }
+    ],
+    "whatWeOffer": "Ce que nous offrons :",
+    "interestedInService": "Intéressé par ce service ?",
+    "contactForQuote": "Contactez-nous pour un devis gratuit",
+    "requestQuote": "Demander un devis",
+    "needCustomService": "Besoin d'un service personnalisé ?",
+    "teamReadyToHelp": "Notre équipe est là pour vous aider avec tous vos projets",
+    "contactUs": "Contactez-nous",
+    "showDetails": "Voir les détails",
+    "hideDetails": "Masquer les détails"
+  },
 
   "portfolio": {
     "title": "Nos réalisations",
     "text": "Découvrez quelques-uns de nos projets de rénovation récents. Chaque projet reflète notre engagement envers la qualité et le design."
   },
   "contact": {
-    "title": "Entrer en contact",
-    "text": "Parlez-nous de votre projet de rénovation. Nous vous contacterons rapidement.",
+    "title": "E&MO – Entreprise de construction et de rénovation en Belgique",
+    "subtitle": "Contactez-nous dès aujourd'hui",
+    "text": "Vous avez un projet de construction ou de rénovation ? L'équipe E&MO est prête à vous aider ! Vous pouvez nous contacter facilement par les moyens suivants pour une consultation gratuite et un devis personnalisé.",
+    "whyContactUs": "Pourquoi nous contacter ?",
+    "benefits": [
+      "Consultations gratuites pour votre projet",
+      "Devis compétitifs et personnalisés",
+      "Équipe professionnelle et spécialisée",
+      "Suivi continu tout au long du projet"
+    ],
+    "keywords": "Mots-clés suggérés",
+    "keywordsSubtitle": "Recherches populaires",
+    "keywordsInfo": "Cliquez sur un mot-clé pour voir plus d'informations",
+    "suggestedKeywords": [
+      "Appeler entreprise construction Belgique",
+      "Consultation construction et rénovation",
+      "Demander devis construction",
+      "Support client E&MO",
+      "Numéro téléphone entreprise E&MO",
+      "Adresse entreprise construction Belgique"
+    ],
     "form": {
       "name": "Nom",
+      "phone": "Téléphone",
       "email": "Email",
       "message": "Message",
       "submit": "Envoyer"
@@ -165,7 +313,14 @@
     "shopTitle": "Service tout-en-un",
     "shopDesc": "Quel que soit le travail, nous pouvons le faire ou trouver la bonne personne.",
     "friendlyTitle": "Amical & Fiable",
-    "friendlyDesc": "Nous sommes fiers de notre service client et de notre savoir-faire exceptionnel. Consultez nos avis !"
+    "friendlyDesc": "Nous sommes fiers de notre service client et de notre savoir-faire exceptionnel. Consultez nos avis !",
+    "whyContactUs": "Pourquoi nous contacter ?",
+    "benefits": [
+      "Consultations gratuites pour votre projet",
+      "Devis compétitifs et personnalisés",
+      "Équipe professionnelle et spécialisée",
+      "Suivi continu tout au long du projet"
+    ]
   },
   "heroPromise": {
     "subtitle": "NOTRE PROMESSE",

@@ -10,6 +10,7 @@ import Slider_Hero from '@/components/Sections/Slider_Hero'
 import Testmonials from './../../components/Sections/Testmonials';
 import HeroPromise from '@/components/Sections/HeroPromise';
 import QuoteSection from '@/components/Sections/QuoteSection'
+import AboutUS from '@/components/Sections/AboutUS'
 
 function page() {
   return (
@@ -17,7 +18,7 @@ function page() {
     <Hero />
     <Slider_Hero/>
     <Testmonials t={fr} />
-    <About t={fr.about} />
+    <AboutUS t={fr.AboutUS} />
     <HeroPromise />
     <QuoteSection />
     <ImageSlider />

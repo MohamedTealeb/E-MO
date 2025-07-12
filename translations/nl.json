@@ -27,40 +27,188 @@
     "viewPortfolio": "Bekijk ons portfolio",
     "learnMore": "Meer weten"
   },
-  "about": {
-    "title": "Wie zijn wij?",
-    "text": "Wij zijn een bedrijf gespecialiseerd in binnen- en buitenrenovatie, met meer dan 10 jaar ervaring in comfort en esthetiek.",
+  "AboutUS": {
+    "title": "Over ons – E&MO, bouw- en renovatiebedrijf in België",
+    "text": "E&MO is uw ideale partner in België voor al uw bouw-, renovatie-, afwerkings-, timmerwerk- en tuinaanlegprojecten. Wij verbinden ons ertoe om hoogwaardige diensten te leveren tegen concurrerende prijzen, met gebruik van moderne technieken die geschikt zijn voor al uw residentiële en commerciële behoeften.",
     "experience": "Meer dan 10 jaar ervaring",
-    "quality": "Vakmanschap en hoogwaardige materialen"
+    "quality": "Vakmanschap en hoogwaardige materialen",
+    "experienceDesc": "Gespecialiseerde expertise in bouw en renovatie",
+    "qualityDesc": "Gecertificeerde materialen en moderne technieken"
+  },
+  "about": {
+    "title": "Over ons – E&MO, bouw- en renovatiebedrijf in België",
+    "text": "E&MO is uw ideale partner in België voor al uw bouw-, renovatie-, afwerkings-, timmerwerk- en tuinaanlegprojecten. Wij verbinden ons ertoe om hoogwaardige diensten te leveren tegen concurrerende prijzen, met gebruik van moderne technieken die geschikt zijn voor al uw residentiële en commerciële behoeften.",
+    "experience": "Meer dan 10 jaar ervaring",
+    "quality": "Vakmanschap en hoogwaardige materialen",
+    "experienceDesc": "Gespecialiseerde expertise in bouw en renovatie",
+    "qualityDesc": "Gecertificeerde materialen en moderne technieken",
+    "expertise": {
+      "title": "Gespecialiseerde expertise in bouw en renovatie",
+      "text": "Met meer dan 10 jaar ervaring biedt E&MO complete bouwoplossingen, waaronder:",
+      "services": [
+        "Binnen- en buitenbouw",
+        "Renovatie van huizen en commerciële gebouwen",
+        "Hoogwaardige afwerking en schilderwerk",
+        "Ontwerp en realisatie van op maat gemaakte timmerwerk en keukens",
+        "Aanleg en verfraaiing van tuinen en buitenruimtes"
+      ],
+      "guarantee": "Onze experts garanderen solide en esthetische resultaten die voldoen aan de verwachtingen van onze klanten. Bij E&MO zorgen wij voor de uitvoering van binnen- en buitenbouwprojecten met een hoog niveau van precisie en professionaliteit."
+    },
+    "values": {
+      "title": "Onze waarden en principes",
+      "principles": [
+        {
+          "title": "Kwaliteit en professionaliteit",
+          "desc": "Wij gebruiken gecertificeerde materialen en de nieuwste bouw- en afwerkingstechnieken."
+        },
+        {
+          "title": "Respect voor deadlines",
+          "desc": "Wij leveren projecten binnen de gestelde tijdslijnen."
+        },
+        {
+          "title": "Transparantie en vertrouwen",
+          "desc": "Wij onderhouden een duidelijke en eerlijke relatie met onze klanten om hun volledige tevredenheid te garanderen."
+        },
+        {
+          "title": "Duurzaamheid",
+          "desc": "Wij geven voorrang aan ecologische en energiezuinige bouwoplossingen die het milieu beschermen en kosten verlagen."
+        }
+      ]
+    },
+    "whyChoose": {
+      "title": "Waarom E&MO kiezen?",
+      "text": "Bij E&MO staan onze klanten centraal. Wij bieden:",
+      "benefits": [
+        "Hoogwaardige bouw- en renovatiediensten",
+        "Concurrerende tarieven en gepersonaliseerde aanbiedingen volgens het project",
+        "Een professioneel team gespecialiseerd in alle aspecten van bouw en afwerking",
+        "Gratis consultaties en continue begeleiding"
+      ],
+      "conclusion": "E&MO is uw eerste keuze voor bouw en renovatie in België, met een totale inzet voor kwaliteit en aantrekkelijke prijzen."
+    },
+    "vision": {
+      "title": "Onze visie en missie",
+      "text": "Wij streven ernaar het toonaangevende bedrijf in België te zijn dat voldoet aan alle behoeften op het gebied van bouw en renovatie, ervan overtuigd dat elk project een kans is om designs te creëren die schoonheid en functionaliteit combineren. Onze diensten omvatten gevarieerde afwerkingen, op maat gemaakte timmerwerk, evenals tuinaanleg om uw huis te transformeren in een unieke ruimte."
+    },
+    "contact": {
+      "title": "Neem contact met ons op",
+      "text": "Zoekt u een betrouwbaar bedrijf voor uw bouw- en renovatiewerk? Neem vandaag nog contact op met E&MO voor een gratis consultatie en een gepersonaliseerde offerte die is aangepast aan uw project. Wij zijn er om uw bouwprojecten te realiseren met de beste kwaliteit en ongeëvenaarde professionaliteit."
+    }
   },
   "services": {
-  "title": "Onze diensten",
-  "items": {
-    "kitchen": "Keukenrenovatie",
-    "kitchen_caption": "Keukenrenovatie met een nieuw ontwerp en moderne afwerkingen.",
-    
-    "bathroom": "Badkamerrenovatie",
-    "bathroom_caption": "Gemoderniseerde badkamer met verlaagd plafond en ingebouwde verlichting.",
-    
-    "painting": "Schilderwerk & decoratie",
-    "painting_caption": "Binnenmuurschilderwerk met nette afwerking en decoratieve lijsten.",
-    
-    "flooring": "Vloerbekleding",
-    "flooring_caption": "Plaatsing van moderne tegels voor een stijlvolle en duurzame entree.",
-    
-    "insulation": "Thermische & akoestische isolatie",
-    "insulation_caption": "Geïsoleerd plafond met ingebouwde verlichting voor optimaal thermisch en akoestisch comfort."
-  }
-},
+    "title": "Onze Diensten",
+    "subtitle": "Ontdek ons volledige aanbod aan bouw- en renovatiediensten",
+    "items": [
+      {
+        "id": 0,
+        "icon": "🧱",
+        "title": "Bouw- en renovatiewerkzaamheden",
+        "description": "Complete bouw- en renovatiediensten voor uw projecten",
+        "details": [
+          "Nieuwe constructies en uitbreidingen",
+          "Binnen- en buitenrenovatie",
+          "Plafondinstallatie en afwerking",
+          "Fundering en structuurwerk",
+          "Elektrische en sanitair installaties"
+        ],
+        "longDescription": "🧱 Bouw- en renovatiewerkzaamheden\n\nWij voeren alle bouw- en renovatiewerkzaamheden uit, zowel binnen als buiten, met een hoog niveau van professionaliteit om u een nieuw huis of een vernieuwde ruimte met een modern design te bieden.\n\nOnze diensten omvatten:\n\t•\tBinnen- en buitenrenovatie: uw ruimtes nieuw leven inblazen met een verbeterd ontwerp.\n\t•\tNieuwbouw: realisatie van bouwprojecten van A tot Z volgens de strengste normen.\n\t•\tDakinstallatie: ontwerp en plaatsing van verschillende soorten daken aangepast aan uw wensen en behoeften.\n\nOnze expertise garandeert een solide en esthetisch resultaat."
+      },
+      {
+        "id": 1,
+        "icon": "🎨",
+        "title": "Afwerkings- en restauratiewerkzaamheden",
+        "description": "Professionele afwerking en restauratie van uw ruimtes",
+        "details": [
+          "Alle soorten schilderwerk",
+          "Behang en decoratie",
+          "Vloerbekleding en tegels",
+          "Stucwerk en pleisterwerk",
+          "Restauratie van historische elementen"
+        ],
+        "longDescription": "Wij besteden zorg aan elk detail dat uw huis elegant en gastvrij maakt, met een volledig aanbod aan afwerkingsdiensten.\n\nOnze diensten omvatten:\n\t•\tAlle soorten binnen- en buitenschilderwerk met moderne kleuren en hoge kwaliteit.\n\t•\tAlle soorten tegels, in diverse vormen en maten passend bij elke ruimte.\n\t•\tDecoratiewerkzaamheden om een artistiek en esthetisch tintje aan uw interieur te geven.\n\nWij gebruiken de beste materialen en moderne technieken om aan uw wensen te voldoen en het beste resultaat te behalen."
+      },
+      {
+        "id": 2,
+        "icon": "🪟",
+        "title": "Timmerwerk en keukens op aanvraag",
+        "description": "Op maat gemaakte timmerwerk en keukenoplossingen",
+        "details": [
+          "Op maat gemaakte keukens",
+          "Kasten en opbergruimte",
+          "Deuren en ramen",
+          "Traprenovatie en -installatie",
+          "Houtbewerking en meubels"
+        ],
+        "longDescription": "Gespecialiseerd in het ontwerpen en realiseren van op maat gemaakt timmerwerk en keukens, voldoen wij aan al uw functionele en esthetische eisen.\n\nOnze diensten omvatten:\n\t•\tInstallatie van volledig uitgeruste keukens met moderne ontwerpen.\n\t•\tPlaatsing van hoogwaardige lades en kasten met nette afwerking.\n\nElk detail is met precisie ontworpen om lang mee te gaan en aan uw levensstijl aan te passen."
+      },
+      {
+        "id": 3,
+        "icon": "🌳",
+        "title": "Tuincoördinatie en verfraaiing",
+        "description": "Complete tuinontwerp en -aanleg voor uw buitenruimte",
+        "details": [
+          "Tuinontwerp en -planning",
+          "Aanleg van terrassen en paden",
+          "Beplanting en groenonderhoud",
+          "Verlichting en irrigatie",
+          "Tuinmeubilair en accessoires"
+        ],
+        "longDescription": "Omdat buitenruimtes een belangrijk onderdeel van het huis zijn, bieden wij landschapsdiensten om van uw tuin een waar toevluchtsoord te maken.\n\nOnze diensten omvatten:\n\t•\tVerfraaiing van tuinen met innovatieve en comfortabele ontwerpen.\n\t•\tPlaatsing van buitenbekleding die een praktische en elegante touch aan de tuin toevoegt.\n\nMaak van uw tuin een ontspannings- en natuurschoonruimte met de experts van E&MO."
+      },
+      {
+        "id": 4,
+        "icon": "🛡",
+        "title": "Externe isolatie",
+        "description": "Professionele isolatie voor energie-efficiëntie en comfort",
+        "details": [
+          "Gevelisolatie en spouwmuurisolatie",
+          "Dakisolatie en zolderisolatie",
+          "Vloerisolatie en kelderisolatie",
+          "Thermische en akoestische isolatie",
+          "Energiebesparende maatregelen"
+        ],
+        "longDescription": "Bescherm uw huis tegen vocht en weersinvloeden met onze professionele buitenisolatiediensten.\n\nOnze oplossingen omvatten:\n\t•\tBuitenisolatie in steen: bescherming en esthetiek gecombineerd.\n\t•\tCrepi-isolatie: een moderne afwerking met optimale thermische efficiëntie.\n\nWij gebruiken de beste technieken om uw huis comfortabel en veilig te houden."
+      }
+    ],
+    "whatWeOffer": "Wat wij bieden:",
+    "interestedInService": "Geïnteresseerd in deze dienst?",
+    "contactForQuote": "Neem contact op voor een gratis offerte",
+    "requestQuote": "Offerte aanvragen",
+    "needCustomService": "Heeft u een maatwerk dienst nodig?",
+    "teamReadyToHelp": "Ons team staat klaar om u te helpen met al uw projecten",
+    "contactUs": "Neem contact op",
+    "showDetails": "Details weergeven",
+    "hideDetails": "Details verbergen"
+  },
   "portfolio": {
     "title": "Onze realisaties",
     "text": "Bekijk enkele van onze recente renovatieprojecten. Elk project weerspiegelt onze toewijding aan kwaliteit en design."
   },
   "contact": {
-    "title": "Neem contact op",
-    "text": "Vertel ons over je renovatieproject. We nemen zo snel mogelijk contact met je op.",
+    "title": "E&MO – Bouw- en renovatiebedrijf in België",
+    "subtitle": "Neem vandaag nog contact met ons op",
+    "text": "Heeft u een bouw- of renovatieproject? Het E&MO-team staat klaar om u te helpen! U kunt eenvoudig contact met ons opnemen via de volgende kanalen voor een gratis consultatie en een gepersonaliseerde offerte.",
+    "whyContactUs": "Waarom contact met ons opnemen?",
+    "benefits": [
+      "Gratis consultaties voor uw project",
+      "Concurrerende en gepersonaliseerde offertes",
+      "Professioneel en gespecialiseerd team",
+      "Continue begeleiding gedurende het hele project"
+    ],
+    "keywords": "Voorgestelde zoekwoorden",
+    "keywordsSubtitle": "Populaire zoekopdrachten",
+    "keywordsInfo": "Klik op een zoekwoord voor meer informatie",
+    "suggestedKeywords": [
+      "Bouwbedrijf België bellen",
+      "Bouw en renovatie consultatie",
+      "Bouw offerte aanvragen",
+      "E&MO klantenservice",
+      "E&MO bedrijf telefoonnummer",
+      "Bouwbedrijf België adres"
+    ],
     "form": {
       "name": "Naam",
+      "phone": "Telefoon",
       "email": "E-mail",
       "message": "Bericht",
       "submit": "Versturen"
@@ -164,7 +312,14 @@
     "shopTitle": "Alles onder één dak",
     "shopDesc": "Welk klusje u ook heeft, wij kunnen het doen of de juiste persoon vinden.",
     "friendlyTitle": "Vriendelijk & Betrouwbaar",
-    "friendlyDesc": "Wij zijn trots op onze klantenservice en uitstekende vakmanschap. Bekijk onze recensies!"
+    "friendlyDesc": "Wij zijn trots op onze klantenservice en uitstekende vakmanschap. Bekijk onze recensies!",
+    "whyContactUs": "Waarom contact met ons opnemen?",
+    "benefits": [
+      "Gratis consultaties voor uw project",
+      "Concurrerende en gepersonaliseerde offertes",
+      "Professioneel en gespecialiseerd team",
+      "Continue begeleiding gedurende het hele project"
+    ]
   },
   "heroPromise": {
     "subtitle": "ONZE BELOFTE",
