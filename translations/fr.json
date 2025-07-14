@@ -290,17 +290,20 @@
       {
         "title": "5 astuces pour rénover votre maison",
         "excerpt": "Découvrez nos conseils pratiques pour une rénovation réussie et économique.",
-        "author": "Equipe E-Mo"
+        "author": "Equipe E-Mo",
+        "image": "/home.jpg"
       },
       {
         "title": "Tendances déco 2024",
         "excerpt": "Les dernières tendances en matière de décoration intérieure pour cette année.",
-        "author": "Sarah Morel"
+        "author": "Sarah Morel",
+        "image": "/painting.jpg"
       },
       {
         "title": "Comment choisir un entrepreneur fiable?",
         "excerpt": "Les points clés pour sélectionner le bon professionnel pour vos travaux.",
-        "author": "Paul Martin"
+        "author": "Paul Martin",
+        "image": "/kitchen.jpg"
       }
     ]
   },

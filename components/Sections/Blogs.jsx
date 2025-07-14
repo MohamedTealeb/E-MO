@@ -42,7 +42,14 @@ const Blogs = ({ t }) => {
               className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-8 max-w-xs min-w-[270px] flex flex-col items-start border-t-4 border-accent hover:scale-105 hover:shadow-accent/30 transition-all duration-300 cursor-pointer group"
               style={{ minHeight: 270 }}
             >
-              <div className="text-2xl font-bold text-accent mb-3 group-hover:text-main transition-colors duration-200">{item.title}</div>
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-32 h-32 object-cover rounded-full shadow-lg mb-4 border-4 border-white group-hover:scale-110 transition-transform duration-300 mx-auto self-center"
+                />
+              )}
+              <div className="text-2xl font-bold text-accent mb-3 group-hover:text-main transition-colors duration-200 text-center w-full">{item.title}</div>
               <div className="text-gray-700 text-base mb-4 leading-relaxed group-hover:text-dark/90 transition-colors duration-200">{item.excerpt}</div>
               <div className="text-sm text-gray-500 mt-auto self-end group-hover:text-accent transition-colors duration-200">{item.author}</div>
             </div>

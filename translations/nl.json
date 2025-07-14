@@ -289,17 +289,20 @@
       {
         "title": "5 tips voor een geslaagde renovatie",
         "excerpt": "Ontdek onze praktische tips voor een succesvolle en betaalbare renovatie.",
-        "author": "E-Mo Team"
+        "author": "E-Mo Team",
+        "image": "/home.jpg"
       },
       {
         "title": "Interieurtrends 2024",
         "excerpt": "De nieuwste trends op het gebied van interieurdecoratie voor dit jaar.",
-        "author": "Sarah Morel"
+        "author": "Sarah Morel",
+        "image": "/painting.jpg"
       },
       {
         "title": "Hoe kies je een betrouwbare aannemer?",
         "excerpt": "De belangrijkste punten om de juiste vakman voor je project te kiezen.",
-        "author": "Paul Martin"
+        "author": "Paul Martin",
+        "image": "/kitchen.jpg"
       }
     ]
   },
