@@ -122,6 +122,28 @@
   "services": {
     "title": "Nos Services",
     "subtitle": "Découvrez notre gamme complète de services de construction et rénovation",
+    "serviceSubItems": [
+      {
+        "href": "/fr/services/0",
+        "label": "🧱 Travaux de construction et rénovation"
+      },
+      {
+        "href": "/fr/services/1", 
+        "label": "🎨 Travaux de finition et restauration"
+      },
+      {
+        "href": "/fr/services/2",
+        "label": "🪟 Menuiserie et cuisines sur mesure"
+      },
+      {
+        "href": "/fr/services/3",
+        "label": "🌳 Coordination et embellissement de jardins"
+      },
+      {
+        "href": "/fr/services/4",
+        "label": "🛡 Isolation externe"
+      }
+    ],
     "items": [
       {
         "id": 0,

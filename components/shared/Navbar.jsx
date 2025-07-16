@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { HiMenu } from "react-icons/hi";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import logo from "@/public/HLogo.png";
 
 const Navbar = ({ forceDarkText = false }) => {
@@ -21,7 +22,9 @@ const Navbar = ({ forceDarkText = false }) => {
   const currentLocale = pathname.startsWith("/nl") ? "nl" : "fr";
   const [locale, setLocale] = useState(currentLocale);
   const [labels, setLabels] = useState({});
+  const [translations, setTranslations] = useState({});
   const [scrolled, setScrolled] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState(null);
 
   // Scroll listener
   useEffect(() => {
@@ -39,6 +42,7 @@ const Navbar = ({ forceDarkText = false }) => {
       setLocale(saved);
       const translations = await import(`@/translations/${saved}.json`);
       setLabels(translations.default.nav);
+      setTranslations(translations.default);
     };
 
     loadTranslations();
@@ -51,11 +55,15 @@ const Navbar = ({ forceDarkText = false }) => {
     startTransition(() => router.push(newPath));
   };
 
+  const toggleSubmenu = (menuName) => {
+    setOpenSubmenu(openSubmenu === menuName ? null : menuName);
+  };
+
   const navItems = [
     { href: `/${locale}`, label: labels.home },
     { href: `/${locale}/about`, label: labels.about },
     { href: `/${locale}/portfolio`, label: labels.portfolio },
-    { href: `/${locale}/services`, label: labels.services },
+    { href: `/${locale}/services`, label: labels.services, hasSubmenu: true },
     { href: `/${locale}/blogs`, label: labels.blogs },
     { href: `/${locale}/contact`, label: labels.contact },
     { href: `/${locale}/testmonialsBg`, label: labels.testimonials },
@@ -132,13 +140,43 @@ const Navbar = ({ forceDarkText = false }) => {
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
             <nav className="mt-10 flex flex-col gap-6">
               {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-lg font-semibold hover:text-accent"
-                >
-                  {item.label}
-                </Link>
+                <div key={item.href}>
+                  {item.hasSubmenu ? (
+                    <div>
+                      <button
+                        onClick={() => toggleSubmenu('services')}
+                        className="text-lg cursor-pointer font-semibold hover:text-accent flex items-center justify-between w-full"
+                      >
+                        {item.label}
+                        {openSubmenu === 'services' ? (
+                          <FaChevronUp className="h-4 w-4" />
+                        ) : (
+                          <FaChevronDown className="h-4 w-4" />
+                        )}
+                      </button>
+                      {openSubmenu === 'services' && (
+                        <div className="mt-2 ml-4 flex flex-col gap-2">
+                          {translations.services?.serviceSubItems?.map((subItem, index) => (
+                            <Link
+                              key={index}
+                              href={subItem.href}
+                              className="text-sm text-gray-600 hover:text-accent py-1"
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-lg font-semibold hover:text-accent"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </nav>
           </SheetContent>

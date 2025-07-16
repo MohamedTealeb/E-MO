@@ -122,6 +122,28 @@
   "services": {
     "title": "Onze Diensten",
     "subtitle": "Ontdek ons volledige aanbod aan bouw- en renovatiediensten",
+    "serviceSubItems": [
+      {
+        "href": "/nl/services/0",
+        "label": "🧱 Bouw- en renovatiewerkzaamheden"
+      },
+      {
+        "href": "/nl/services/1",
+        "label": "🎨 Afwerkings- en restauratiewerkzaamheden"
+      },
+      {
+        "href": "/nl/services/2",
+        "label": "🪟 Timmerwerk en keukens op aanvraag"
+      },
+      {
+        "href": "/nl/services/3",
+        "label": "🌳 Tuincoördinatie en verfraaiing"
+      },
+      {
+        "href": "/nl/services/4",
+        "label": "🛡 Externe isolatie"
+      }
+    ],
     "items": [
       {
         "id": 0,
