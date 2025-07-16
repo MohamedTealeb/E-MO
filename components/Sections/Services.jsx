@@ -2,7 +2,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import Link from 'next/link';
 
+
+const Images = [
+  { src: "/home.jpg", alt: "Kitchen Renovation", label: "Kitchen", icon: "🧱" },
+  { src: "/painting.jpg", alt: "Painting Services", label: "Painting", icon: "🎨" },
+  { src: "/bathroom.jpg", alt: "Bathroom Renovation", label: "Bathroom", icon: "🪟" },
+  { src: "/flooring.jpg", alt: "Flooring Services", label: "Flooring", icon: "🌳" },
+  { src: "/home2.jpg", alt: "Insulation Services", label: "Insulation", icon: "🛡" },
+];
 const Services = ({ t }) => {
   if (!t || !t.services) return null;
   const { services } = t;
@@ -27,52 +36,31 @@ const Services = ({ t }) => {
         </div>
 
         {/* Services Grid */}
-        <div className="flex flex-col gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {services.items.map((service, idx) => (
-            <div
+            <Link
               key={idx}
-              className={`relative group bg-white/80 backdrop-blur-md rounded-3xl shadow-xl border border-white/50 p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl ${openIndex === idx ? 'ring-2 ring-main/40' : ''}`}
+              href={`/${t.locale || 'fr'}/services/${service.id}`}
+              className="group bg-white/80 backdrop-blur-md rounded-3xl shadow-xl border border-white/50 p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
             >
-              <div className="text-5xl mb-4">{service.icon}</div>
+              {/* Service Image */}
+              {Images[idx] && (
+                <>
+                  <img
+                    src={Images[idx].src}
+                    alt={Images[idx].alt}
+                    className="w-full h-32 object-cover rounded-xl mb-4"
+                  />
+                  <div className="text-4xl mb-2">{Images[idx].icon}</div>
+                </>
+              )}
               <h3 className="text-xl md:text-2xl font-bold text-main mb-2 text-center">
                 {service.title}
               </h3>
-              <p className="text-dark/70 text-base text-center mb-4 min-h-[48px]">
+              <p className="text-dark/70 text-base text-center mb-2 min-h-[48px]">
                 {service.description}
               </p>
-              <button
-                onClick={() => handleToggle(idx)}
-                className="mt-auto bg-gradient-to-r from-main to-secondary text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:from-secondary hover:to-main transition-colors flex items-center gap-2"
-              >
-                {openIndex === idx ? services.hideDetails || 'إخفاء التفاصيل' : services.showDetails || 'عرض التفاصيل'}
-                {openIndex === idx ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-              {/* Details */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ${openIndex === idx ? 'max-h-96 opacity-100 mt-6 py-4' : 'max-h-0 opacity-0 mt-0 py-0'}`}
-              >
-                <h4 className="text-lg font-semibold text-main mb-3 mt-2 text-center">
-                  {services.whatWeOffer}
-                </h4>
-                <ul className="space-y-2 mb-4">
-                  {service.details.map((detail, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center gap-3 p-2 rounded-lg transition-colors duration-200 group hover:bg-main/10"
-                      style={{ transitionDelay: `${i * 60}ms` }}
-                    >
-                      <span className="w-3 h-3 bg-secondary rounded-full flex-shrink-0 shadow-sm group-hover:scale-110 transition-transform"></span>
-                      <span className="text-dark/90 font-medium text-base">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="text-center">
-                  <button className="bg-main hover:bg-secondary text-white font-semibold py-2 px-6 rounded-lg transition-colors">
-                    {services.requestQuote}
-                  </button>
-                </div>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
 

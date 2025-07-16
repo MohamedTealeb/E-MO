@@ -36,7 +36,7 @@
     "qualityDesc": "Matériaux certifiés et techniques modernes"
   },
   "about": {
-    "title": "À propos de nous – E&MO, entreprise de construction et rénovation en Belgique",
+    "title": "À propos de nous ",
     "text": "E&MO est votre partenaire idéal en Belgique pour tous vos travaux de construction, rénovation, finitions, menuiserie et aménagement paysager. Nous nous engageons à fournir des services de haute qualité à des prix compétitifs, utilisant des techniques modernes adaptées à tous vos besoins résidentiels et commerciaux.",
     "experience": "Plus de 10 ans d'expérience",
     "quality": "Travail soigné et matériaux de qualité",
@@ -54,6 +54,30 @@
       ],
       "guarantee": "Nos experts garantissent des résultats solides et esthétiques qui répondent aux attentes de nos clients. Chez E&MO, nous assurons la réalisation de projets de construction intérieure et extérieure avec un niveau élevé de précision et de professionnalisme."
     },
+    "customServiceCards": [
+      {
+        "icon": "🚚",
+        "title": "Monte-meubles",
+        "description": "Nos monte-meubles assurent un déménagement rapide, sécurisé et sans souci jusqu’au 10e étage."
+      },
+      {
+        "icon": "🅿️",
+        "title": "Placement de panneau de stationnement",
+        "description": "Nous nous occupons rapidement de vos panneaux de stationnement pour un déménagement sans stress."
+      },
+      {
+        "icon": "📦",
+        "title": "Stockage de meubles",
+        "description": "Stockage sécurisé et flexible pour vos meubles, temporaire ou longue durée."
+      },
+      {
+        "icon": "🛠️",
+        "title": "Service supplémentaire",
+        "description": "Accompagnement personnalisé et conseils à chaque étape de votre déménagement ou stockage."
+      }
+    ],
+    "customServiceSectionTitle": "NOS SERVICES",
+    "customServiceSectionSubtitle": "Que proposons-nous ?",
     "values": {
       "title": "Nos valeurs et principes",
       "principles": [
@@ -101,6 +125,7 @@
     "items": [
       {
         "id": 0,
+     
         "icon": "🧱",
         "title": "Travaux de construction et rénovation",
         "description": "Services complets de construction et rénovation pour vos projets",
@@ -115,6 +140,7 @@
       },
       {
         "id": 1,
+     
         "icon": "🎨",
         "title": "Travaux de finition et restauration",
         "description": "Finition et restauration professionnelles de vos espaces",
@@ -129,6 +155,7 @@
       },
       {
         "id": 2,
+       
         "icon": "🪟",
         "title": "Menuiserie et cuisines sur mesure",
         "description": "Menuiserie et solutions de cuisine sur mesure",
@@ -143,6 +170,7 @@
       },
       {
         "id": 3,
+    
         "icon": "🌳",
         "title": "Coordination et embellissement de jardins",
         "description": "Conception et aménagement complets de jardins pour votre espace extérieur",
@@ -157,6 +185,7 @@
       },
       {
         "id": 4,
+     
         "icon": "🛡",
         "title": "Isolation externe",
         "description": "Isolation professionnelle pour l'efficacité énergétique et le confort",
@@ -355,4 +384,5 @@
       }
     ]
   }
+ 
 }

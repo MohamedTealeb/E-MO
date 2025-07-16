@@ -30,17 +30,28 @@ const About = ({ t }) => {
 
   return (
     <section className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 px-6">
+      {/* Hero Background Section */}
+      <div className="relative w-full h-[320px] md:h-[700px] flex items-center justify-center mb-16 rounded-3xl overflow-hidden shadow-2xl">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/portfolio.jpg')" }}
+        ></div>
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
+          <h1 className="text-2xl md:text-4xl font-bold text-white text-center drop-shadow-lg">
+            {t?.title}
+          </h1>
+        </div>
+      </div>
+      {/* Services/Features Section */}
+     
+    
+      {/* باقي الصفحة */}
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div ref={containerRef} className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-main mb-6 leading-tight">
-            {t.title}
-          </h1>
-          <div className="w-24 h-1 bg-secondary mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl md:text-2xl text-dark/80 leading-relaxed max-w-4xl mx-auto">
-            {t.text}
-          </p>
-        </div>
+       
+         
+        
 
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-12 mb-8 md:mb-16">
@@ -54,17 +65,7 @@ const About = ({ t }) => {
                   className="w-full h-full object-cover object-center"
                 />
               </div>
-              <div className=" hidden md:block absolute mb-8 mr-4 bg-white rounded-2xl p-4 sm:p-6 shadow-xl">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-main to-secondary rounded-xl flex items-center justify-center">
-                    <FaAward className="text-white text-lg sm:text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-main text-sm sm:text-base">{t.experience}</h3>
-                    <p className="text-xs sm:text-sm text-dark/60">{t.experienceDesc}</p>
-                  </div>
-                </div>
-              </div>
+           
             </div>
           </div>
 
@@ -91,81 +92,36 @@ const About = ({ t }) => {
             </div>
 
             {/* Values Section */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/50">
-              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-secondary to-accent rounded-xl flex items-center justify-center">
-                  <FaStar className="text-white text-lg sm:text-xl" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-main">{t.values.title}</h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
-                {t.values.principles.map((principle, index) => (
-                  <div key={index} className="p-3 sm:p-6 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl border border-gray-100">
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-main rounded-lg flex items-center justify-center flex-shrink-0">
-                        {index === 0 && <FaCheckCircle className="text-white text-xs sm:text-base" />}
-                        {index === 1 && <FaClock className="text-white text-xs sm:text-base" />}
-                        {index === 2 && <FaHandshake className="text-white text-xs sm:text-base" />}
-                        {index === 3 && <FaLeaf className="text-white text-xs sm:text-base" />}
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-main mb-1 sm:mb-2 text-xs sm:text-base">{principle.title}</h3>
-                        <p className="text-dark/70 text-xs sm:text-sm">{principle.desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+         
 
             {/* Why Choose Section */}
-            <div className="bg-gradient-to-r from-main/10 to-secondary/10 rounded-3xl p-4 sm:p-8 shadow-xl border border-main/20">
-              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-accent to-main rounded-xl flex items-center justify-center">
-                  <FaUsers className="text-white text-lg sm:text-xl" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-main">{t.whyChoose.title}</h2>
-              </div>
-              <p className="text-base sm:text-lg text-dark/80 mb-4 sm:mb-6">{t.whyChoose.text}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 mb-4 sm:mb-6">
-                {t.whyChoose.benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center gap-2 sm:gap-3 p-2 sm:p-4 bg-white/70 rounded-xl">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-secondary rounded-lg flex items-center justify-center">
-                      <FaCheckCircle className="text-white text-xs sm:text-sm" />
-                    </div>
-                    <span className="text-dark/80 font-medium text-xs sm:text-base">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-dark/70 font-semibold text-center text-xs sm:text-base">{t.whyChoose.conclusion}</p>
-            </div>
+           
 
             {/* Vision Section */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 sm:p-8 shadow-xl border border-white/50">
-              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-secondary to-main rounded-xl flex items-center justify-center">
-                  <FaLightbulb className="text-white text-lg sm:text-xl" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-main">{t.vision.title}</h2>
-              </div>
-              <p className="text-base sm:text-lg text-dark/80 leading-relaxed">{t.vision.text}</p>
-            </div>
+           
 
             {/* Contact Section */}
-            <div className="bg-gradient-to-r from-main to-secondary rounded-3xl p-4 sm:p-8 shadow-xl text-white">
-              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                  <FaPhone className="text-white text-lg sm:text-xl" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">{t.contact.title}</h2>
-              </div>
-              <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-4 sm:mb-6">{t.contact.text}</p>
-              <button className="w-full md:w-auto bg-white cursor-pointer text-main font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-colors">
-                Contactez-nous maintenant
-              </button>
-            </div>
+          
           </div>
+          
         </div>
+        <div className="max-w-7xl mx-auto mb-16">
+        <div className="text-center mb-10">
+          <span className="text-secondary font-bold uppercase tracking-wider block mb-2 text-base md:text-lg">
+            {t?.customServiceSectionTitle}
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-2">{t?.customServiceSectionSubtitle}</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {t?.customServiceCards?.map((card, idx) => (
+            <div key={idx} className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-t-4 border-secondary">
+              <span className="text-6xl mb-4">{card.icon}</span>
+              <h3 className="text-xl font-bold text-secondary mb-2 text-center">{card.title}</h3>
+              <p className="text-gray-700 text-center">{card.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
       </div>
     </section>
   );

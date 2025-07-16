@@ -36,7 +36,7 @@
     "qualityDesc": "Gecertificeerde materialen en moderne technieken"
   },
   "about": {
-    "title": "Over ons – E&MO, bouw- en renovatiebedrijf in België",
+    "title": "Over ons",
     "text": "E&MO is uw ideale partner in België voor al uw bouw-, renovatie-, afwerkings-, timmerwerk- en tuinaanlegprojecten. Wij verbinden ons ertoe om hoogwaardige diensten te leveren tegen concurrerende prijzen, met gebruik van moderne technieken die geschikt zijn voor al uw residentiële en commerciële behoeften.",
     "experience": "Meer dan 10 jaar ervaring",
     "quality": "Vakmanschap en hoogwaardige materialen",
@@ -54,6 +54,30 @@
       ],
       "guarantee": "Onze experts garanderen solide en esthetische resultaten die voldoen aan de verwachtingen van onze klanten. Bij E&MO zorgen wij voor de uitvoering van binnen- en buitenbouwprojecten met een hoog niveau van precisie en professionaliteit."
     },
+    "customServiceCards": [
+      {
+        "icon": "🚚",
+        "title": "Ladderlift",
+        "description": "Onze ladderliften maken uw verhuizing snel, veilig en zonder zorgen, tot de 10e verdieping."
+      },
+      {
+        "icon": "🅿️",
+        "title": "Plaatsing Parkeerbord",
+        "description": "Wij regelen snel en eenvoudig uw parkeerborden voor een vlotte verhuisdag."
+      },
+      {
+        "icon": "📦",
+        "title": "Meubelopslag",
+        "description": "Veilige en flexibele opslag voor uw meubels, tijdelijk of langdurig."
+      },
+      {
+        "icon": "🛠️",
+        "title": "Extra Service",
+        "description": "Persoonlijke begeleiding en advies bij elke stap van uw verhuis of opslag."
+      }
+    ],
+    "customServiceSectionTitle": "ONZE DIENSTEN",
+    "customServiceSectionSubtitle": "Wat bieden wij?",
     "values": {
       "title": "Onze waarden en principes",
       "principles": [
@@ -101,6 +125,7 @@
     "items": [
       {
         "id": 0,
+     
         "icon": "🧱",
         "title": "Bouw- en renovatiewerkzaamheden",
         "description": "Complete bouw- en renovatiediensten voor uw projecten",
@@ -115,6 +140,7 @@
       },
       {
         "id": 1,
+    
         "icon": "🎨",
         "title": "Afwerkings- en restauratiewerkzaamheden",
         "description": "Professionele afwerking en restauratie van uw ruimtes",
@@ -129,6 +155,7 @@
       },
       {
         "id": 2,
+      
         "icon": "🪟",
         "title": "Timmerwerk en keukens op aanvraag",
         "description": "Op maat gemaakte timmerwerk en keukenoplossingen",
@@ -143,6 +170,7 @@
       },
       {
         "id": 3,
+        
         "icon": "🌳",
         "title": "Tuincoördinatie en verfraaiing",
         "description": "Complete tuinontwerp en -aanleg voor uw buitenruimte",
@@ -157,6 +185,7 @@
       },
       {
         "id": 4,
+       
         "icon": "🛡",
         "title": "Externe isolatie",
         "description": "Professionele isolatie voor energie-efficiëntie en comfort",
