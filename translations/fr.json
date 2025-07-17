@@ -231,6 +231,60 @@
     "showDetails": "Voir les détails",
     "hideDetails": "Masquer les détails"
   },
+  "serviceDetails": {
+    "construction": {
+      "title": "🧱 Travaux de construction et rénovation",
+      "intro": "Nous réalisons tous les travaux de construction et rénovation, intérieurs et extérieurs, avec un haut niveau de professionnalisme pour vous offrir une maison neuve ou un espace renouvelé au design moderne.",
+      "listTitle": "Nos services incluent :",
+      "items": [
+        "Rénovation intérieure et extérieure : redonner vie à vos espaces avec une amélioration du design.",
+        "Construction neuve : réalisation de projets de construction de A à Z selon les normes les plus strictes.",
+        "Installation de toitures : conception et pose de différents types de toits adaptés à vos goûts et besoins."
+      ],
+      "conclusion": "Notre expertise garantit un résultat solide et esthétique."
+    },
+    "finishing": {
+      "title": "🎨 Travaux de finition et restauration",
+      "intro": "Nous prenons soin de chaque détail final qui rend votre maison élégante et accueillante, avec une gamme complète de services de finition.",
+      "listTitle": "Nos services incluent :",
+      "items": [
+        "Tous types de peinture intérieure et extérieure avec des couleurs modernes et une haute qualité.",
+        "Tous types de carrelage, en diverses formes et tailles pour s’adapter à chaque espace.",
+        "Travaux de décoration pour apporter une touche artistique et esthétique à votre intérieur."
+      ],
+      "conclusion": "Nous utilisons les meilleurs matériaux et techniques modernes pour satisfaire vos goûts et obtenir les meilleurs résultats."
+    },
+    "carpentry": {
+      "title": "🪟 Menuiserie et cuisines sur mesure",
+      "intro": "Spécialisés dans la conception et la réalisation de menuiserie et cuisines personnalisées, nous répondons à toutes vos exigences fonctionnelles et esthétiques.",
+      "listTitle": "Nos services incluent :",
+      "items": [
+        "Installation de cuisines équipées avec des designs modernes.",
+        "Pose de tiroirs et placards de haute qualité avec des finitions soignées."
+      ],
+      "conclusion": "Chaque détail est conçu avec précision pour durer et s’adapter à votre mode de vie."
+    },
+    "garden": {
+      "title": "🌳 Coordination et embellissement de jardins",
+      "intro": "Parce que les espaces extérieurs sont une partie importante de la maison, nous offrons des services d’aménagement paysager pour faire de votre jardin un véritable havre de paix.",
+      "listTitle": "Nos services incluent :",
+      "items": [
+        "Embellissement des jardins avec des designs innovants et confortables.",
+        "Pose de revêtements extérieurs ajoutant une touche pratique et élégante au jardin."
+      ],
+      "conclusion": "Faites de votre jardin un espace de détente et de beauté naturelle avec les experts E&MO."
+    },
+    "insulation": {
+      "title": "🛡 Isolation externe",
+      "intro": "Protégez votre maison de l’humidité et des intempéries grâce à nos services professionnels d’isolation extérieure.",
+      "listTitle": "Nos services incluent :",
+      "items": [
+        "Isolation extérieure en pierre : protection et esthétique réunies.",
+        "Isolation crépie : une finition moderne avec une efficacité thermique optimale."
+      ],
+      "conclusion": "Nous utilisons les meilleures techniques pour garder votre maison confortable et sécurisée."
+    }
+  },
 
   "portfolio": {
     "title": "Nos réalisations",

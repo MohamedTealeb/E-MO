@@ -2,13 +2,13 @@ import React from "react";
 
 async function getTranslation() {
   const translations = await import('@/translations/fr.json');
-  return translations.default.serviceDetails.construction;
+  return translations.default.serviceDetails.carpentry;
 }
 
 const ServicePage = async () => {
   const t = await getTranslation();
   return (
-    <section className="min-h-[70vh] mt-10 flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
+    <section className="min-h-[70vh] flex items-center mt-10  justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
       <div className="bg-white/90 shadow-2xl rounded-3xl max-w-2xl w-full mx-auto p-8 border border-gray-100">
         <div className="flex flex-col items-center mb-8">
           <span className="text-5xl mb-2 drop-shadow">{t.title.split(' ')[0]}</span>

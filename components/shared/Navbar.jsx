@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState, useTransition, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -25,6 +25,8 @@ const Navbar = ({ forceDarkText = false }) => {
   const [translations, setTranslations] = useState({});
   const [scrolled, setScrolled] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
+  const dropdownTimer = useRef();
 
   // Scroll listener
   useEffect(() => {
@@ -87,15 +89,66 @@ const Navbar = ({ forceDarkText = false }) => {
         }`}
       >
         {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`hover:text-secondary transition-colors font-semibold ${
-              (forceDarkText || scrolled) ? "text-black" : "text-white"
-            }`}
-          >
-            {item.label}
-          </Link>
+          item.hasSubmenu ? (
+            <div
+              key={item.href}
+              className="relative"
+              onMouseEnter={() => {
+                if (dropdownTimer.current) clearTimeout(dropdownTimer.current);
+                setDesktopDropdownOpen(true);
+              }}
+              onMouseLeave={() => {
+                dropdownTimer.current = setTimeout(() => setDesktopDropdownOpen(false), 300);
+              }}
+            >
+              <div className={`flex items-center gap-1`}>
+                <Link
+                  href={item.href}
+                  className={`hover:text-secondary transition-colors font-semibold ${
+                    (forceDarkText || scrolled) ? "text-black" : "text-white"
+                  }`}
+                  style={{lineHeight: 1.2}}
+                >
+                  {item.label}
+                </Link>
+                <button
+                  className={`hover:text-secondary transition-colors font-semibold focus:outline-none`}
+                  onClick={() => setDesktopDropdownOpen((v) => !v)}
+                  type="button"
+                  tabIndex={-1}
+                  aria-label="Show submenu"
+                >
+                  <svg className="w-4 h-4 transition-transform duration-200" style={{transform: desktopDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'}} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+              </div>
+              <div
+                className={`absolute left-1/2 mt-2 z-50 transition-all duration-200 ${desktopDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'} w-96 max-w-lg min-w-[300px]`}
+                style={{ pointerEvents: desktopDropdownOpen ? 'auto' : 'none', transform: `translateX(-50%) ${desktopDropdownOpen ? '' : ' translateY(-8px)'}` }}
+              >
+                <div className="bg-white border border-gray-200 shadow-2xl rounded-2xl py-4 px-2">
+                  {translations.services?.serviceSubItems?.map((subItem, idx) => (
+                    <Link
+                      key={idx}
+                      href={subItem.href}
+                      className="block rounded-lg px-7 py-3 text-main text-lg  whitespace-nowrap transition-colors duration-150 hover:bg-secondary/10 hover:text-secondary pl-1"
+                    >
+                      {subItem.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`hover:text-secondary transition-colors font-semibold ${
+                (forceDarkText || scrolled) ? "text-black" : "text-white"
+              }`}
+            >
+              {item.label}
+            </Link>
+          )
         ))}
       </nav>
 

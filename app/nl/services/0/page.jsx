@@ -1,7 +1,7 @@
 import React from "react";
 
 async function getTranslation() {
-  const translations = await import('@/translations/fr.json');
+  const translations = await import('@/translations/nl.json');
   return translations.default.serviceDetails.construction;
 }
 
