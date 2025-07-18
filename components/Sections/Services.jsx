@@ -73,9 +73,11 @@ const Services = ({ t }) => {
             <p className="text-lg mb-6 opacity-90">
               {services.teamReadyToHelp}
             </p>
-            <button className="bg-white text-main font-bold py-3 px-8 rounded-xl hover:bg-gray-100 transition-colors">
-              {services.contactUs}
-            </button>
+            <Link href={`/${t.locale || 'fr'}/contact`}>
+              <button className="bg-white cursor-pointer hover:bg-gray-300 hover:text-white text-main font-bold py-3 px-8 rounded-xl transition-colors">
+                {services.contactUs}
+              </button>
+            </Link>
           </div>
         </div>
       </div>
