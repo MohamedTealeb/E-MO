@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { HiMenu } from "react-icons/hi";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import logo from "@/public/HLogo.png";
+import scrolledLogo from "@/public/E&mo_LOGO[1].png";
 
 const Navbar = ({ forceDarkText = false }) => {
   const router = useRouter();
@@ -80,7 +81,10 @@ const Navbar = ({ forceDarkText = false }) => {
       }`}
     >
       <h1 className="text-xl font-bold">
-        <img src={logo.src} className="w-auto h-16" />
+        <img 
+          src={scrolled ? scrolledLogo.src : logo.src} 
+          className={`w-auto transition-all duration-300 ${scrolled ? 'h-8' : 'h-16'}`} 
+        />
       </h1>
 
       <nav
