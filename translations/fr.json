@@ -117,6 +117,29 @@
     "contact": {
       "title": "Contactez-nous",
       "text": "Vous cherchez une entreprise fiable pour vos travaux de construction et rénovation ? Contactez E&MO dès aujourd'hui pour une consultation gratuite et un devis personnalisé adapté à votre projet. Nous sommes là pour réaliser vos projets de construction avec la meilleure qualité et un professionnalisme inégalé."
+    },
+    "faq": {
+      "title": "Questions Fréquentes",
+      "expertise": {
+        "question": "Expertise spécialisée en construction et rénovation",
+        "answer": "Avec plus de [nombre d'années] années d'expérience, E&MO propose des solutions complètes en construction, incluant :\n\t•\tConstruction intérieure et extérieure\n\t•\tRénovation de maisons et bâtiments commerciaux\n\t•\tTravaux de finition et peinture de haute qualité\n\t•\tConception et réalisation de menuiserie et cuisines sur mesure\n\t•\tAménagement et embellissement de jardins et espaces extérieurs\n\nNos experts garantissent des résultats solides et esthétiques qui répondent aux attentes de nos clients. Chez E&MO, nous assurons la réalisation de projets de construction intérieure et extérieure avec un niveau élevé de précision et de professionnalisme."
+      },
+      "values": {
+        "question": "Nos valeurs et principes",
+        "answer": "\t•\tQualité et professionnalisme : Nous utilisons des matériaux certifiés et les dernières techniques de construction et finition.\n\t•\tRespect des délais : Nous livrons les projets dans les temps impartis.\n\t•\tTransparence et confiance : Nous entretenons une relation claire et honnête avec nos clients pour assurer leur entière satisfaction.\n\t•\tDurabilité : Nous privilégions des solutions de construction écologiques et économes en énergie qui préservent l'environnement et réduisent les coûts."
+      },
+      "whyChoose": {
+        "question": "Pourquoi choisir E&MO ?",
+        "answer": "Chez E&MO, nos clients sont au cœur de nos préoccupations. Nous offrons :\n\t•\tDes services de construction et rénovation de haute qualité\n\t•\tDes tarifs compétitifs et des offres personnalisées selon le projet\n\t•\tUne équipe professionnelle spécialisée dans tous les domaines de la construction et finition\n\t•\tDes consultations gratuites et un suivi continu\n\nE&MO est votre choix numéro un pour la construction et la rénovation en Belgique, avec un engagement total envers la qualité et des prix attractifs."
+      },
+      "vision": {
+        "question": "Notre vision et mission",
+        "answer": "Nous aspirons à être l'entreprise leader en Belgique répondant à tous les besoins en construction et rénovation, convaincus que chaque projet est une opportunité de créer des designs alliant beauté et fonctionnalité. Nos services incluent des finitions variées, de la menuiserie sur mesure, ainsi que l'aménagement de jardins pour transformer votre maison en un espace unique."
+      },
+      "contact": {
+        "question": "Contactez-nous",
+        "answer": "Vous cherchez une entreprise fiable pour vos travaux de construction et rénovation ? Contactez E&MO dès aujourd'hui pour une consultation gratuite et un devis personnalisé adapté à votre projet. Nous sommes là pour réaliser vos projets de construction avec la meilleure qualité et un professionnalisme inégalé."
+      }
     }
   },
   "services": {

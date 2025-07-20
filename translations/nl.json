@@ -117,6 +117,29 @@
     "contact": {
       "title": "Neem contact met ons op",
       "text": "Zoekt u een betrouwbaar bedrijf voor uw bouw- en renovatiewerk? Neem vandaag nog contact op met E&MO voor een gratis consultatie en een gepersonaliseerde offerte die is aangepast aan uw project. Wij zijn er om uw bouwprojecten te realiseren met de beste kwaliteit en ongeëvenaarde professionaliteit."
+    },
+    "faq": {
+      "title": "Veelgestelde Vragen",
+      "expertise": {
+        "question": "Gespecialiseerde expertise in bouw en renovatie",
+        "answer": "Met meer dan [aantal jaren] jaar ervaring biedt E&MO complete bouwoplossingen, waaronder:\n\t•\tBinnen- en buitenbouw\n\t•\tRenovatie van huizen en commerciële gebouwen\n\t•\tHoogwaardige afwerking en schilderwerk\n\t•\tOntwerp en realisatie van op maat gemaakte timmerwerk en keukens\n\t•\tAanleg en verfraaiing van tuinen en buitenruimtes\n\nOnze experts garanderen solide en esthetische resultaten die voldoen aan de verwachtingen van onze klanten. Bij E&MO zorgen wij voor de uitvoering van binnen- en buitenbouwprojecten met een hoog niveau van precisie en professionaliteit."
+      },
+      "values": {
+        "question": "Onze waarden en principes",
+        "answer": "\t•\tKwaliteit en professionaliteit: Wij gebruiken gecertificeerde materialen en de nieuwste bouw- en afwerkingstechnieken.\n\t•\tRespect voor deadlines: Wij leveren projecten binnen de gestelde tijdslijnen.\n\t•\tTransparantie en vertrouwen: Wij onderhouden een duidelijke en eerlijke relatie met onze klanten om hun volledige tevredenheid te garanderen.\n\t•\tDuurzaamheid: Wij geven voorrang aan ecologische en energiezuinige bouwoplossingen die het milieu beschermen en kosten verlagen."
+      },
+      "whyChoose": {
+        "question": "Waarom E&MO kiezen?",
+        "answer": "Bij E&MO staan onze klanten centraal. Wij bieden:\n\t•\tHoogwaardige bouw- en renovatiediensten\n\t•\tConcurrerende tarieven en gepersonaliseerde aanbiedingen volgens het project\n\t•\tEen professioneel team gespecialiseerd in alle aspecten van bouw en afwerking\n\t•\tGratis consultaties en continue begeleiding\n\nE&MO is uw eerste keuze voor bouw en renovatie in België, met een totale inzet voor kwaliteit en aantrekkelijke prijzen."
+      },
+      "vision": {
+        "question": "Onze visie en missie",
+        "answer": "Wij streven ernaar het toonaangevende bedrijf in België te zijn dat voldoet aan alle behoeften op het gebied van bouw en renovatie, ervan overtuigd dat elk project een kans is om designs te creëren die schoonheid en functionaliteit combineren. Onze diensten omvatten gevarieerde afwerkingen, op maat gemaakte timmerwerk, evenals tuinaanleg om uw huis te transformeren in een unieke ruimte."
+      },
+      "contact": {
+        "question": "Neem contact met ons op",
+        "answer": "Zoekt u een betrouwbaar bedrijf voor uw bouw- en renovatiewerk? Neem vandaag nog contact op met E&MO voor een gratis consultatie en een gepersonaliseerde offerte die is aangepast aan uw project. Wij zijn er om uw bouwprojecten te realiseren met de beste kwaliteit en ongeëvenaarde professionaliteit."
+      }
     }
   },
   "services": {
