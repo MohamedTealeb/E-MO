@@ -32,8 +32,18 @@ const Blogs = ({ t }) => {
 
   return (
     <section className="py-20 bg-gradient-to-br mt-20 from-[#f8fafc] to-[#e0e7ef] min-h-screen">
+      {/* Hero Section with Background Image */}
+      <div className="relative w-full h-[320px] md:h-[500px] flex items-center justify-center mb-16 rounded-3xl overflow-hidden shadow-2xl">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/home2.jpg')" }}></div>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-center drop-shadow-lg">{title}</h2>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-extrabold text-main mb-14 text-center tracking-tight drop-shadow-lg">{title}</h2>
         <div className="flex flex-wrap justify-center gap-12">
           {items.map((item, idx) => (
             <div

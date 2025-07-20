@@ -73,38 +73,34 @@ const About = ({ t }) => {
     <section ref={containerRef} className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 px-6">
       <div className="relative w-full h-[320px] md:h-[700px] flex items-center justify-center mb-16 rounded-3xl overflow-hidden shadow-2xl">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/portfolio.jpg')" }}></div>
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
-          <h1 className="text-2xl md:text-4xl font-bold text-white text-center drop-shadow-lg">{t?.title}</h1>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center w-full h-full px-4 z-10">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
+            <h1 className="text-2xl md:text-4xl font-bold text-white text-center drop-shadow-lg">{t?.title}</h1>
+          </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-12 mb-8 md:mb-16">
-          <div ref={imageRef} className="lg:col-span-1 mb-6 md:mb-0">
-            <div className="relative w-full h-[180px] xs:h-[220px] sm:h-[260px] md:h-[350px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
+          <div ref={imageRef} className="order-2 lg:order-1">
+            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <img src="/About.jpg" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
             </div>
           </div>
 
-          <div ref={sectionsRef} className="lg:col-span-2 space-y-6 sm:space-y-8 md:space-y-12">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/50">
-              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-main to-secondary rounded-xl flex items-center justify-center">
-                  <FaTools className="text-white text-lg sm:text-xl" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-main">{t.expertise.title}</h2>
-              </div>
-              <p className="text-base sm:text-lg text-dark/80 mb-4 sm:mb-6">{t.expertise.text}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 mb-4 sm:mb-6">
+          <div ref={sectionsRef} className="order-1 lg:order-2 flex flex-col justify-center">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-white/50">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t.expertise.title}</h2>
+              <p className="text-base sm:text-lg text-dark/80 mb-6 sm:mb-8 leading-relaxed">{t.expertise.text}</p>
+              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 {t.expertise.services.map((service, index) => (
-                  <div key={index} className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gradient-to-r from-main/5 to-secondary/5 rounded-xl">
-                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                    <span className="text-dark/80 font-medium text-xs sm:text-base">{service}</span>
+                  <div key={index} className="flex items-center gap-3 p-3 sm:p-4 bg-gradient-to-r from-main/5 to-secondary/5 rounded-xl">
+                    <span className="text-dark/80 font-medium text-sm sm:text-base">{service}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-dark/70 italic text-xs sm:text-base">{t.expertise.guarantee}</p>
+              <p className="text-dark/70 italic text-sm sm:text-base">{t.expertise.guarantee}</p>
             </div>
           </div>
         </div>
