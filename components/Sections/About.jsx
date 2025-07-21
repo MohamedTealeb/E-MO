@@ -14,8 +14,25 @@ import {
   FaLightbulb,
   FaPhone,
   FaChevronDown,
-  FaChevronUp
+  FaChevronUp,
+  FaRegClock,
+  FaTruckMoving,
+  FaParking,
+  FaBoxOpen
 } from 'react-icons/fa';
+
+const emojiToIconName = {
+  '🚚': 'FaTruckMoving',
+  '🅿️': 'FaParking',
+  '📦': 'FaBoxOpen',
+  '🛠️': 'FaTools',
+};
+const iconsMap = {
+  FaTruckMoving,
+  FaParking,
+  FaBoxOpen,
+  FaTools,
+};
 
 const About = ({ t }) => {
   const containerRef = useRef(null);
@@ -90,17 +107,18 @@ const About = ({ t }) => {
           </div>
 
           <div ref={sectionsRef} className="order-1 lg:order-2 flex flex-col justify-center">
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-white/50">
+            <div className="   p-6 sm:p-8 md:p-10   ">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t.expertise.title}</h2>
-              <p className="text-base sm:text-lg text-dark/80 mb-6 sm:mb-8 leading-relaxed">{t.expertise.text}</p>
-              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+              <p className="text-base sm:text-lg text-dark/80   leading-relaxed">{t.expertise.text}</p>
+              <div className="space-y-1  sm:mb-8">
                 {t.expertise.services.map((service, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 sm:p-4 bg-gradient-to-r from-main/5 to-secondary/5 rounded-xl">
+                  <div key={index} className="flex items-start gap-2">
+                    <span className="text-blue-500 text-lg mt-0.5">•</span>
                     <span className="text-dark/80 font-medium text-sm sm:text-base">{service}</span>
                   </div>
                 ))}
-              </div>
               <p className="text-dark/70 italic text-sm sm:text-base">{t.expertise.guarantee}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -222,13 +240,18 @@ const About = ({ t }) => {
             <h2 className="text-3xl md:text-4xl font-extrabold mb-2">{t?.customServiceSectionSubtitle}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t?.customServiceCards?.map((card, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-t-4 border-secondary">
-                <span className="text-6xl mb-4">{card.icon}</span>
-                <h3 className="text-xl font-bold text-secondary mb-2 text-center">{card.title}</h3>
-                <p className="text-gray-700 text-center">{card.description}</p>
-              </div>
-            ))}
+            {t?.customServiceCards?.map((card, idx) => {
+              const iconName = emojiToIconName[card.icon] || 'FaTools';
+              const Icon = iconsMap[iconName] || FaTools;
+              return (
+                <div key={idx} className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+                  <h3 className="text-xl font-bold text-secondary mb-2 text-center">
+                    <Icon className="inline mr-2 text-secondary" /> {card.title}
+                  </h3>
+                  <p className="text-gray-700 text-center">{card.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
 

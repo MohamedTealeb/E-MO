@@ -55,26 +55,7 @@
       "guarantee": "Onze experts garanderen solide en esthetische resultaten die voldoen aan de verwachtingen van onze klanten. Bij E&MO zorgen wij voor de uitvoering van binnen- en buitenbouwprojecten met een hoog niveau van precisie en professionaliteit."
     },
     "customServiceCards": [
-      {
-        "icon": "🚚",
-        "title": "Ladderlift",
-        "description": "Onze ladderliften maken uw verhuizing snel, veilig en zonder zorgen, tot de 10e verdieping."
-      },
-      {
-        "icon": "🅿️",
-        "title": "Plaatsing Parkeerbord",
-        "description": "Wij regelen snel en eenvoudig uw parkeerborden voor een vlotte verhuisdag."
-      },
-      {
-        "icon": "📦",
-        "title": "Meubelopslag",
-        "description": "Veilige en flexibele opslag voor uw meubels, tijdelijk of langdurig."
-      },
-      {
-        "icon": "🛠️",
-        "title": "Extra Service",
-        "description": "Persoonlijke begeleiding en advies bij elke stap van uw verhuis of opslag."
-      }
+     
     ],
     "customServiceSectionTitle": "ONZE DIENSTEN",
     "customServiceSectionSubtitle": "Wat bieden wij?",
