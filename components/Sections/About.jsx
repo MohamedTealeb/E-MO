@@ -78,6 +78,16 @@ const About = ({ t }) => {
         }
       );
     }
+
+    if (window.whyImgRef) {
+      gsap.fromTo(window.whyImgRef, { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 1, delay: 0.3 });
+    }
+    if (window.visionImgRef) {
+      gsap.fromTo(window.visionImgRef, { opacity: 0, x: -100 }, { opacity: 1, x: 0, duration: 1, delay: 0.3 });
+    }
+    if (window.contactImgRef) {
+      gsap.fromTo(window.contactImgRef, { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 1, delay: 0.3 });
+    }
   }, []);
 
   if (!t) return null;
@@ -100,13 +110,14 @@ const About = ({ t }) => {
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
-          <div ref={imageRef} className="order-2 lg:order-1">
+          {/* الصورة يمين */}
+          <div ref={imageRef} className="order-1 lg:order-2">
             <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <img src="/About.jpg" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
             </div>
           </div>
-
-          <div ref={sectionsRef} className="order-1 lg:order-2 flex flex-col justify-center">
+          {/* النص شمال */}
+          <div ref={sectionsRef} className="order-2 lg:order-1 flex flex-col justify-center">
             <div className="   p-6 sm:p-8 md:p-10   ">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t.expertise.title}</h2>
               <p className="text-base sm:text-lg text-dark/80   leading-relaxed">{t.expertise.text}</p>
@@ -122,7 +133,7 @@ const About = ({ t }) => {
             </div>
           </div>
         </div>
-
+ {/* 
         <div ref={faqRef} className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/50">
           <div className="faq-header flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
@@ -133,7 +144,7 @@ const About = ({ t }) => {
 
           <div className="space-y-4">
             {/* FAQ Item 1 - Expertise */}
-            <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
+            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('expertise')}>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -150,10 +161,10 @@ const About = ({ t }) => {
                   {t.faq?.expertise?.answer}
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* FAQ Item 2 - Values */}
-            <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
+            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('values')}>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -170,10 +181,10 @@ const About = ({ t }) => {
                   {t.faq?.values?.answer}
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* FAQ Item 3 - Why Choose */}
-            <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
+            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('whyChoose')}>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -190,10 +201,10 @@ const About = ({ t }) => {
                   {t.faq?.whyChoose?.answer}
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* FAQ Item 4 - Vision */}
-            <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
+            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('vision')}>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -210,10 +221,10 @@ const About = ({ t }) => {
                   {t.faq?.vision?.answer}
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* FAQ Item 5 - Contact */}
-            <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
+            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('contact')}>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -230,6 +241,131 @@ const About = ({ t }) => {
                   {t.faq?.contact?.answer}
                 </div>
               )}
+            </div> */}
+          {/* </div>
+        </div> */}  
+
+        {/* سكشن مكرر جديد يبدأ هنا */}
+        <div className="max-w-7xl mx-auto mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
+            <div className="order-2 lg:order-1">
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/home.jpg" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2 flex flex-col justify-center">
+              <div className="p-6 sm:p-8 md:p-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.values?.title}</h2>
+                {t?.values?.content && (
+                  <div className="space-y-1 sm:mb-8">
+                    {t.values.content.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <span className="text-blue-500 text-lg mt-0.5">•</span>
+                        <span className="text-dark/80 font-medium text-sm sm:text-base">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* سكشن مكرر جديد ينتهي هنا */}
+
+        {/* سكشن: لماذا تختارنا */}
+        <div className="max-w-7xl mx-auto mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
+            {/* الصورة يمين */}
+            <div className="order-1 lg:order-2" ref={el => (window.whyImgRef = el)}>
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/home2.jpg" alt="Pourquoi choisir E&MO" className="w-full h-full object-cover object-center" />
+              </div>
+            </div>
+            {/* النص شمال */}
+            <div className="order-2 lg:order-1 flex flex-col justify-center">
+              <div className="p-6 sm:p-8 md:p-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.whyChoose?.title}</h2>
+                <p className="text-base sm:text-lg text-dark/80 leading-relaxed mb-4">{t?.whyChoose?.text}</p>
+                {t?.whyChoose?.benefits && (
+                  <div className="space-y-1 sm:mb-8">
+                    {t.whyChoose.benefits.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <span className="text-blue-500 text-lg mt-0.5">•</span>
+                        <span className="text-dark/80 font-medium text-sm sm:text-base">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <p className="text-dark/70 italic text-sm sm:text-base">{t?.whyChoose?.conclusion}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* سكشن: الرؤية والرسالة */}
+        <div className="max-w-7xl mx-auto mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
+            {/* الصورة شمال */}
+            <div className="order-2 lg:order-1" ref={el => (window.visionImgRef = el)}>
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/insulation.jpg" alt="Notre vision et mission" className="w-full h-full object-cover object-center" />
+              </div>
+            </div>
+            {/* النص يمين */}
+            <div className="order-1 lg:order-2 flex flex-col justify-center">
+              <div className="p-6 sm:p-8 md:p-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.vision?.title}</h2>
+                {Array.isArray(t?.vision?.text) ? (
+                  <div className="space-y-1 sm:mb-8">
+                    {t.vision.text.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <span className="text-blue-500 text-lg mt-0.5">•</span>
+                        <span className="text-dark/80 font-medium text-sm sm:text-base">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex items-start gap-2">
+                    <span className="text-blue-500 text-lg mt-0.5">•</span>
+                    <span className="text-dark/80 font-medium text-sm sm:text-base">{t?.vision?.text}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* سكشن: تواصل معنا */}
+        <div className="max-w-7xl mx-auto mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
+            {/* الصورة يمين */}
+            <div className="order-1 lg:order-2" ref={el => (window.contactImgRef = el)}>
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/portfolio.jpg" alt="Contactez-nous" className="w-full h-full object-cover object-center" />
+              </div>
+            </div>
+            {/* النص شمال */}
+            <div className="order-2 lg:order-1 flex flex-col justify-center">
+              <div className="p-6 sm:p-8 md:p-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.contact?.title}</h2>
+                {Array.isArray(t?.contact?.text) ? (
+                  <div className="space-y-1 sm:mb-8">
+                    {t.contact.text.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <span className="text-blue-500 text-lg mt-0.5">•</span>
+                        <span className="text-dark/80 font-medium text-sm sm:text-base">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex items-start gap-2">
+                    <span className="text-blue-500 text-lg mt-0.5">•</span>
+                    <span className="text-dark/80 font-medium text-sm sm:text-base">{t?.contact?.text}</span>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

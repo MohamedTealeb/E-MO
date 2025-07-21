@@ -95,8 +95,14 @@
         },
         {
           "title": "Durabilité",
-          "desc": "Nous privilégions des solutions de construction écologiques et économes en énergie qui préservent l'environnement et réduisent les coûts."
+          "desc": "Nous privilégions des solutions de construction écologiques et économes en énergie qui préservent l’environnement et réduisent les coûts."
         }
+      ],
+      "content": [
+        "Qualité et professionnalisme : Nous utilisons des matériaux certifiés et les dernières techniques de construction et finition.",
+        "Respect des délais : Nous livrons les projets dans les temps impartis.",
+        "Transparence et confiance : Nous entretenons une relation claire et honnête avec nos clients pour assurer leur entière satisfaction.",
+        "Durabilité : Nous privilégions des solutions de construction écologiques et économes en énergie qui préservent l’environnement et réduisent les coûts."
       ]
     },
     "whyChoose": {
@@ -112,11 +118,11 @@
     },
     "vision": {
       "title": "Notre vision et mission",
-      "text": "Nous aspirons à être l'entreprise leader en Belgique répondant à tous les besoins en construction et rénovation, convaincus que chaque projet est une opportunité de créer des designs alliant beauté et fonctionnalité. Nos services incluent des finitions variées, de la menuiserie sur mesure, ainsi que l'aménagement de jardins pour transformer votre maison en un espace unique."
+      "text": "Nous aspirons à être l’entreprise leader en Belgique répondant à tous les besoins en construction et rénovation, convaincus que chaque projet est une opportunité de créer des designs alliant beauté et fonctionnalité. Nos services incluent des finitions variées, de la menuiserie sur mesure, ainsi que l’aménagement de jardins pour transformer votre maison en un espace unique."
     },
     "contact": {
       "title": "Contactez-nous",
-      "text": "Vous cherchez une entreprise fiable pour vos travaux de construction et rénovation ? Contactez E&MO dès aujourd'hui pour une consultation gratuite et un devis personnalisé adapté à votre projet. Nous sommes là pour réaliser vos projets de construction avec la meilleure qualité et un professionnalisme inégalé."
+      "text": "Vous cherchez une entreprise fiable pour vos travaux de construction et rénovation ? Contactez E&MO dès aujourd’hui pour une consultation gratuite et un devis personnalisé adapté à votre projet. Nous sommes là pour réaliser vos projets de construction avec la meilleure qualité et un professionnalisme inégalé."
     },
     "faq": {
       "title": "Questions Fréquentes",
