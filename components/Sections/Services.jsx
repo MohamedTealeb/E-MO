@@ -84,41 +84,53 @@ const Services = ({ t }) => {
       <div className="w-full">
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 gap-10 px-0">
+        <div className="grid grid-cols-1 gap-10">
           {services.items.map((service, idx) => (
             <div
               key={idx}
-              className={getCardClass(idx)}
-              style={{ minHeight: '260px' }}
+              className={`group bg-white rounded-3xl shadow-lg border border-slate-100 flex flex-col md:${idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-stretch transition-all duration-300 hover:shadow-2xl hover:-translate-y-1`}
+              style={{ minHeight: '340px' }}
             >
-              {/* النصوص والأيقونة والزر */}
-              <div className={getContentClass(idx)}>
-                {/* الأيقونة والعنوان */}
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-4xl md:text-5xl drop-shadow-sm">{Images[idx]?.icon}</span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-main tracking-tight">
-                    {service.title}
-                  </h3>
+              {/* الصورة */}
+              <div className="md:w-1/2 h-60 md:h-auto flex items-stretch justify-stretch p-0 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none overflow-hidden">
+                <img
+                  src={Images[idx]?.src}
+                  alt={Images[idx]?.alt}
+                  className="w-full h-full object-cover rounded-none md:rounded-l-3xl md:rounded-tr-none shadow"
+                  style={{ minHeight: '100%', minWidth: '100%' }}
+                />
+              </div>
+              {/* النصوص */}
+              <div className="flex-1 flex flex-col justify-center p-8 gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-4xl">{Images[idx]?.icon}</span>
+                  <h3 className="text-2xl font-bold text-main">{service.title}</h3>
                 </div>
-                <p className="text-dark/80 text-base md:text-lg mb-2 leading-relaxed max-w-xl">
-                  {service.description}
-                </p>
+                {(idx === 0 || idx === 1) ? (
+                  <div className="text-dark/80 text-base md:text-lg leading-relaxed mb-4">
+                    <p>{service.descriptionIntro}</p>
+                    <ul className="list-disc pl-6 my-2">
+                      {service.bullets && service.bullets.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                    <p>{service.descriptionOutro}</p>
+                  </div>
+                ) : (
+                  <p className="text-dark/80 text-base md:text-lg leading-relaxed">{service.description}</p>
+                )}
+                {service.longDescription && idx !== 0 && (
+                  <div className="text-dark/70 text-base md:text-lg leading-relaxed whitespace-pre-line">
+                    {service.longDescription}
+                  </div>
+                )}
                 <a
                   href={`/${t.locale || 'fr'}/services/${service.id}`}
-                  className="inline-block bg-blue-600 text-white font-semibold py-2 px-7 rounded-lg shadow-sm hover:bg-blue-700 hover:scale-105 transition-all text-center w-fit mt-2"
+                  className="inline-block bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-semibold py-2 px-7 rounded-lg shadow hover:from-blue-700 hover:to-indigo-600 transition-all mt-4"
                 >
                   {t.quoteButton}
                 </a>
               </div>
-              {/* صورة الخدمة */}
-              {Images[idx] && (
-                <img
-                  src={Images[idx].src}
-                  alt={Images[idx].alt}
-                  className={getImageClass(idx)}
-                  style={{ minWidth: 'unset', maxHeight: '260px' }}
-                />
-              )}
             </div>
           ))}
         </div>

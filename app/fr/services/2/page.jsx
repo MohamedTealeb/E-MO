@@ -10,14 +10,17 @@ const ServicePage = async () => {
   return (
     <section className="min-h-[70vh] flex items-center mt-10  justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
       <div className="bg-white/90 shadow-2xl rounded-3xl max-w-2xl w-full mx-auto p-8 border border-gray-100">
-        <div className="flex flex-col items-center mb-8">
+        <div className="relative w-full h-56 md:h-72 rounded-3xl overflow-hidden shadow-2xl mb-8 flex items-center justify-center">
           <img
             src="/bathroom.jpg"
             alt="Service"
-            className="w-64 h-44 object-cover shadow mb-6 border border-blue-200 bg-white"
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          <h1 className="text-3xl md:text-4xl font-bold text-main text-center mb-2">{t.title.replace(/^[^ ]+ /, '')}</h1>
-          <div className="w-20 h-1 bg-gradient-to-r from-main to-secondary rounded-full mb-4"></div>
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-2 drop-shadow">{t.title.replace(/^[^ ]+ /, '')}</h1>
+            <div className="w-20 h-1 bg-gradient-to-r from-main to-secondary rounded-full mb-4"></div>
+          </div>
         </div>
         <p className="text-lg text-dark/80 mb-6 text-center">{t.intro}</p>
         <h2 className="text-xl font-semibold mb-3 text-main">{t.listTitle}</h2>

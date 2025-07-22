@@ -162,22 +162,28 @@
      
         "icon": "🧱",
         "title": "Bouw- en renovatiewerkzaamheden",
-        "description": "Complete bouw- en renovatiediensten voor uw projecten",
-        "details": [
-          "Nieuwe constructies en uitbreidingen",
-          "Binnen- en buitenrenovatie",
-          "Plafondinstallatie en afwerking",
-          "Fundering en structuurwerk",
-          "Elektrische en sanitair installaties"
+        "descriptionIntro": "Wij voeren alle bouw- en renovatiewerkzaamheden uit, zowel binnen als buiten, met een hoog niveau van professionaliteit om u een nieuw huis of een vernieuwde ruimte met een modern design te bieden.",
+        "bullets": [
+          "Binnen- en buitenrenovatie: uw ruimtes nieuw leven inblazen met een verbeterd ontwerp.",
+          "Nieuwbouw: realisatie van bouwprojecten van A tot Z volgens de strengste normen.",
+          "Dakinstallatie: ontwerp en plaatsing van verschillende soorten daken aangepast aan uw wensen en behoeften."
         ],
-        "longDescription": "🧱 Bouw- en renovatiewerkzaamheden\n\nWij voeren alle bouw- en renovatiewerkzaamheden uit, zowel binnen als buiten, met een hoog niveau van professionaliteit om u een nieuw huis of een vernieuwde ruimte met een modern design te bieden.\n\nOnze diensten omvatten:\n\t•\tBinnen- en buitenrenovatie: uw ruimtes nieuw leven inblazen met een verbeterd ontwerp.\n\t•\tNieuwbouw: realisatie van bouwprojecten van A tot Z volgens de strengste normen.\n\t•\tDakinstallatie: ontwerp en plaatsing van verschillende soorten daken aangepast aan uw wensen en behoeften.\n\nOnze expertise garandeert een solide en esthetisch resultaat."
+        "descriptionOutro": "Onze expertise garandeert een solide en esthetisch resultaat.",
+        "details": [
+          "Alle soorten schilderwerk",
+          "Behang en decoratie",
+          "Vloerbekleding en tegels",
+          "Stucwerk en pleisterwerk",
+          "Restauratie van historische elementen"
+        ],
+        "longDescription": "Wij besteden zorg aan elk detail dat uw huis elegant en gastvrij maakt, met een volledig aanbod aan afwerkingsdiensten.\n\nOnze diensten omvatten:\n\t•\tAlle soorten binnen- en buitenschilderwerk met moderne kleuren en hoge kwaliteit.\n\t•\tAlle soorten tegels, in diverse vormen en maten passend bij elke ruimte.\n\t•\tDecoratiewerkzaamheden om een artistiek en esthetisch tintje aan uw interieur te geven.\n\nWij gebruiken de beste materialen en moderne technieken om aan uw wensen te voldoen en het beste resultaat te behalen."
       },
       {
         "id": 1,
     
         "icon": "🎨",
         "title": "Afwerkings- en restauratiewerkzaamheden",
-        "description": "Professionele afwerking en restauratie van uw ruimtes",
+      
         "details": [
           "Alle soorten schilderwerk",
           "Behang en decoratie",

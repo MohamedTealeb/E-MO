@@ -199,18 +199,28 @@ const Navbar = ({ forceDarkText = false }) => {
               {navItems.map((item) => (
                 <div key={item.href}>
                   {item.hasSubmenu ? (
-                    <div>
-                      <button
-                        onClick={() => toggleSubmenu('services')}
-                        className="text-lg cursor-pointer font-semibold hover:text-accent flex items-center justify-between w-full"
-                      >
-                        {item.label}
-                        {openSubmenu === 'services' ? (
-                          <FaChevronUp className="h-4 w-4" />
-                        ) : (
-                          <FaChevronDown className="h-4 w-4" />
-                        )}
-                      </button>
+                    <>
+                      <div className="flex items-center justify-between w-full">
+                        <Link
+                          href={item.href}
+                          className="text-lg font-semibold hover:text-accent flex-1 text-left"
+                          onClick={() => setOpenSubmenu(null)}
+                        >
+                          {item.label}
+                        </Link>
+                        <button
+                          onClick={() => toggleSubmenu('services')}
+                          className="ml-2 p-1 text-main hover:text-accent"
+                          aria-label="Show submenu"
+                          type="button"
+                        >
+                          {openSubmenu === 'services' ? (
+                            <FaChevronUp className="h-4 w-4" />
+                          ) : (
+                            <FaChevronDown className="h-4 w-4" />
+                          )}
+                        </button>
+                      </div>
                       {openSubmenu === 'services' && (
                         <div className="mt-2 ml-4 flex flex-col gap-2">
                           {translations.services?.serviceSubItems?.map((subItem, index) => (
@@ -224,7 +234,7 @@ const Navbar = ({ forceDarkText = false }) => {
                           ))}
                         </div>
                       )}
-                    </div>
+                    </>
                   ) : (
                     <Link
                       href={item.href}

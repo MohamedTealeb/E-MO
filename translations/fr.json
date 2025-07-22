@@ -181,14 +181,15 @@
      
         "icon": "🧱",
         "title": "Travaux de construction et rénovation",
-        "description": "Services complets de construction et rénovation pour vos projets",
-        "details": [
-          "Nouvelles constructions et extensions",
-          "Rénovation intérieure et extérieure",
-          "Installation et finition de plafonds",
-          "Fondations et travaux de structure",
-          "Installations électriques et sanitaires"
+        "description": "Nous réalisons tous les travaux de construction et rénovation, intérieurs et extérieurs, avec un haut niveau de professionnalisme pour vous offrir une maison neuve ou un espace renouvelé au design moderne.\n\nNos services incluent :\n• Rénovation intérieure et extérieure : redonner vie à vos espaces avec une amélioration du design.\n• Construction neuve : réalisation de projets de construction de A à Z selon les normes les plus strictes.\n• Installation de toitures : conception et pose de différents types de toits adaptés à vos goûts et besoins.\n\nNotre expertise garantit un résultat solide et esthétique.",
+        "descriptionIntro": "Nous réalisons tous les travaux de construction et rénovation, intérieurs et extérieurs, avec un haut niveau de professionnalisme pour vous offrir une maison neuve ou un espace renouvelé au design moderne.",
+        "bullets": [
+          "Rénovation intérieure et extérieure : redonner vie à vos espaces avec une amélioration du design.",
+          "Construction neuve : réalisation de projets de construction de A à Z selon les normes les plus strictes.",
+          "Installation de toitures : conception et pose de différents types de toits adaptés à vos goûts et besoins."
         ],
+        "descriptionOutro": "Notre expertise garantit un résultat solide et esthétique.",
+       
         "longDescription": "🧱 Travaux de construction et rénovation\n\nNous réalisons tous les travaux de construction et rénovation, intérieurs et extérieurs, avec un haut niveau de professionnalisme pour vous offrir une maison neuve ou un espace renouvelé au design moderne.\n\nNos services incluent :\n\t•\tRénovation intérieure et extérieure : redonner vie à vos espaces avec une amélioration du design.\n\t•\tConstruction neuve : réalisation de projets de construction de A à Z selon les normes les plus strictes.\n\t•\tInstallation de toitures : conception et pose de différents types de toits adaptés à vos goûts et besoins.\n\nNotre expertise garantit un résultat solide et esthétique."
       },
       {
@@ -196,7 +197,7 @@
      
         "icon": "🎨",
         "title": "Travaux de finition et restauration",
-        "description": "Finition et restauration professionnelles de vos espaces",
+     
         "details": [
           "Tous types de peinture",
           "Papier peint et décoration",
