@@ -251,26 +251,25 @@ const About = ({ t }) => {
         {/* سكشن مكرر جديد يبدأ هنا */}
         <div className="max-w-7xl mx-auto mt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
-            <div className="order-2 lg:order-1">
+            <div className="order-1">
               <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <img src="/home.jpg" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
               </div>
             </div>
 
-            <div className="order-1 lg:order-2 flex flex-col justify-center">
+            <div className="order-2 flex flex-col justify-center">
               <div className="p-6 sm:p-8 md:p-10">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.values?.title}</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-6 lg:text-center">{t?.values?.title}</h2>
                 {t?.values?.content && (
-                  <div className="space-y-1 sm:mb-8">
+                  <div className="space-y-4 sm:mb-8 text-left">
                     {t.values.content.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <span className="text-blue-500 text-lg mt-0.5">•</span>
-                        <span className="text-dark/80 font-medium text-sm sm:text-base">{item}</span>
+                      <div key={idx} className="flex items-start gap-4">
+                        <span className="text-blue-500 text-2xl mt-1">•</span>
+                        <span className="text-dark/80 font-medium text-base sm:text-lg leading-relaxed">{item}</span>
                       </div>
                     ))}
                   </div>
                 )}
-                
               </div>
             </div>
           </div>
@@ -311,13 +310,13 @@ const About = ({ t }) => {
         <div className="max-w-7xl mx-auto mt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
             {/* الصورة شمال */}
-            <div className="order-2 lg:order-1" ref={el => (window.visionImgRef = el)}>
+            <div className="order-1 lg:order-1" ref={el => (window.visionImgRef = el)}>
               <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <img src="/insulation.jpg" alt="Notre vision et mission" className="w-full h-full object-cover object-center" />
               </div>
             </div>
             {/* النص يمين */}
-            <div className="order-1 lg:order-2 flex flex-col justify-center">
+            <div className="order-2 lg:order-2 flex flex-col justify-center">
               <div className="p-6 sm:p-8 md:p-10">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.vision?.title}</h2>
                 {Array.isArray(t?.vision?.text) ? (

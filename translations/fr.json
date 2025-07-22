@@ -168,7 +168,7 @@
       },
       {
         "href": "/fr/services/3",
-        "label": "🌳 Coordination et embellissement de jardins"
+        "label": "🌳  Aménagement et embellissement de jardins"
       },
       {
         "href": "/fr/services/4",
@@ -225,7 +225,7 @@
         "id": 3,
     
         "icon": "🌳",
-        "title": "Coordination et embellissement de jardins",
+        "title": " Aménagement et embellissement de jardins",
         "description": "Conception et aménagement complets de jardins pour votre espace extérieur",
         "details": [
           "Conception et planification de jardins",
@@ -296,7 +296,7 @@
       "conclusion": "Chaque détail est conçu avec précision pour durer et s’adapter à votre mode de vie."
     },
     "garden": {
-      "title": "🌳 Coordination et embellissement de jardins",
+      "title": "🌳  Aménagement et embellissement de jardins",
       "intro": "Parce que les espaces extérieurs sont une partie importante de la maison, nous offrons des services d’aménagement paysager pour faire de votre jardin un véritable havre de paix.",
       "listTitle": "Nos services incluent :",
       "items": [
@@ -351,6 +351,7 @@
       "message": "Message",
       "submit": "Envoyer"
     }
+   
   },
   "footer": {
     "rights": "Tous droits réservés.",
@@ -492,7 +493,8 @@
         "desc": "Détendez-vous et réjouissez-vous, vos rêves vont devenir réalité !"
       }
     ]
-  }
+  },
+   "quoteButton": "Demander un devis"
  
  
 }

@@ -17,8 +17,48 @@ const Services = ({ t }) => {
   const { services } = t;
   const [openIndex, setOpenIndex] = useState(null);
 
+  // اختر شكل الكارت: 'modern' | 'classic' | 'sideCard'
+  const cardStyle = 'modern'; // غيّر هذه القيمة لتجربة الأنماط المختلفة
+
   const handleToggle = (idx) => {
     setOpenIndex(openIndex === idx ? null : idx);
+  };
+
+  // أنماط الكارت
+  const getCardClass = (idx) => {
+    switch (cardStyle) {
+      case 'classic':
+        return `group bg-white/95 rounded-2xl shadow border border-slate-200 p-0 flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer overflow-hidden w-full`;
+      case 'sideCard':
+        return `group bg-gradient-to-r from-blue-50 to-indigo-100 rounded-3xl shadow-md border border-blue-200 p-0 flex flex-col md:flex-row items-stretch transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer overflow-hidden w-full`;
+      case 'modern':
+      default:
+        return `group bg-white/90 backdrop-blur-lg rounded-3xl shadow-md border border-slate-200 p-0 flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden w-full`;
+    }
+  };
+
+  const getImageClass = (idx) => {
+    switch (cardStyle) {
+      case 'classic':
+        return 'w-full h-64 object-cover md:w-1/2 md:h-auto rounded-2xl md:rounded-none md:rounded-r-2xl md:rounded-l-none transition-all duration-300 group-hover:scale-105';
+      case 'sideCard':
+        return 'w-full h-56 object-cover md:w-1/2 md:h-full rounded-2xl md:rounded-none md:rounded-r-3xl md:rounded-l-none m-0 shadow-md border border-blue-100';
+      case 'modern':
+      default:
+        return 'w-full h-72 object-cover md:w-1/2 md:h-full rounded-3xl md:rounded-none md:rounded-r-3xl md:rounded-l-none transition-all duration-300 group-hover:scale-105';
+    }
+  };
+
+  const getContentClass = (idx) => {
+    switch (cardStyle) {
+      case 'classic':
+        return 'flex-1 flex flex-col justify-center items-center text-center gap-3 p-7 md:p-9';
+      case 'sideCard':
+        return 'flex-1 flex flex-col justify-center items-center text-center gap-4 p-6 md:p-10';
+      case 'modern':
+      default:
+        return 'flex-1 flex flex-col justify-center items-center text-center gap-4 p-8 md:p-10';
+    }
   };
 
   return (
@@ -44,26 +84,30 @@ const Services = ({ t }) => {
       <div className="w-full">
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 gap-8 px-0">
+        <div className="grid grid-cols-1 gap-10 px-0">
           {services.items.map((service, idx) => (
             <div
               key={idx}
-              className={`group bg-white/80 backdrop-blur-md rounded-3xl shadow-xl border border-white/50 p-0 flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer overflow-hidden w-full`}
+              className={getCardClass(idx)}
+              style={{ minHeight: '260px' }}
             >
               {/* النصوص والأيقونة والزر */}
-              <div className={`flex-1 flex flex-col justify-center p-6 sm:p-8 items-start text-left ${idx % 2 !== 0 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'}`}>
-                <div className="text-4xl mb-4">{Images[idx]?.icon}</div>
-                <h3 className="text-xl md:text-2xl font-bold text-main mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-dark/70 text-base mb-4 min-h-[48px]">
+              <div className={getContentClass(idx)}>
+                {/* الأيقونة والعنوان */}
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-4xl md:text-5xl drop-shadow-sm">{Images[idx]?.icon}</span>
+                  <h3 className="text-2xl md:text-3xl font-bold text-main tracking-tight">
+                    {service.title}
+                  </h3>
+                </div>
+                <p className="text-dark/80 text-base md:text-lg mb-2 leading-relaxed max-w-xl">
                   {service.description}
                 </p>
                 <a
                   href={`/${t.locale || 'fr'}/services/${service.id}`}
-                  className="inline-block bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow hover:bg-blue-700 transition-colors text-center w-fit"
+                  className="inline-block bg-blue-600 text-white font-semibold py-2 px-7 rounded-lg shadow-sm hover:bg-blue-700 hover:scale-105 transition-all text-center w-fit mt-2"
                 >
-                  Demander un devis
+                  {t.quoteButton}
                 </a>
               </div>
               {/* صورة الخدمة */}
@@ -71,7 +115,7 @@ const Services = ({ t }) => {
                 <img
                   src={Images[idx].src}
                   alt={Images[idx].alt}
-                  className="w-full h-44 object-cover md:w-96 md:h-auto rounded-3xl"
+                  className={getImageClass(idx)}
                   style={{ minWidth: 'unset', maxHeight: '260px' }}
                 />
               )}
