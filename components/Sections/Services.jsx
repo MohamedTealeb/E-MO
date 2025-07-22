@@ -29,7 +29,7 @@ const Services = ({ t }) => {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-400 mb-4 text-center drop-shadow-lg">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-500 mb-4 text-center drop-shadow-lg">
               {services.title}
             </h2>
             <div className="w-24 h-1 bg-white mx-auto mb-4 rounded-full"></div>

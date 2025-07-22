@@ -23,7 +23,7 @@ const Portfolio = ({ t }) => {
       {/* المحتوى */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-300 mb-4 text-center drop-shadow-lg">{t.title}</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-500 mb-4 text-center drop-shadow-lg">{t.title}</h1>
           <p className="text-lg md:text-xl text-gray-200 text-center max-w-3xl mx-auto opacity-90 font-light">
             {t.text}
           </p>
