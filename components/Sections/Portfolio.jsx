@@ -21,12 +21,12 @@ const Portfolio = ({ t }) => {
       {/* خلفية نجوم خفيفة */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none" style={{background: 'radial-gradient(circle at 60% 40%, #fff2 1px, transparent 1px), radial-gradient(circle at 20% 80%, #fff1 1px, transparent 1px)'}} />
       {/* المحتوى */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-500 mb-4 text-center drop-shadow-lg">{t.title}</h1>
-          <p className="text-lg md:text-xl text-gray-200 text-center max-w-3xl mx-auto opacity-90 font-light">
-            {t.text}
-          </p>
+      <div className="relative z-10 flex flex-col items-center justify-center  w-full h-full px-4">
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl  w-[800px] h-[150px] p-6 md:p-8 border border-white/30 shadow-2xl">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold  text-blue-500 mb-4 text-center drop-shadow-lg">{t.title}</h1>
+          <div className="text-gray-300  text-2xl font-bold text-center mt-2">
+              {t?.Home} &nbsp; / &nbsp; {t?.title}
+              </div>
         </div>
       </div>
     </div>

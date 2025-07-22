@@ -28,46 +28,54 @@ const Services = ({ t }) => {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/home.jpg')" }}></div>
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
+          <div className="bg-white/10 backdrop-blur-md  w-[800px] h-[150px] rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-500 mb-4 text-center drop-shadow-lg">
               {services.title}
+
             </h2>
-            <div className="w-24 h-1 bg-white mx-auto mb-4 rounded-full"></div>
-            <p className="text-lg md:text-xl text-gray-200 text-center max-w-3xl mx-auto opacity-90 font-light">
-              {services.subtitle}
-            </p>
+            <div className="text-gray-300  text-2xl font-bold text-center mt-2">
+              {services?.Home} &nbsp; / &nbsp; {services?.title}
+              </div>
+           
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-8 px-0">
           {services.items.map((service, idx) => (
-            <Link
+            <div
               key={idx}
-              href={`/${t.locale || 'fr'}/services/${service.id}`}
-              className="group bg-white/80 backdrop-blur-md rounded-3xl shadow-xl border border-white/50 p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              className={`group bg-white/80 backdrop-blur-md rounded-3xl shadow-xl border border-white/50 p-0 flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer overflow-hidden w-full`}
             >
-              {/* Service Image */}
+              {/* النصوص والأيقونة والزر */}
+              <div className={`flex-1 flex flex-col justify-center p-6 sm:p-8 items-start text-left ${idx % 2 !== 0 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'}`}>
+                <div className="text-4xl mb-4">{Images[idx]?.icon}</div>
+                <h3 className="text-xl md:text-2xl font-bold text-main mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-dark/70 text-base mb-4 min-h-[48px]">
+                  {service.description}
+                </p>
+                <a
+                  href={`/${t.locale || 'fr'}/services/${service.id}`}
+                  className="inline-block bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow hover:bg-blue-700 transition-colors text-center w-fit"
+                >
+                  Demander un devis
+                </a>
+              </div>
+              {/* صورة الخدمة */}
               {Images[idx] && (
-                <>
-                  <img
-                    src={Images[idx].src}
-                    alt={Images[idx].alt}
-                    className="w-full h-32 object-cover rounded-xl mb-4"
-                  />
-                  <div className="text-4xl mb-2">{Images[idx].icon}</div>
-                </>
+                <img
+                  src={Images[idx].src}
+                  alt={Images[idx].alt}
+                  className="w-full h-44 object-cover md:w-96 md:h-auto rounded-3xl"
+                  style={{ minWidth: 'unset', maxHeight: '260px' }}
+                />
               )}
-              <h3 className="text-xl md:text-2xl font-bold text-main mb-2 text-center">
-                {service.title}
-              </h3>
-              <p className="text-dark/70 text-base text-center mb-2 min-h-[48px]">
-                {service.description}
-              </p>
-            </Link>
+            </div>
           ))}
         </div>
 

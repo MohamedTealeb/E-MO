@@ -4,7 +4,7 @@ import gsap from 'gsap';
 
 const Blogs = ({ t }) => {
   if (!t?.blogs) return null;
-  const { title, items } = t.blogs;
+  const { title, items, Home: home } = t.blogs;
   const cardsRef = useRef([]);
 
   useEffect(() => {
@@ -37,8 +37,11 @@ const Blogs = ({ t }) => {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/home2.jpg')" }}></div>
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-center drop-shadow-lg">{title}</h2>
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl w-[900px] h-[180px] max-w-full flex flex-col items-center justify-center mx-auto">
+            <h2 className="text-3xl md:text-4xl lg:text-4xl text-blue-500 font-bold  mb-4 text-center drop-shadow-lg">{title}</h2>
+              <div className="text-gray-300  text-2xl font-bold text-center mt-2">
+              {home} &nbsp; / &nbsp; {title}
+              </div>
           </div>
         </div>
       </div>

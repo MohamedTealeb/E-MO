@@ -102,8 +102,11 @@ const About = ({ t }) => {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/portfolio.jpg')" }}></div>
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-center w-full h-full px-4 z-10">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl">
-            <h1 className="text-2xl md:text-4xl font-bold text-white text-center drop-shadow-lg">{t?.title}</h1>
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl w-[800px] h-[150px] max-w-full flex flex-col items-center justify-center mx-auto">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold  text-blue-500 mb-4 text-center drop-shadow-lg">{t?.title}</h1>
+            <div className="text-gray-300  text-2xl font-bold text-center mt-2">
+            {t?.Home} &nbsp; / &nbsp; {t?.title}
+            </div>
           </div>
         </div>
       </div>

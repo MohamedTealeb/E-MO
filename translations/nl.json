@@ -36,6 +36,7 @@
     "qualityDesc": "Gecertificeerde materialen en moderne technieken"
   },
   "about": {
+     "Home":"Home",
     "title": "Over ons",
     "text": "E&MO is uw ideale partner in België voor al uw bouw-, renovatie-, afwerkings-, timmerwerk- en tuinaanlegprojecten. Wij verbinden ons ertoe om hoogwaardige diensten te leveren tegen concurrerende prijzen, met gebruik van moderne technieken die geschikt zijn voor al uw residentiële en commerciële behoeften.",
     "experience": "Meer dan 10 jaar ervaring",
@@ -130,6 +131,7 @@
     }
   },
   "services": {
+    "Home":"Home",
     "title": "Onze Diensten",
     "subtitle": "Ontdek ons volledige aanbod aan bouw- en renovatiediensten",
     "serviceSubItems": [
@@ -242,6 +244,7 @@
     "hideDetails": "Details verbergen"
   },
   "portfolio": {
+    "Home":"Home",
     "title": "Onze realisaties",
     "text": "Bekijk enkele van onze recente renovatieprojecten. Elk project weerspiegelt onze toewijding aan kwaliteit en design."
   },
@@ -345,6 +348,7 @@
     ]
   },
   "blogs": {
+    "Home":"Home",
     "title": "Onze blogartikelen",
     "items": [
       {
@@ -469,4 +473,5 @@
       "conclusion": "Wij gebruiken de beste technieken om uw huis comfortabel en veilig te houden."
     }
   }
+ 
 }
