@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from "react";
-import { ArrowLeft, ArrowRight, BadgeCheck, MapPin, Briefcase, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, BadgeCheck, MapPin, Briefcase, Users, Wrench } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -20,30 +20,20 @@ export default function Slider_Hero() {
 
   const services = [
     {
-      src: "/home.jpg",
+      src: "/unsplash_cc0Gg3BegjE.png",
       label: t.services.items.kitchen,
       caption: t.services.items.kitchen_caption,
     },
     {
-      src: "/bathroom.jpg",
+      src: "/unsplash_rEJxpBskj3Q.png",
       label: t.services.items.bathroom,
       caption: t.services.items.bathroom_caption,
     },
     {
-      src: "/painting.jpg",
+      src: "/unsplash_mLx6oMw32PI.png",
       label: t.services.items.painting,
       caption: t.services.items.painting_caption,
-    },
-    {
-      src: "/flooring.jpg",
-      label: t.services.items.flooring,
-      caption: t.services.items.flooring_caption,
-    },
-    {
-      src: "/insulation.jpg",
-      label: t.services.items.insulation,
-      caption: t.services.items.insulation_caption,
-    },
+    }
   ];
 
   const handlePrev = () => {
@@ -59,9 +49,7 @@ export default function Slider_Hero() {
 
   return (
     <section className="w-full bg-white py-20 flex flex-col items-center">
-      <span className="uppercase tracking-widest text-xs text-gray-500 mb-2">
-        How can we help?
-      </span>
+    
       <div className="flex items-center gap-2 mb-8">
         <span className="h-2 w-2 rounded-full bg-red-500 inline-block"></span>
         <h2 className="text-4xl md:text-5xl font-bold text-[#1A3C57]">
@@ -71,45 +59,33 @@ export default function Slider_Hero() {
       <div className="relative w-full flex flex-col justify-center items-center">
         {/* Slider */}
         <div className="flex gap-6 w-full justify-center items-center mb-6">
-          {/* Previous Card (partially visible) */}
-          <div
-            className="hidden md:block w-64 opacity-50 scale-90 transition-all duration-300"
-            style={{ zIndex: 1 }}
-          >
-            <ServiceCard {...services[getIndex(current - 1)]} />
+          {/* First Card */}
+          <div className="w-64 h-96  rounded-xl overflow-hidden  scale-90">
+            <img
+              src="/unsplash_mLx6oMw32PI.png"
+              alt="Kitchen"
+              className="w-full h-full object-cover"
+            />
           </div>
-          {/* Main Card */}
-          <div
-            className="w-80 md:w-[32rem] scale-100 shadow-2xl transition-all duration-300"
-            style={{ zIndex: 2 }}
-          >
-            <ServiceCard {...services[current]} main />
+          {/* Second Card - Main */}
+          <div className="w-96 h-[500px] bg-white rounded-xl overflow-hidden scale-105">
+            <img
+              src="/unsplash_rEJxpBskj3Q.png"
+              alt="Living Room"
+              className="w-full h-full object-cover"
+            />
           </div>
-          {/* Next Card (partially visible) */}
-          <div
-            className="hidden md:block w-64 opacity-50 scale-90 transition-all duration-300"
-            style={{ zIndex: 1 }}
-          >
-            <ServiceCard {...services[getIndex(current + 1)]} />
+          {/* Third Card */}
+          <div className="w-64 h-96  rounded-xl overflow-hidden  scale-90">
+            <img
+              src="/unsplash_cc0Gg3BegjE.png"
+              alt="Bathroom"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         {/* Arrows under the slider */}
-        <div className="flex items-center gap-6 mt-2">
-          <button
-            onClick={handlePrev}
-            className="bg-white rounded-full shadow p-3 hover:bg-gray-100 transition"
-            aria-label="Previous"
-          >
-            <ArrowLeft size={28} />
-          </button>
-          <button
-            onClick={handleNext}
-            className="bg-white rounded-full shadow p-3 hover:bg-gray-100 transition"
-            aria-label="Next"
-          >
-            <ArrowRight size={28} />
-          </button>
-        </div>
+        
       </div>
       {/* سكشن المميزات تحت السلايدر */}
       <FeaturesSection t={t} />
@@ -120,19 +96,16 @@ export default function Slider_Hero() {
 function ServiceCard({ src, label, caption, main }) {
   return (
     <div
-      className={`bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center transition-transform ${
+      className={`bg-white rounded-xl overflow-hidden flex flex-col items-center transition-transform ${
         main ? "scale-105" : ""
       }`}
     >
       <img
         src={src}
         alt={label}
-        className={`w-full ${main ? "h-96" : "h-40"} object-cover`}
+        className={`w-full ${main ? "h-[500px]" : "h-60"} object-cover`}
       />
-      <div className="p-6 flex flex-col items-center">
-        <h3 className="text-2xl font-bold text-[#1A3C57]">{label}</h3>
-        <span className="text-xs text-gray-500 mt-2 text-center">{caption}</span>
-      </div>
+      
     </div>
   );
 }
@@ -150,11 +123,11 @@ function FeaturesSection({ t }) {
       title: t.different?.areaTitle || "Wide Area Served",
       desc: t.different?.areaDesc || "Andover, Winchester, Southampton, Gosport and Portsmouth and surrounding areas.",
     },
-    {
-      icon: <Briefcase size={36} className="text-[#1A3C57]" />,
-      title: t.different?.shopTitle || "One Stop Shop",
-      desc: t.different?.shopDesc || "Any home Improvement job you need, we can either do it or find the best person to do so.",
-    },
+          {
+        icon: <Wrench size={36} className="text-[#1A3C57]" />,
+        title: t.different?.shopTitle || "One Stop Shop",
+        desc: t.different?.shopDesc || "Any home Improvement job you need, we can either do it or find the best person to do so.",
+      },
     {
       icon: <Users size={36} className="text-[#1A3C57]" />,
       title: t.different?.friendlyTitle || "Friendly & Reliable",
@@ -179,26 +152,28 @@ function FeaturesSection({ t }) {
     }
   }, [t]);
   const handleMouseEnter = (idx) => {
-    gsap.to(cardsRef.current[idx], { scale: 1.07, boxShadow: '0 8px 32px 0 rgba(30, 64, 175, 0.15)', duration: 0.3, ease: 'power2.out' });
+    gsap.to(cardsRef.current[idx], { scale: 1.07, duration: 0.3, ease: 'power2.out' });
   };
   const handleMouseLeave = (idx) => {
-    gsap.to(cardsRef.current[idx], { scale: 1, boxShadow: '0 1px 6px 0 rgba(30, 64, 175, 0.07)', duration: 0.3, ease: 'power2.out' });
+    gsap.to(cardsRef.current[idx], { scale: 1, duration: 0.3, ease: 'power2.out' });
   };
   return (
-    <div className="w-full mt-16 flex flex-col items-center">
-      <span className="uppercase tracking-widest text-xs text-gray-500 mb-2">{t.different?.sectionTitle || "Why we're different"}</span>
-      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-4 md:gap-0 bg-[#f8f9fb] rounded-xl p-4 md:p-0">
+    <div className="w-full mt-16 flex flex-col items-center bg-[#1A3C57] py-16 px-4">
+      <h2 className="text-4xl md:text-4xl font-bold text-white mb-12 text-center font-serif">
+        {t.different?.sectionTitle || "Pourquoi nous sommes différents"}
+      </h2>
+      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-6 max-w-7xl">
         {features.map((f, i) => (
           <div
             key={i}
             ref={el => cardsRef.current[i] = el}
-            className="flex-1 flex flex-col items-center bg-white m-2 p-6 rounded-xl shadow-sm border border-gray-100 cursor-pointer"
+            className="flex-1 flex flex-col items-center bg-white p-8 rounded-xl cursor-pointer"
             onMouseEnter={() => handleMouseEnter(i)}
             onMouseLeave={() => handleMouseLeave(i)}
           >
-            <div className="mb-4">{f.icon}</div>
-            <h3 className="text-lg font-bold text-[#1A3C57] mb-2 text-center">{f.title}</h3>
-            <p className="text-gray-500 text-center text-sm">{f.desc}</p>
+            <div className="mb-6">{f.icon}</div>
+            <h3 className="text-xl font-bold text-[#1A3C57] mb-4 text-center">{f.title}</h3>
+            <p className="text-gray-600 text-center text-sm leading-relaxed">{f.desc}</p>
           </div>
         ))}
       </div>

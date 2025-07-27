@@ -115,7 +115,7 @@ const About = ({ t }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
           {/* الصورة يمين */}
           <div ref={imageRef} className="order-1 lg:order-2">
-            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
               <img src="/About.jpg" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
             </div>
           </div>
@@ -252,7 +252,7 @@ const About = ({ t }) => {
         <div className="max-w-7xl mx-auto mt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
             <div className="order-1">
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
                 <img src="/home.jpg" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
               </div>
             </div>
@@ -281,7 +281,7 @@ const About = ({ t }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
             {/* الصورة يمين */}
             <div className="order-1 lg:order-2" ref={el => (window.whyImgRef = el)}>
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
                 <img src="/home2.jpg" alt="Pourquoi choisir E&MO" className="w-full h-full object-cover object-center" />
               </div>
             </div>
@@ -311,7 +311,7 @@ const About = ({ t }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
             {/* الصورة شمال */}
             <div className="order-1 lg:order-1" ref={el => (window.visionImgRef = el)}>
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
                 <img src="/insulation.jpg" alt="Notre vision et mission" className="w-full h-full object-cover object-center" />
               </div>
             </div>
@@ -344,7 +344,7 @@ const About = ({ t }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
             {/* الصورة يمين */}
             <div className="order-1 lg:order-2" ref={el => (window.contactImgRef = el)}>
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
                 <img src="/portfolio.jpg" alt="Contactez-nous" className="w-full h-full object-cover object-center" />
               </div>
             </div>
