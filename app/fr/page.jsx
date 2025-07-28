@@ -16,7 +16,7 @@ function page() {
   return (
     <>
     <Hero />
-    <Slider_Hero/>
+    <Slider_Hero t={fr}/>
   
     <AboutUS t={fr.AboutUS} />
     <HeroPromise />

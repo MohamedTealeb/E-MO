@@ -1,11 +1,11 @@
-import Services from '@/components/Sections/Services';
+import ServicesPage from '@/components/Sections/ServicesPage';
 import Footer from '@/components/shared/Footer';
 import  nl  from '@/translations/nl.json';
 
 function page() {
   return (
     <>
-    <Services t={nl} />
+    <ServicesPage t={nl} />
     <Footer t={nl} locale="nl" />
     </>
   )

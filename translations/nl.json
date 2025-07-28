@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "Over ons",
+    "aboutUs": "Over ons",
     "portfolio": "Portfolio",
     "contact": "Contact",
     "services": "Services",
@@ -56,7 +57,26 @@
       "guarantee": "Onze experts garanderen solide en esthetische resultaten die voldoen aan de verwachtingen van onze klanten. Bij E&MO zorgen wij voor de uitvoering van binnen- en buitenbouwprojecten met een hoog niveau van precisie en professionaliteit."
     },
     "customServiceCards": [
-     
+      {
+        "icon": "🚚",
+        "title": "Meubelverhuizing",
+        "description": "Onze meubelverhuizers zorgen voor een snelle, veilige en zorgeloze verhuizing tot aan de 10e verdieping."
+      },
+      {
+        "icon": "🅿️",
+        "title": "Plaatsing van parkeerpanelen",
+        "description": "Wij zorgen snel voor uw parkeerpanelen voor een stressvrije verhuizing."
+      },
+      {
+        "icon": "📦",
+        "title": "Meubelopslag",
+        "description": "Veilige en flexibele opslag voor uw meubels, tijdelijk of langdurig."
+      },
+      {
+        "icon": "🛠️",
+        "title": "Extra service",
+        "description": "Persoonlijke begeleiding en advies bij elke stap van uw verhuizing of opslag."
+      }
     ],
     "customServiceSectionTitle": "ONZE DIENSTEN",
     "customServiceSectionSubtitle": "Wat bieden wij?",
@@ -279,7 +299,15 @@
   "portfolio": {
     "Home":"Home",
     "title": "Onze realisaties",
-    "text": "Bekijk enkele van onze recente renovatieprojecten. Elk project weerspiegelt onze toewijding aan kwaliteit en design."
+    "text": "Bekijk enkele van onze recente renovatieprojecten. Elk project weerspiegelt onze toewijding aan kwaliteit en design.",
+    "recentWorks": "Onze recente werk",
+    "recentWorksSubtitle": "Ontdek onze nieuwste renovatieprojecten en zie de transformatie in actie",
+    "valuesTitle": "De waarden die alles wat we doen begeleiden",
+    "values": {
+      "dreamHouse": "Droomhuis",
+      "luxuryLife": "Luxe leven",
+      "comfortDesign": "Comfort ontwerp"
+    }
   },
   "contact": {
     "title": "Neem vandaag nog contact met ons op",
@@ -384,6 +412,24 @@
     "Home":"Home",
     "title": "Onze blogartikelen",
     "items": [
+      {
+        "title": "5 tips voor een geslaagde renovatie",
+        "excerpt": "Ontdek onze praktische tips voor een succesvolle en betaalbare renovatie.",
+        "author": "E-Mo Team",
+        "image": "/home.jpg"
+      },
+      {
+        "title": "Interieurtrends 2024",
+        "excerpt": "De nieuwste trends op het gebied van interieurdecoratie voor dit jaar.",
+        "author": "Sarah Morel",
+        "image": "/painting.jpg"
+      },
+      {
+        "title": "Hoe kies je een betrouwbare aannemer?",
+        "excerpt": "De belangrijkste punten om de juiste vakman voor je project te kiezen.",
+        "author": "Paul Martin",
+        "image": "/kitchen.jpg"
+      },
       {
         "title": "5 tips voor een geslaagde renovatie",
         "excerpt": "Ontdek onze praktische tips voor een succesvolle en betaalbare renovatie.",

@@ -6,7 +6,7 @@ import nl from '@/translations/nl.json';
 export default function Page() {
   return (
     <>
-      <Portfolio t={nl.portfolio} />
+      <Portfolio t={nl} />
   
       <Footer t={nl} locale="nl" />
     </>

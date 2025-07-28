@@ -49,7 +49,7 @@ export const Contact = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-20 px-4">
+    <div className="min-h-screen overflow-hidden bg-gray-100 py-20 px-4">
       {/* Header Section */}
       <div className="text-center mb-12 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">

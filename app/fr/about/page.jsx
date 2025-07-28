@@ -5,7 +5,7 @@ import fr from '@/translations/fr.json';
 export default function Page() {
   return (
     <>
-      <About t={fr.about} locale="fr" />
+      <About t={fr} locale="fr" />
       <Footer t={fr} locale="fr" />
     </>
   );

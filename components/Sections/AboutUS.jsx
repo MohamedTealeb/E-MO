@@ -62,13 +62,13 @@ const Aboutus = ({ t }) => {
 
                 <div
                   ref={cardRef2}
-                  className="flex-1 bg-gray-300 text-gray-700 shadow-lg rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 "
+                  className="flex-1 bg-gray-300 text-main shadow-lg rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 "
                 >
-                  <FaCheckCircle className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-600 mb-2 sm:mb-3 " />
-                  <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white mb-1 sm:mb-2">
+                  <FaCheckCircle className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-main mb-2 sm:mb-3 " />
+                  <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-main mb-1 sm:mb-2">
                     {t.quality || "Travail soigné et matériaux de qualité"}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600">
+                  <p className="text-xs sm:text-sm text-main">
                     {t.qualityDesc || "Matériaux certifiés et techniques modernes"}
                   </p>
                 </div>

@@ -2,6 +2,7 @@
   "nav": {
     "home": "Accueil",
     "about": "À propos",
+    "aboutUs": "À propos de nous",
     "portfolio": "Portfolio",
     "contact": "Contact",
     "services" : "Services",
@@ -348,7 +349,15 @@
   "portfolio": {
     "Home":"Accueil",
     "title": "Nos réalisations",
-    "text": "Découvrez quelques-uns de nos projets de rénovation récents. Chaque projet reflète notre engagement envers la qualité et le design."
+    "text": "Découvrez quelques-uns de nos projets de rénovation récents. Chaque projet reflète notre engagement envers la qualité et le design.",
+    "recentWorks": "Nos travaux récents",
+    "recentWorksSubtitle": "Découvrez nos derniers projets de rénovation et voyez la transformation en action",
+    "valuesTitle": "Les valeurs qui guident tout ce que nous faisons",
+    "values": {
+      "dreamHouse": "Maison de rêve",
+      "luxuryLife": "Vie de luxe",
+      "comfortDesign": "Conception de confort"
+    }
   },
   "contact": {
     "title": "Contactez-nous dès aujourd'hui",
@@ -454,6 +463,24 @@
     "Home":"Accueil",
     "title": "Nos articles de blog",
     "items": [
+      {
+        "title": "5 astuces pour rénover votre maison",
+        "excerpt": "Découvrez nos conseils pratiques pour une rénovation réussie et économique.",
+        "author": "Equipe E-Mo",
+        "image": "/home.jpg"
+      },
+      {
+        "title": "Tendances déco 2024",
+        "excerpt": "Les dernières tendances en matière de décoration intérieure pour cette année.",
+        "author": "Sarah Morel",
+        "image": "/painting.jpg"
+      },
+      {
+        "title": "Comment choisir un entrepreneur fiable?",
+        "excerpt": "Les points clés pour sélectionner le bon professionnel pour vos travaux.",
+        "author": "Paul Martin",
+        "image": "/kitchen.jpg"
+      },
       {
         "title": "5 astuces pour rénover votre maison",
         "excerpt": "Découvrez nos conseils pratiques pour une rénovation réussie et économique.",
