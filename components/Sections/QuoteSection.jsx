@@ -60,52 +60,55 @@ const QuoteSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="w-full flex flex-col md:flex-row gap-8 py-16 px-4 md:px-16 bg-[#f8f9fb]">
-      {/* Left Card */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 max-w-lg w-full flex flex-col items-start">
-        <img src={image} alt="" className="w-full h-56 object-cover rounded-xl mb-6" />
-        <span className="uppercase text-xs text-gray-500 mb-2">{subtitle}</span>
-        <h2 className="text-3xl font-bold text-[#1A3C57] mb-4">{title}</h2>
-        <p className="text-gray-500 mb-6">{desc}</p>
-        <Link href={`/${currentLocale}/contact`}>
-          <button className="bg-blue-600 cursor-pointer text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-blue-700 transition animate-pulse flex items-center gap-2 ring-2 ring-blue-300 ring-offset-2">
-            {button}
-            <span className="animate-bounce">→</span>
-          </button>
-        </Link>
-      </div>
-      {/* Timeline */}
-      <div className="flex-1 flex flex-col justify-center relative">
-        <div className="absolute left-6 top-0 bottom-0 w-1 bg-gray-200 rounded-full z-0 hidden md:block" />
-        <motion.div
-          className="flex flex-col gap-12 pl-0 md:pl-20"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="relative flex items-start gap-6"
-              ref={el => stepsRefs.current[idx] = el}
-            >
-              {/* Circle Number */}
-              <div className="flex flex-col items-center z-10">
-                <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-blue-600 font-bold text-xl border-2 border-blue-100">
-                  {idx + 1}
-                </div>
-                {idx < steps.length - 1 && (
-                  <div className="w-1 flex-1 bg-gray-200 mt-1" />
-                )}
-              </div>
-              {/* Step Content */}
-              <div className="bg-white rounded-xl shadow p-6 flex-1">
-                <h3 className="text-lg font-bold text-[#1A3C57] mb-2">{step.title}</h3>
-                <p className="text-gray-500">{step.desc}</p>
-              </div>
+    <section ref={sectionRef} className="w-full bg-gray-200 py-16 px-4 md:px-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Left Card - Main Content */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col">
+          {/* Image */}
+          <div className="w- h-72 mb-6 rounded-xl overflow-hidden">
+            <img src="/unsplash_YqFz7UMm8qE.png" alt="" className="w-full h-full object-cover" />
+          </div>
+          
+          {/* Text Content */}
+          <div className="flex-1">
+            <span className="uppercase text-xs text-gray-500 mb-2 font-semibold tracking-wider">{subtitle}</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1A3C57] mb-4 leading-tight">{title}</h2>
+            <p className="text-gray-600 mb-6 leading-relaxed">{desc}</p>
+            
+            {/* Button */}
+            <div className="flex justify-end items-center gap-3">
+              <span className="text-[#1A3C57] font-semibold">{button}</span>
+              <Link href={`/${currentLocale}/contact`}>
+                <button className="bg-[#1A3C57] text-white w-12 cursor-pointer h-12 rounded-full font-semibold shadow-lg hover:bg-[#0f2a3f] transition-all duration-300 flex items-center justify-center">
+                  <span className="text-white text-lg">→</span>
+                </button>
+              </Link>
             </div>
-          ))}
-        </motion.div>
+          </div>
+        </div>
+
+        {/* Right Column - Timeline */}
+        <div className="flex flex-col justify-center relative">
+          {/* Vertical Line */}
+          <div className="absolute left-6 top-0 bottom-0 w-1 bg-gray-300 rounded-full z-0 hidden md:block" />
+          
+          {/* Steps */}
+          <div className="flex flex-col gap-6 pl-0 md:pl-20">
+            {steps.map((step, idx) => (
+              <div
+                key={idx}
+                className="relative"
+                ref={el => stepsRefs.current[idx] = el}
+              >
+                {/* Step Card */}
+                <div className="bg-white rounded-xl shadow-lg p-4 md:p-6">
+                  <h3 className="text-lg font-bold text-[#1A3C57] mb-2">{step.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

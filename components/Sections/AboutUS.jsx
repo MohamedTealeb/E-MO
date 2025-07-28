@@ -30,60 +30,62 @@ const Aboutus = ({ t }) => {
   if (!t) return null;
 
   return (
-    <section className="bg-[#eee] py-12 sm:py-16 md:py-20 px-4 sm:px-6">
+    <section className="bg-gray-200 py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          {/* Left - Text and Cards */}
-          <div
-            ref={containerRef}
-            className="backdrop-blur-md bg-white/20 rounded-2xl lg:rounded-3xl shadow-xl p-6 sm:p-8 md:p-12 flex-1 w-full"
-          >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-main mb-4 sm:mb-6 leading-tight">
-              {t.title || "À propos de nous"}
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-gray-800 leading-relaxed mb-6 sm:mb-8 md:mb-10 max-w-2xl">
-              {t.text || "E&MO est votre partenaire idéal en Belgique pour tous vos travaux de construction, rénovation, finitions, menuiserie et aménagement paysager."}
-            </p>
+        <div className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-xl overflow-hidden">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12">
+            {/* Left - Text and Cards */}
+            <div
+              ref={containerRef}
+              className="flex-1 w-full"
+            >
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#1A3C57] mb-3 sm:mb-4 md:mb-6 leading-tight">
+                {t.title || "À propos de nous – E&MO, entreprise de construction et rénovation en Belgique"}
+              </h1>
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6 md:mb-8 lg:mb-10 max-w-2xl">
+                {t.text || "E&MO est votre partenaire idéal en Belgique pour tous vos travaux de construction, rénovation, finitions, menuiserie et aménagement paysager. Nous nous engageons à fournir des services de haute qualité à des prix compétitifs, utilisant des techniques modernes adaptées à tous vos besoins résidentiels et commerciaux."}
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <div
-                ref={cardRef1}
-                className="flex-1 bg-white bg-opacity-70 border border-gray-200 shadow-lg rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center"
-              >
-                <FaAward className="text-2xl sm:text-3xl md:text-4xl text-secondary mb-2 sm:mb-3 mx-auto" />
-                <h3 className="text-lg sm:text-xl font-semibold text-main mb-1 sm:mb-2">
-                  {t.experience || "Plus de 10 ans d'expérience"}
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  {t.experienceDesc || "Expertise spécialisée en construction et rénovation"}
-                </p>
-              </div>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6">
+                <div
+                  ref={cardRef1}
+                  className="flex-1 bg-[#1A3C57] text-white shadow-lg rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 "
+                >
+                  <FaAward className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white mb-2 sm:mb-3 " />
+                  <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white mb-1 sm:mb-2">
+                    {t.experience || "Plus de 10 ans d'expérience"}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-200">
+                    {t.experienceDesc || "Expertise spécialisée en construction et rénovation"}
+                  </p>
+                </div>
 
-              <div
-                ref={cardRef2}
-                className="flex-1 bg-white bg-opacity-70 border border-gray-200 shadow-lg rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center"
-              >
-                <FaCheckCircle className="text-2xl sm:text-3xl md:text-4xl text-secondary mb-2 sm:mb-3 mx-auto" />
-                <h3 className="text-lg sm:text-xl font-semibold text-main mb-1 sm:mb-2">
-                  {t.quality || "Travail soigné et matériaux de qualité"}
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600">
-                  {t.qualityDesc || "Matériaux certifiés et techniques modernes"}
-                </p>
+                <div
+                  ref={cardRef2}
+                  className="flex-1 bg-gray-300 text-gray-700 shadow-lg rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 "
+                >
+                  <FaCheckCircle className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-600 mb-2 sm:mb-3 " />
+                  <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white mb-1 sm:mb-2">
+                    {t.quality || "Travail soigné et matériaux de qualité"}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600">
+                    {t.qualityDesc || "Matériaux certifiés et techniques modernes"}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Right - Image */}
-          <div
-            ref={imageRef}
-            className="w-full sm:w-[300px] md:w-[350px] lg:w-[400px] h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl flex-shrink-0"
-          >
-            <img
-              src="/About.jpg"
-              alt="About Us"
-              className="w-full h-full object-cover object-center"
-            />
+            {/* Right - Image */}
+            <div
+              ref={imageRef}
+              className="w-full sm:w-[280px] md:w-[320px] lg:w-[380px] xl:w-[400px] h-[400px] sm:h-[480px] md:h-[560px] lg:h-[640px] xl:h-[920px] rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 mt-6 lg:mt-0"
+            >
+              <img
+                src="/unsplash_sgIhwj4cSiU.png"
+                alt="About Us"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </div>

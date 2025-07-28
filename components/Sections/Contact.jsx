@@ -1,6 +1,6 @@
 'use client'
 import React, { useRef, useEffect } from 'react';
-import { FaPhoneAlt, FaEnvelope, FaAddressBook, FaPaperPlane, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 import fr from '@/translations/fr.json';
@@ -14,13 +14,11 @@ export const Contact = () => {
   const t = translations[locale].contact;
 
   const formRef = useRef(null);
-  const infoRef = useRef(null);
+  const cardsRef = useRef([]);
 
   useEffect(() => {
-    gsap.fromTo([
+    gsap.fromTo(
       formRef.current,
-      infoRef.current
-    ],
       {
         opacity: 0,
         y: 60
@@ -29,200 +27,185 @@ export const Contact = () => {
         opacity: 1,
         y: 0,
         duration: 0.8,
-        stagger: 0.2,
         ease: 'power3.out'
+      }
+    );
+
+    gsap.fromTo(
+      cardsRef.current,
+      {
+        opacity: 0,
+        y: 30
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        delay: 0.4,
+        ease: 'power2.out'
       }
     );
   }, []);
 
   return (
-    <div className="flex flex-col items-center mt-10 justify-center min-h-screen bg-gradient-to-br from-[#f8fafc] via-[#e2e8f0] to-[#cbd5e1] px-4 py-12">
+    <div className="min-h-screen bg-gray-100 py-20 px-4">
       {/* Header Section */}
       <div className="text-center mb-12 max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold text-main mb-6 drop-shadow-lg leading-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
           {t.title}
         </h1>
-        <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
-        <h2 className="text-2xl md:text-3xl font-semibold text-dark mb-4 opacity-90">
-          {t.subtitle}
-        </h2>
-        <p className="text-lg md:text-xl text-dark/80 leading-relaxed max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
           {t.text}
         </p>
       </div>
 
-      {/* Main Content */}
-      <div className="w-full max-w-6xl flex flex-col lg:flex-row gap-8 lg:gap-12">
-        {/* Contact Form */}
-        <div ref={formRef} className="flex-1">
-          <div className="bg-white/95 backdrop-blur-sm p-8 md:p-10 rounded-3xl shadow-2xl border border-white/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl">
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-main mb-2">Formulaire de contact</h3>
-              <p className="text-dark/70">Remplissez le formulaire ci-dessous</p>
+      {/* Image above form */}
+      <div className=" w-full absolute  left-0 mx-auto mb-16">
+        <img 
+          src="/Rectangle 31.png" 
+          alt="Contact illustration" 
+          className="w-full h-auto rounded-2xl shadow-lg"
+        />
+      </div>
+
+      {/* Contact Form Card */}
+      <div className="max-w-2xl mx-auto mb-16">
+        <div ref={formRef} className="bg-white rounded-2xl shadow-lg p-8 relative">
+          {/* Background Map Textures */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute left-0 top-0 w-1/3 h-full bg-gradient-to-br from-brown-200 to-brown-300 transform -rotate-12 -translate-x-8"></div>
+            <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-br from-green-200 to-green-300 transform rotate-12 translate-x-8"></div>
+          </div>
+          
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">Formulaire de contact</h3>
+              <p className="text-gray-600">Remplissez le formulaire ci-dessous</p>
             </div>
             
             <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-main mb-2 font-semibold text-sm uppercase tracking-wide" htmlFor="name">
-                    {t.form.name}
-                  </label>
+              <div>
+                <label className="block text-gray-700 mb-2 font-medium" htmlFor="name">
+                  Nom et prénom
+                </label>
+                <div className="border-b-2 border-gray-300 pb-2">
                   <input
                     id="name"
                     type="text"
-                    placeholder={`Votre ${t.form.name.toLowerCase()}`}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 bg-white/80 transition-all duration-300 text-lg"
+                    placeholder="Votre nom et prénom"
+                    className="w-full bg-transparent border-none outline-none text-lg"
                   />
                 </div>
-                <div>
-                  <label className="block text-main mb-2 font-semibold text-sm uppercase tracking-wide" htmlFor="phone">
-                    {t.form.phone}
-                  </label>
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 mb-2 font-medium" htmlFor="phone">
+                  Téléphone
+                </label>
+                <div className="border-b-2 border-gray-300 pb-2">
                   <input
                     id="phone"
                     type="tel"
-                    placeholder={`Votre ${t.form.phone.toLowerCase()}`}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 bg-white/80 transition-all duration-300 text-lg"
+                    placeholder="Votre téléphone"
+                    className="w-full bg-transparent border-none outline-none text-lg"
                   />
                 </div>
               </div>
               
               <div>
-                <label className="block text-main mb-2 font-semibold text-sm uppercase tracking-wide" htmlFor="email">
-                  {t.form.email}
+                <label className="block text-gray-700 mb-2 font-medium" htmlFor="email">
+                  Email
                 </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder={`Votre ${t.form.email.toLowerCase()}`}
-                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 bg-white/80 transition-all duration-300 text-lg"
-                />
+                <div className="border-b-2 border-gray-300 pb-2">
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Votre email"
+                    className="w-full bg-transparent border-none outline-none text-lg"
+                  />
+                </div>
               </div>
               
               <div>
-                <label className="block text-main mb-2 font-semibold text-sm uppercase tracking-wide" htmlFor="message">
-                  {t.form.message}
+                <label className="block text-gray-700 mb-2 font-medium" htmlFor="message">
+                  Message
                 </label>
-                <textarea
-                  id="message"
-                  placeholder={`Votre ${t.form.message.toLowerCase()}`}
-                  rows={6}
-                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 bg-white/80 transition-all duration-300 text-lg resize-none"
-                />
+                <div className="border-b-2 border-gray-300 pb-2">
+                  <textarea
+                    id="message"
+                    placeholder="Votre message"
+                    rows={4}
+                    className="w-full bg-transparent border-none outline-none text-lg resize-none"
+                  />
+                </div>
               </div>
               
               <button
                 type="submit"
-                className="w-full cursor-pointer bg-gradient-to-r from-main to-secondary hover:from-secondary hover:to-main text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="w-full  bg-main text-white font-bold py-4 px-8 rounded-lg flex items-center justify-center gap-3 text-lg transition-all duration-300 mt-8"
               >
                 <FaPaperPlane className="text-xl" />
-                {t.form.submit}
+                Envoyer
               </button>
             </form>
           </div>
         </div>
+      </div>
 
-        {/* Contact Information */}
-        <div ref={infoRef} className="flex-1">
-          <div className="bg-white/95 backdrop-blur-sm p-8 md:p-10 rounded-3xl shadow-2xl border border-white/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-3xl">
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-main mb-2">Informations de contact</h3>
-              <p className="text-dark/70">Nous sommes là pour vous aider</p>
+      {/* Contact Information Cards */}
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-main mb-4">Entrer en contact</h2>
+          <div className="flex items-center justify-center gap-2 mb-2">
+          
+            <p className="text-lg text-gray-600">Nous sommes là pour vous aider</p>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Phone Card */}
+          <div 
+            ref={el => (cardsRef.current[0] = el)}
+            className="bg-white rounded-2xl shadow-lg p-6 relative"
+          >
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-main rounded-full flex items-center justify-center">
+              <FaPhoneAlt className="text-white text-xl" />
             </div>
-            
-            <div className="space-y-8">
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100">
-                <div className="flex-shrink-0 w-12 h-12 bg-main rounded-xl flex items-center justify-center">
-                  <FaPhoneAlt className="text-white text-xl" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-main mb-1">Téléphone</h4>
-                  <p className="text-dark/80 text-lg font-semibold">+32 123 45 67 89</p>
-                  <p className="text-dark/60 text-sm">Lun-Ven: 8h-18h</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100">
-                <div className="flex-shrink-0 w-12 h-12 bg-secondary rounded-xl flex items-center justify-center">
-                  <FaEnvelope className="text-white text-xl" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-main mb-1">Email</h4>
-                  <p className="text-dark/80 text-lg font-semibold">info@e-morenovation.be</p>
-                  <p className="text-dark/60 text-sm">Réponse sous 24h</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-100">
-                <div className="flex-shrink-0 w-12 h-12 bg-accent rounded-xl flex items-center justify-center">
-                  <FaMapMarkerAlt className="text-white text-xl" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-main mb-1">Adresse</h4>
-                  <p className="text-dark/80 text-lg font-semibold">123 Rue Exemple</p>
-                  <p className="text-dark/60 text-sm">1000 Ville, Belgique</p>
-                </div>
-              </div>
+            <div className="text-center pt-8">
+              <h3 className="text-xl font-bold text-main mb-3">Téléphone</h3>
+              <p className="text-gray-700 text-lg font-semibold mb-1">+32 123 45 67 89</p>
+              <p className="text-gray-600 text-sm">Lun-Ven: 8h-18h</p>
             </div>
+          </div>
 
-            {/* Additional Info */}
-            <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-main/10 to-secondary/10 border border-main/20">
-              <h4 className="font-bold text-main mb-3 text-lg">{t.whyContactUs}</h4>
-              <ul className="space-y-2 text-dark/80">
-                {t.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
+          {/* Email Card */}
+          <div 
+            ref={el => (cardsRef.current[1] = el)}
+            className="bg-white rounded-2xl shadow-lg p-6 relative"
+          >
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-main rounded-full flex items-center justify-center">
+              <FaEnvelope className="text-white text-xl" />
             </div>
+            <div className="text-center pt-8">
+              <h3 className="text-xl font-bold text-main mb-3">Email</h3>
+              <p className="text-gray-700 text-lg font-semibold mb-1 underline">info@e-morenovation.be</p>
+              <p className="text-gray-600 text-sm">Réponse sous 24h</p>
+            </div>
+          </div>
 
-            {/* Suggested Keywords */}
-            <div className="mt-6 p-8 rounded-3xl bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 border border-slate-200/50 shadow-lg">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-main to-secondary rounded-xl flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-bold text-main text-xl">{t.keywords}</h4>
-                  <p className="text-dark/60 text-sm">{t.keywordsSubtitle}</p>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {t.suggestedKeywords.map((keyword, index) => (
-                  <div 
-                    key={index}
-                    className="group relative overflow-hidden"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-main/5 to-secondary/5 rounded-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:from-main/10 group-hover:to-secondary/10"></div>
-                    <div className="relative p-4 bg-white/70 backdrop-blur-sm border border-white/50 rounded-2xl hover:border-secondary/30 transition-all duration-300 cursor-pointer group-hover:shadow-lg group-hover:-translate-y-1">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-main to-secondary rounded-lg flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
-                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          </svg>
-                        </div>
-                        <span className="text-dark/80 font-medium text-sm group-hover:text-main transition-colors">
-                          {keyword}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-6 p-4 bg-gradient-to-r from-main/5 to-secondary/5 rounded-2xl border border-main/10">
-                <div className="flex items-center gap-2 text-sm text-dark/70">
-                  <svg className="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>{t.keywordsInfo}</span>
-                </div>
-              </div>
+          {/* Address Card */}
+          <div 
+            ref={el => (cardsRef.current[2] = el)}
+            className="bg-white rounded-2xl shadow-lg p-6 relative"
+          >
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-main rounded-full flex items-center justify-center">
+              <FaMapMarkerAlt className="text-white text-xl" />
+            </div>
+            <div className="text-center pt-8">
+              <h3 className="text-xl font-bold text-main mb-3">Adresse</h3>
+              <p className="text-gray-700 text-lg font-semibold mb-1">123 Rue Exemple</p>
+              <p className="text-gray-600 text-sm">1000 Ville, Belgique</p>
             </div>
           </div>
         </div>

@@ -48,19 +48,19 @@ export default function Slider_Hero() {
   const getIndex = (idx) => (idx + services.length) % services.length;
 
   return (
-    <section className="w-full bg-white py-20 flex flex-col items-center">
+    <section className="w-full bg-white py-8 sm:py-12 md:py-16 lg:py-20 flex flex-col items-center">
     
-      <div className="flex items-center gap-2 mb-8">
+      <div className="flex items-center gap-2 mb-6 sm:mb-8">
         <span className="h-2 w-2 rounded-full bg-red-500 inline-block"></span>
-        <h2 className="text-4xl md:text-5xl font-bold text-[#1A3C57]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A3C57]">
           Our Services
         </h2>
       </div>
-      <div className="relative w-full flex flex-col justify-center items-center">
+      <div className="relative w-full flex flex-col justify-center items-center mb-6">
         {/* Slider */}
-        <div className="flex gap-6 w-full justify-center items-center mb-6">
+        <div className="flex gap-2 sm:gap-4 md:gap-6 w-full justify-center items-center mb-6 px-4 sm:px-6 md:px-8">
           {/* First Card */}
-          <div className="w-64 h-96  rounded-xl overflow-hidden  scale-90">
+          <div className="w-32 h-48 sm:w-48 sm:h-72 md:w-56 md:h-80 lg:w-64 lg:h-96 rounded-xl overflow-hidden scale-75 sm:scale-85 md:scale-90">
             <img
               src="/unsplash_mLx6oMw32PI.png"
               alt="Kitchen"
@@ -68,7 +68,7 @@ export default function Slider_Hero() {
             />
           </div>
           {/* Second Card - Main */}
-          <div className="w-96 h-[500px] bg-white rounded-xl overflow-hidden scale-105">
+          <div className="w-48 h-64 sm:w-64 sm:h-80 md:w-80 md:h-96 lg:w-96 lg:h-[500px] bg-white rounded-xl overflow-hidden scale-90 sm:scale-95 md:scale-100 lg:scale-105">
             <img
               src="/unsplash_rEJxpBskj3Q.png"
               alt="Living Room"
@@ -76,7 +76,7 @@ export default function Slider_Hero() {
             />
           </div>
           {/* Third Card */}
-          <div className="w-64 h-96  rounded-xl overflow-hidden  scale-90">
+          <div className="w-32 h-48 sm:w-48 sm:h-72 md:w-56 md:h-80 lg:w-64 lg:h-96 rounded-xl overflow-hidden scale-75 sm:scale-85 md:scale-90">
             <img
               src="/unsplash_cc0Gg3BegjE.png"
               alt="Bathroom"
@@ -158,22 +158,22 @@ function FeaturesSection({ t }) {
     gsap.to(cardsRef.current[idx], { scale: 1, duration: 0.3, ease: 'power2.out' });
   };
   return (
-    <div className="w-full mt-16 flex flex-col items-center bg-[#1A3C57] py-16 px-4">
-      <h2 className="text-4xl md:text-4xl font-bold text-white mb-12 text-center font-serif">
+    <div className="w-full mt-8 sm:mt-12 md:mt-16 flex flex-col items-center bg-[#1A3C57] py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8 sm:mb-10 md:mb-12 text-center font-serif">
         {t.different?.sectionTitle || "Pourquoi nous sommes différents"}
       </h2>
-      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-6 max-w-7xl">
+      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-4 sm:gap-6 max-w-7xl">
         {features.map((f, i) => (
           <div
             key={i}
             ref={el => cardsRef.current[i] = el}
-            className="flex-1 flex flex-col items-center bg-white p-8 rounded-xl cursor-pointer"
+            className="flex-1 flex flex-col items-center bg-white p-4 sm:p-6 md:p-8 rounded-xl cursor-pointer"
             onMouseEnter={() => handleMouseEnter(i)}
             onMouseLeave={() => handleMouseLeave(i)}
           >
-            <div className="mb-6">{f.icon}</div>
-            <h3 className="text-xl font-bold text-[#1A3C57] mb-4 text-center">{f.title}</h3>
-            <p className="text-gray-600 text-center text-sm leading-relaxed">{f.desc}</p>
+            <div className="mb-4 sm:mb-6">{f.icon}</div>
+            <h3 className="text-lg sm:text-xl font-bold text-[#1A3C57] mb-2 sm:mb-4 text-center">{f.title}</h3>
+            <p className="text-gray-600 text-center text-xs sm:text-sm leading-relaxed">{f.desc}</p>
           </div>
         ))}
       </div>

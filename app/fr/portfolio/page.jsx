@@ -6,9 +6,7 @@ import fr from '@/translations/fr.json';
 export default function Page() {
   return (
     <>
-      <Portfolio t={fr.portfolio} />
-      <PortfolioGallery t={fr} />
-      <Footer t={fr} locale="fr" />
+      <Portfolio t={fr.portfolio} />  <Footer t={fr} locale="fr" />
     </>
   );
 } 

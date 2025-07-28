@@ -183,7 +183,13 @@
     
         "icon": "🎨",
         "title": "Afwerkings- en restauratiewerkzaamheden",
-      
+        "descriptionIntro": "Wij besteden zorg aan elk detail dat uw huis elegant en gastvrij maakt, met een volledig aanbod aan afwerkingsdiensten.",
+        "bullets": [
+          "Alle soorten binnen- en buitenschilderwerk met moderne kleuren en hoge kwaliteit.",
+          "Alle soorten tegels, in diverse vormen en maten passend bij elke ruimte.",
+          "Decoratiewerkzaamheden om een artistiek en esthetisch tintje aan uw interieur te geven."
+        ],
+        "descriptionOutro": "Wij gebruiken de beste materialen en moderne technieken om aan uw wensen te voldoen en het beste resultaat te behalen.",
         "details": [
           "Alle soorten schilderwerk",
           "Behang en decoratie",
@@ -198,6 +204,13 @@
       
         "icon": "🪟",
         "title": "Timmerwerk en keukens op aanvraag",
+        "title1": "Op maat gemaakte timmerwerk en keukenoplossingen",
+        "descriptionIntro": "Gespecialiseerd in het ontwerpen en realiseren van op maat gemaakt timmerwerk en keukens, voldoen wij aan al uw functionele en esthetische eisen.",
+        "bullets": [
+          "Installatie van volledig uitgeruste keukens met moderne ontwerpen.",
+          "Plaatsing van hoogwaardige lades en kasten met nette afwerking."
+        ],
+        "descriptionOutro": "Elk detail is met precisie ontworpen om lang mee te gaan en aan uw levensstijl aan te passen.",
         "description": "Op maat gemaakte timmerwerk en keukenoplossingen",
         "details": [
           "Op maat gemaakte keukens",
@@ -213,6 +226,13 @@
         
         "icon": "🌳",
         "title": "Tuincoördinatie en verfraaiing",
+        "title1": "Complete tuinontwerp en -aanleg voor uw buitenruimte",
+        "descriptionIntro": "Omdat buitenruimtes een belangrijk onderdeel van het huis zijn, bieden wij landschapsdiensten om van uw tuin een waar toevluchtsoord te maken.",
+        "bullets": [
+          "Verfraaiing van tuinen met innovatieve en comfortabele ontwerpen.",
+          "Plaatsing van buitenbekleding die een praktische en elegante touch aan de tuin toevoegt."
+        ],
+        "descriptionOutro": "Maak van uw tuin een ontspannings- en natuurschoonruimte met de experts van E&MO.",
         "description": "Complete tuinontwerp en -aanleg voor uw buitenruimte",
         "details": [
           "Tuinontwerp en -planning",
@@ -228,6 +248,13 @@
        
         "icon": "🛡",
         "title": "Externe isolatie",
+        "title1": "Professionele isolatie voor energie-efficiëntie en comfort",
+        "descriptionIntro": "Bescherm uw huis tegen vocht en weersinvloeden met onze professionele buitenisolatiediensten.",
+        "bullets": [
+          "Buitenisolatie in steen: bescherming en esthetiek gecombineerd.",
+          "Crepi-isolatie: een moderne afwerking met optimale thermische efficiëntie."
+        ],
+        "descriptionOutro": "Wij gebruiken de beste technieken om uw huis comfortabel en veilig te houden.",
         "description": "Professionele isolatie voor energie-efficiëntie en comfort",
         "details": [
           "Gevelisolatie en spouwmuurisolatie",
@@ -255,7 +282,7 @@
     "text": "Bekijk enkele van onze recente renovatieprojecten. Elk project weerspiegelt onze toewijding aan kwaliteit en design."
   },
   "contact": {
-    "title": "E&MO – Bouw- en renovatiebedrijf in België",
+    "title": "Neem vandaag nog contact met ons op",
     "subtitle": "Neem vandaag nog contact met ons op",
     "text": "Heeft u een bouw- of renovatieproject? Het E&MO-team staat klaar om u te helpen! U kunt eenvoudig contact met ons opnemen via de volgende kanalen voor een gratis consultatie en een gepersonaliseerde offerte.",
     "whyContactUs": "Waarom contact met ons opnemen?",

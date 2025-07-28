@@ -87,42 +87,42 @@ const Hero = () => {
       {/* Text content */}
       <div
         ref={textRef}
-        className="absolute inset-0 z-20 flex items-center lg:justify-start justify-center px-6 md:px-16"
+        className="absolute inset-0 z-20 flex items-center justify-start px-6 md:px-16"
       >
-        <div className="text-white max-w-4xl space-y-6">
-          <h1 className="text-2xl md:text-3xl font-bold drop-shadow-xl transition-colors duration-500">
-            {t.hero.headline}
+        <div className="text-white max-w-2xl space-y-8">
+          <h1 className="text-4xl md:text-5xl font-bold drop-shadow-xl transition-colors duration-500 leading-tight">
+            Rénovez votre maison avec style
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 drop-shadow-md transition-colors duration-500">
-            {t.hero.subtext}
+          <p className="text-xl md:text-2xl opacity-90 drop-shadow-md transition-colors duration-500 leading-relaxed">
+            Des solutions de rénovation complètes et modernes
           </p>
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-row gap-4 pt-4">
             <Link href={`/${locale}/about`}>
-              <button className="bg-main cursor-pointer text-white px-4 py-4 rounded-md font-semibold  transition  shadow-md">
-                {t.buttons.getStarted}
+              <button className="bg-[#1A3C57] cursor-pointer text-white px-8 py-4 rounded-lg font-semibold transition shadow-lg hover:bg-[#0f2a3f]">
+                Commencer
               </button>
             </Link>
             <Link href={`/${locale}/contact`}>
-              <button className="bg-white text-black cursor-pointer px-4 py-4 rounded-md font-semibold  transition border border-white hover:bg-white hover:text-black  shadow-md">
-                {t.buttons.contactUs}
+              <button className="bg-white text-gray-800 cursor-pointer px-8 py-4 rounded-lg font-semibold transition border border-white hover:bg-gray-50 shadow-lg">
+                Contactez-nous
               </button>
             </Link>
           </div>
         </div>
       </div>
 
-                  {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30">
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
         <div className="flex flex-col items-center gap-1">
           <img 
             src="/ep_arrow-down-bold.png" 
             alt="Scroll down" 
-            className="w-6 h-6 filter brightness-0 invert"
+            className="w-8 h-8 filter brightness-0 invert"
           />
           <img 
             src="/ep_arrow-down-bold.png" 
             alt="Scroll down" 
-            className="w-6 h-6 filter brightness-0 invert -mt-1"
+            className="w-8 h-8 filter brightness-0 invert -mt-2"
           />
         </div>
       </div>

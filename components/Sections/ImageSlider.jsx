@@ -4,48 +4,36 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const images = [
- 
-  { src: '/kitchen.jpg', alt: 'Kitchen' },
-  { src: '/bathroom.jpg', alt: 'Bathroom' },
-  { src: '/painting.jpg', alt: 'Painting' },
-  { src: '/flooring.jpg', alt: 'Flooring' },
-
-
+  { src: '/Rectangle 61.png', alt: 'Kitchen' },
+  { src: '/Rectangle 60.png', alt: 'Bathroom' },
+  { src: '/Rectangle 58.png', alt: 'Flooring' },
+  { src: '/Rectangle 59.png', alt: 'Painting' },
 ];
 
-const SLIDE_WIDTH = 200; // نفس min-w لكل صورة
-const DURATION = 18; // مدة الحركة الكاملة بالثواني
-
 const ImageSlider = () => {
-  // كرر الصور مرتين لتحقيق تأثير الماركيه
-  const marqueeImages = [...images, ...images];
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 overflow-hidden">
+    <section className="py-16 bg-gray-200">
+      <div className="overflow-hidden">
         <motion.div
           className="flex gap-0"
-          style={{ width: `${marqueeImages.length * SLIDE_WIDTH}px` }}
-          animate={{ x: [0, -images.length * SLIDE_WIDTH] }}
-          transition={{ repeat: Infinity, duration: DURATION, ease: 'linear' }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          {marqueeImages.map((img, idx) => (
+          {images.map((img, idx) => (
             <div
               key={idx}
-              className="w-[280px] h-[280px] flex-shrink-0 shadow-lg overflow-hidden bg-gray-100 snap-center relative"
+              className="w-[357px] h-[300px] flex-shrink-0 shadow-lg overflow-hidden bg-gray-100 snap-center relative"
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
             </div>
           ))}
         </motion.div>
       </div>
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
     </section>
   );
 };

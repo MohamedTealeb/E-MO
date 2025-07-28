@@ -18,15 +18,15 @@ const HeroPromise = () => {
     <section
       className="relative min-h-screen w-full flex flex-col items-center justify-center"
       style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/bathroom.jpg)',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/unsplash_U-k6XLlml1I.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
       <div className="z-10 flex flex-col items-center justify-center w-full h-full">
-        <span className="uppercase tracking-widest text-sm text-white mb-4">{t.heroPromise.subtitle}</span>
-        <h1 className="text-3xl md:text-5xl font-bold text-white text-center mb-8 drop-shadow-lg">
+        <span className="uppercase tracking-widest text-xl md:text-2xl font-bold  text-white mb-4">{t.heroPromise.subtitle}</span>
+        <h1 className="text-xl md:text-4xl font-bold text-white text-center mb-8 drop-shadow-lg">
           {t.heroPromise.title}
         </h1>
         <Link href={`/${currentLocale}/contact`}>

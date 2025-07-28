@@ -17,7 +17,7 @@ function page() {
     <>
       <Hero />
       <Slider_Hero/>
-      <Testmonials t={nl} />
+   
       <AboutUS t={nl.AboutUS} />
       <HeroPromise />
       <QuoteSection />

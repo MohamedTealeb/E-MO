@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import {
   FaAward,
   FaCheckCircle,
@@ -34,12 +36,13 @@ const iconsMap = {
   FaTools,
 };
 
-const About = ({ t }) => {
+const About = ({ t, locale }) => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const sectionsRef = useRef(null);
   const faqRef = useRef(null);
   const [openFaq, setOpenFaq] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
     gsap.fromTo(
@@ -97,284 +100,202 @@ const About = ({ t }) => {
   };
 
   return (
-    <section ref={containerRef} className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 px-6">
+    <section ref={containerRef} className="bg-gray-100 py-20 px-4">
       <div className="relative w-full h-[320px] md:h-[700px] flex items-center justify-center mb-16 rounded-3xl overflow-hidden shadow-2xl">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/portfolio.jpg')" }}></div>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/unsplash_B0aCvAVSX8E.png')" }}></div>
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-center w-full h-full px-4 z-10">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/30 shadow-2xl w-[800px] h-[150px] max-w-full flex flex-col items-center justify-center mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold  text-blue-500 mb-4 text-center drop-shadow-lg">{t?.title}</h1>
-            <div className="text-gray-300  text-2xl font-bold text-center mt-2">
-            {t?.Home} &nbsp; / &nbsp; {t?.title}
+          <div className="bg-white rounded-lg p-8 shadow-xl w-[400px] max-w-full flex flex-col items-center justify-center mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
+              À propos de nous
+            </h1>
+            <div className="text-gray-600 text-lg font-medium text-center">
+              Accueil / À propos de nous
             </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <div className="flex flex-col items-center gap-1">
+            <img 
+              src="/ep_arrow-down-bold.png" 
+              alt="Scroll down" 
+              className="w-8 h-8 filter brightness-0 invert"
+            />
+            <img 
+              src="/ep_arrow-down-bold.png" 
+              alt="Scroll down" 
+              className="w-8 h-8 filter brightness-0 invert -mt-2"
+            />
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
-          {/* الصورة يمين */}
-          <div ref={imageRef} className="order-1 lg:order-2">
-            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
-              <img src="/About.jpg" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
+        {/* Main Section - Image on Left, Dark Blue Text on Right */}
+        <div className="relative mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            {/* Left Side - Image */}
+            <div ref={imageRef} className="relative z-100000  ml-50 flex items-center justify-center">
+              <div className="relative  h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/Rectangle 5.png" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
+              </div>
             </div>
-          </div>
-          {/* النص شمال */}
-          <div ref={sectionsRef} className="order-2 lg:order-1 flex flex-col justify-center">
-            <div className="   p-6 sm:p-8 md:p-10   ">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t.expertise.title}</h2>
-              <p className="text-base sm:text-lg text-dark/80   leading-relaxed">{t.expertise.text}</p>
-              <div className="space-y-1  sm:mb-8">
-                {t.expertise.services.map((service, index) => (
-                  <div key={index} className="flex items-start gap-2">
-                    <span className="text-blue-500 text-lg mt-0.5">•</span>
-                    <span className="text-dark/80 font-medium text-sm sm:text-base">{service}</span>
-                  </div>
-                ))}
-              <p className="text-dark/70 italic text-sm sm:text-base">{t.expertise.guarantee}</p>
+            
+            {/* Right Side - Dark Blue Text Block */}
+            <div ref={sectionsRef} className="relative z-20 bg-main rounded-3xl p-10 md:p-16 flex flex-col justify-center shadow-2xl -ml-12">
+              <div className="text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">{t.expertise.title}</h2>
+                <p className="text-lg text-gray-200 mb-6 leading-relaxed">{t.expertise.text}</p>
+                <div className="space-y-3 mb-6">
+                  {t.expertise.services.map((service, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <span className="text-white text-lg mt-1">•</span>
+                      <span className="text-gray-200 font-medium">{service}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-gray-300 italic">{t.expertise.guarantee}</p>
               </div>
             </div>
           </div>
         </div>
- {/* 
-        <div ref={faqRef} className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/50">
-          <div className="faq-header flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
-              <FaStar className="text-white text-lg sm:text-xl" />
-            </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-main">{t.faq?.title}</h2>
-          </div>
 
-          <div className="space-y-4">
-            {/* FAQ Item 1 - Expertise */}
-            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
-              <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('expertise')}>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm font-bold">1</span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-blue-600">{t.faq?.expertise?.question}?</h3>
-                </div>
-                <div className="text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                  {openFaq === 'expertise' ? <FaChevronUp className="w-5 h-5" /> : <FaChevronDown className="w-5 h-5" />}
-                </div>
-              </div>
-              {openFaq === 'expertise' && (
-                <div className="mt-4 pt-4 border-t border-blue-200 text-dark/80 text-sm sm:text-base leading-relaxed whitespace-pre-line transition-all duration-300">
-                  {t.faq?.expertise?.answer}
-                </div>
-              )}
-            </div> */}
-
-            {/* FAQ Item 2 - Values */}
-            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
-              <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('values')}>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm font-bold">2</span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-blue-600">{t.faq?.values?.question}?</h3>
-                </div>
-                <div className="text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                  {openFaq === 'values' ? <FaChevronUp className="w-5 h-5" /> : <FaChevronDown className="w-5 h-5" />}
-                </div>
-              </div>
-              {openFaq === 'values' && (
-                <div className="mt-4 pt-4 border-t border-blue-200 text-dark/80 text-sm sm:text-base leading-relaxed whitespace-pre-line transition-all duration-300">
-                  {t.faq?.values?.answer}
-                </div>
-              )}
-            </div> */}
-
-            {/* FAQ Item 3 - Why Choose */}
-            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
-              <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('whyChoose')}>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm font-bold">3</span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-blue-600">{t.faq?.whyChoose?.question}?</h3>
-                </div>
-                <div className="text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                  {openFaq === 'whyChoose' ? <FaChevronUp className="w-5 h-5" /> : <FaChevronDown className="w-5 h-5" />}
-                </div>
-              </div>
-              {openFaq === 'whyChoose' && (
-                <div className="mt-4 pt-4 border-t border-blue-200 text-dark/80 text-sm sm:text-base leading-relaxed whitespace-pre-line transition-all duration-300">
-                  {t.faq?.whyChoose?.answer}
-                </div>
-              )}
-            </div> */}
-
-            {/* FAQ Item 4 - Vision */}
-            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
-              <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('vision')}>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm font-bold">4</span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-blue-600">{t.faq?.vision?.question}?</h3>
-                </div>
-                <div className="text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                  {openFaq === 'vision' ? <FaChevronUp className="w-5 h-5" /> : <FaChevronDown className="w-5 h-5" />}
-                </div>
-              </div>
-              {openFaq === 'vision' && (
-                <div className="mt-4 pt-4 border-t border-blue-200 text-dark/80 text-sm sm:text-base leading-relaxed whitespace-pre-line transition-all duration-300">
-                  {t.faq?.vision?.answer}
-                </div>
-              )}
-            </div> */}
-
-            {/* FAQ Item 5 - Contact */}
-            {/* <div className="faq-item bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 sm:p-6 border-l-4 border-blue-500 hover:shadow-lg transition-all duration-300">
-              <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq('contact')}>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm font-bold">5</span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-blue-600">{t.faq?.contact?.question}?</h3>
-                </div>
-                <div className="text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                  {openFaq === 'contact' ? <FaChevronUp className="w-5 h-5" /> : <FaChevronDown className="w-5 h-5" />}
-                </div>
-              </div>
-              {openFaq === 'contact' && (
-                <div className="mt-4 pt-4 border-t border-blue-200 text-dark/80 text-sm sm:text-base leading-relaxed whitespace-pre-line transition-all duration-300">
-                  {t.faq?.contact?.answer}
-                </div>
-              )}
-            </div> */}
-          {/* </div>
-        </div> */}  
-
-        {/* سكشن مكرر جديد يبدأ هنا */}
+        {/* Values Section */}
         <div className="max-w-7xl mx-auto mt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
-            <div className="order-1">
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
-                <img src="/home.jpg" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
-              </div>
-            </div>
-
-            <div className="order-2 flex flex-col justify-center">
-              <div className="p-6 sm:p-8 md:p-10">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-6 lg:text-center">{t?.values?.title}</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Side - Text */}
+            <div className="flex flex-col justify-center">
+              <div className="text-gray-800">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">{t?.values?.title}</h2>
                 {t?.values?.content && (
-                  <div className="space-y-4 sm:mb-8 text-left">
+                  <div className="space-y-4">
                     {t.values.content.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-4">
-                        <span className="text-blue-500 text-2xl mt-1">•</span>
-                        <span className="text-dark/80 font-medium text-base sm:text-lg leading-relaxed">{item}</span>
+                      <div key={idx} className="flex items-start gap-3">
+                        <span className="text-gray-600 text-lg mt-1">•</span>
+                        <span className="text-gray-700 font-medium text-lg leading-relaxed">{item}</span>
                       </div>
                     ))}
                   </div>
                 )}
               </div>
             </div>
-          </div>
-        </div>
-        {/* سكشن مكرر جديد ينتهي هنا */}
-
-        {/* سكشن: لماذا تختارنا */}
-        <div className="max-w-7xl mx-auto mt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
-            {/* الصورة يمين */}
-            <div className="order-1 lg:order-2" ref={el => (window.whyImgRef = el)}>
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
-                <img src="/home2.jpg" alt="Pourquoi choisir E&MO" className="w-full h-full object-cover object-center" />
-              </div>
-            </div>
-            {/* النص شمال */}
-            <div className="order-2 lg:order-1 flex flex-col justify-center">
-              <div className="p-6 sm:p-8 md:p-10">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.whyChoose?.title}</h2>
-                <p className="text-base sm:text-lg text-dark/80 leading-relaxed mb-4">{t?.whyChoose?.text}</p>
-                {t?.whyChoose?.benefits && (
-                  <div className="space-y-1 sm:mb-8">
-                    {t.whyChoose.benefits.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <span className="text-blue-500 text-lg mt-0.5">•</span>
-                        <span className="text-dark/80 font-medium text-sm sm:text-base">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                <p className="text-dark/70 italic text-sm sm:text-base">{t?.whyChoose?.conclusion}</p>
+            
+            {/* Right Side - Image */}
+            <div className="relative z-10">
+              <div className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden ">
+                <img src="/Rectangle 7.png" alt="E&MO Values" className="w-full h-full object-cover object-center" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* سكشن: الرؤية والرسالة */}
+        {/* Why Choose Us Section */}
         <div className="max-w-7xl mx-auto mt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
-            {/* الصورة شمال */}
-            <div className="order-1 lg:order-1" ref={el => (window.visionImgRef = el)}>
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
-                <img src="/insulation.jpg" alt="Notre vision et mission" className="w-full h-full object-cover object-center" />
+        <div className="relative mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            {/* Left Side - Image */}
+            <div ref={imageRef} className="relative z-100000  ml-50 flex items-center justify-center">
+              <div className="relative  h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/Rectangle 8.png" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
               </div>
             </div>
-            {/* النص يمين */}
-            <div className="order-2 lg:order-2 flex flex-col justify-center">
-              <div className="p-6 sm:p-8 md:p-10">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.vision?.title}</h2>
+            
+            {/* Right Side - Dark Blue Text Block */}
+            <div ref={sectionsRef} className="relative z-20 bg-main rounded-3xl p-10 md:p-16 flex flex-col justify-center shadow-2xl -ml-12">
+              <div className="text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">{t?.whyChoose?.title}</h2>
+                <p className="text-lg text-gray-200 mb-6 leading-relaxed">{t?.whyChoose?.text}</p>
+                <div className="space-y-3 mb-6">
+                  {t?.whyChoose?.benefits?.map((service, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <span className="text-white text-lg mt-1">•</span>
+                      <span className="text-gray-200 font-medium">{service}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-gray-300 italic">{t?.whyChoose?.conclusion}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        {/* Vision Section */}
+        <div className="max-w-7xl mx-auto mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left Side - Text */}
+            <div className="flex flex-col justify-center">
+              <div className="text-gray-800">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">{t?.vision?.title}</h2>
                 {Array.isArray(t?.vision?.text) ? (
-                  <div className="space-y-1 sm:mb-8">
+                  <div className="space-y-3">
                     {t.vision.text.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <span className="text-blue-500 text-lg mt-0.5">•</span>
-                        <span className="text-dark/80 font-medium text-sm sm:text-base">{item}</span>
+                      <div key={idx} className="flex items-start gap-3">
+                        <span className="text-gray-600 text-lg mt-1">•</span>
+                        <span className="text-gray-700 font-medium">{item}</span>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div className="flex items-start gap-2">
-                    <span className="text-blue-500 text-lg mt-0.5">•</span>
-                    <span className="text-dark/80 font-medium text-sm sm:text-base">{t?.vision?.text}</span>
+                  <div className="flex items-start gap-3">
+                    <span className="text-gray-600 text-lg mt-1">•</span>
+                    <span className="text-gray-700 font-medium">{t?.vision?.text}</span>
                   </div>
                 )}
+              </div>
+            </div>
+            
+            {/* Right Side - Image */}
+            <div className="relative z-10" ref={el => (window.visionImgRef = el)}>
+              <div className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/Rectangle 7 (1).png" alt="Notre vision et mission" className="w-full h-full object-cover object-center" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* سكشن: تواصل معنا */}
-        <div className="max-w-7xl mx-auto mt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 md:mb-16">
-            {/* الصورة يمين */}
-            <div className="order-1 lg:order-2" ref={el => (window.contactImgRef = el)}>
-              <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden">
-                <img src="/portfolio.jpg" alt="Contactez-nous" className="w-full h-full object-cover object-center" />
+        {/* Contact Section */}
+       <div className="relative mt-20 mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            {/* Left Side - Image */}
+            <div ref={imageRef} className="relative z-100000  ml-50 flex items-center justify-center">
+              <div className="relative  h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/Rectangle 8 (1).png" alt="E&MO Construction" className="w-full h-full object-cover object-center" />
               </div>
             </div>
-            {/* النص شمال */}
-            <div className="order-2 lg:order-1 flex flex-col justify-center">
-              <div className="p-6 sm:p-8 md:p-10">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">{t?.contact?.title}</h2>
-                {Array.isArray(t?.contact?.text) ? (
-                  <div className="space-y-1 sm:mb-8">
-                    {t.contact.text.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <span className="text-blue-500 text-lg mt-0.5">•</span>
-                        <span className="text-dark/80 font-medium text-sm sm:text-base">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="flex items-start gap-2">
-                    <span className="text-blue-500 text-lg mt-0.5">•</span>
-                    <span className="text-dark/80 font-medium text-sm sm:text-base">{t?.contact?.text}</span>
-                  </div>
-                )}
+            
+            {/* Right Side - Dark Blue Text Block */}
+            <div ref={sectionsRef} className="relative z-20 bg-main rounded-3xl p-10 md:p-16 flex flex-col justify-center shadow-2xl -ml-12">
+              <div className="text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">{t?.contact?.title}</h2>
+                <p className="text-lg text-gray-200 mb-6 leading-relaxed">{t?.contact?.text}</p>
+                <div className="space-y-3  mb-6">
+                  {t?.contact?.services?.map((service, index) => (
+                    <div key={index} className="flex gap-10 items-start ">
+                      <span className="text-white text-lg mt-1">•</span>
+                      <span className="text-gray-200 font-medium">{service}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className=" mt-10  ml-80">
+                  <Link 
+                    href={`/${locale}/contact`}
+                    className="bg-white cursor-pointer text-main font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition-colors text-lg"
+                  >
+                    {t?.contact?.title}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Services Cards Section */}
         <div className="max-w-7xl mx-auto mt-20">
-          <div className="text-center mb-10">
-            <span className="text-secondary font-bold uppercase tracking-wider block mb-2 text-base md:text-lg">{t?.customServiceSectionTitle}</span>
+          <div className="text-center mb-12">
+            <span className="text-main font-bold uppercase tracking-wider block mb-2 text-base md:text-lg">{t?.customServiceSectionTitle}</span>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-2">{t?.customServiceSectionSubtitle}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -382,11 +303,14 @@ const About = ({ t }) => {
               const iconName = emojiToIconName[card.icon] || 'FaTools';
               const Icon = iconsMap[iconName] || FaTools;
               return (
-                <div key={idx} className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-                  <h3 className="text-xl font-bold text-secondary mb-2 text-center">
-                    <Icon className="inline mr-2 text-secondary" /> {card.title}
+                <div key={idx} className="bg-white rounded-xl shadow-lg p-6 flex flex-col r">
+                  <div className="w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="text-main text-4xl" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    {card.title}
                   </h3>
-                  <p className="text-gray-700 text-center">{card.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{card.description}</p>
                 </div>
               );
             })}

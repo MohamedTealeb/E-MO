@@ -1,83 +1,152 @@
 'use client'
 import React, { useRef, useState } from 'react';
+import { FaHome, FaCompass, FaCouch, FaPlay } from 'react-icons/fa';
 
 const Portfolio = ({ t }) => {
   if (!t) return null;
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen px-2 py-8 overflow-hidden">
-      {/* خلفية الصورة */}
-      <div 
-        className="absolute inset-0 w-full h-full z-0"
-        style={{
-          backgroundImage: 'url(/portfolio.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      {/* طبقة شفافة فوق الصورة */}
-      <div className="absolute inset-0 w-full h-full z-0 bg-gradient-to-br from-main/80 via-[#1a2332]/70 to-secondary/60" />
-      {/* خلفية نجوم خفيفة */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none" style={{background: 'radial-gradient(circle at 60% 40%, #fff2 1px, transparent 1px), radial-gradient(circle at 20% 80%, #fff1 1px, transparent 1px)'}} />
-      {/* المحتوى */}
-      <div className="relative z-10 flex flex-col items-center justify-center  w-full h-full px-4">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl  w-[800px] h-[150px] p-6 md:p-8 border border-white/30 shadow-2xl">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold  text-blue-500 mb-4 text-center drop-shadow-lg">{t.title}</h1>
-          <div className="text-gray-300  text-2xl font-bold text-center mt-2">
-              {t?.Home} &nbsp; / &nbsp; {t?.title}
+    <section className="bg-gray-100 py-20 px-4">
+      {/* Hero Section */}
+      <div className="relative w-full h-[320px] md:h-[700px] flex items-center justify-center mb-16 rounded-3xl overflow-hidden shadow-2xl">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/WhatsApp.jpg')" }}></div>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center w-full h-full px-4 z-10">
+          <div className="bg-white rounded-lg p-8 shadow-xl w-[400px] max-w-full flex flex-col items-center justify-center mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
+              Nos réalisations
+            </h1>
+            <div className="text-gray-600 text-lg font-medium text-center">
+              Accueil / Nos Services
+            </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <div className="flex flex-col items-center gap-1">
+            <img 
+              src="/ep_arrow-down-bold.png" 
+              alt="Scroll down" 
+              className="w-8 h-8 filter brightness-0 invert"
+            />
+            <img 
+              src="/ep_arrow-down-bold.png" 
+              alt="Scroll down" 
+              className="w-8 h-8 filter brightness-0 invert -mt-2"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto">
+        {/* Recent Works Section with Values */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Nos travaux récents
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Découvrez nos derniers projets de rénovation et voyez la transformation en action
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            {/* Left Side - Image */}
+            <div className="relative z-10 flex items-center justify-center">
+              <div className="relative h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                <img src="/About.jpg" alt="Recent Works" className="w-full h-full object-cover object-center" />
               </div>
+            </div>
+            
+            {/* Right Side - Dark Blue Text Block */}
+            <div className="relative z-20 bg-main rounded-3xl p-10 md:p-16 flex flex-col justify-center shadow-2xl -ml-12">
+              <div className="text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Les valeurs qui guident tout ce que nous faisons</h2>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <FaHome className="text-white text-xl mt-1" />
+                    <span className="text-gray-200 font-medium text-lg">Maison de rêve</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <FaCompass className="text-white text-xl mt-1" />
+                    <span className="text-gray-200 font-medium text-lg">Vie de luxe</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <FaCouch className="text-white text-xl mt-1" />
+                    <span className="text-gray-200 font-medium text-lg">Conception de confort</span>
+                  </div>
+                </div>
+                {/* Red dot */}
+              
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Video Gallery Section */}
+        <div className="mb-20">
+          <div className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+            <img 
+              src="/WhatsApp.jpg" 
+              alt="Video Gallery" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+              <div className="bg-white rounded-full p-6 shadow-lg cursor-pointer hover:scale-110 transition-transform">
+                <FaPlay className="text-4xl text-gray-800" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Image Grid Portfolio Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-27 at 1.06.02 AM 1.png" 
+              alt="Modern House" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-27 at 1.16.46 AM 1 (10).png" 
+              alt="Greenhouse" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-27 at 1.16.46 AM (3) 1.png" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/c284d157df128df821a114b42ed83112bf042cac (2).jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/kitchen.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/insulation.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-const ImageComparisonSlider = ({ before, after, beforeLabel, afterLabel }) => {
-  const [pos, setPos] = useState(50);
-  const ref = useRef(null);
-
-  const handleMove = (e) => {
-    const rect = ref.current.getBoundingClientRect();
-    let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-    let percent = ((x - rect.left) / rect.width) * 100;
-    percent = Math.max(0, Math.min(100, percent));
-    setPos(percent);
-  };
-
-  return (
-    <div
-      ref={ref}
-      className="relative w-full max-w-2xl mx-auto aspect-[4/3] bg-gray-200 overflow-hidden rounded-2xl shadow-lg select-none mb-10"
-      style={{ userSelect: 'none' }}
-      onMouseMove={e => e.buttons === 1 && handleMove(e)}
-      onMouseDown={handleMove}
-      onTouchMove={handleMove}
-      onTouchStart={handleMove}
-    >
-      {/* صورة قبل */}
-      <img src={before} alt={beforeLabel} className="absolute inset-0 w-full h-full object-cover" />
-      {/* صورة بعد */}
-      <img
-        src={after}
-        alt={afterLabel}
-        className="absolute inset-0 h-full object-cover transition-all duration-200"
-        style={{ width: `${pos}%`, clipPath: `inset(0 ${100 - pos}% 0 0)` }}
-      />
-      {/* السهم */}
-      <div
-        className="absolute top-0 left-0 h-full flex items-center justify-center z-10 cursor-ew-resize"
-        style={{ left: `calc(${pos}% - 24px)`, width: '48px' }}
-        onMouseDown={e => e.preventDefault()}
-      >
-        <div className="w-12 h-12 bg-white rounded-full border-2 border-yellow-400 flex items-center justify-center shadow-lg">
-          <span className="text-3xl text-yellow-500">⇄</span>
-        </div>
-      </div>
-      {/* النصوص */}
-      <span className="absolute left-4 bottom-4 bg-white/80 px-4 py-1 rounded text-gray-800 font-semibold text-lg">{afterLabel}</span>
-      <span className="absolute right-4 bottom-4 bg-white/80 px-4 py-1 rounded text-gray-800 font-semibold text-lg">{beforeLabel}</span>
-    </div>
+    </section>
   );
 };
 

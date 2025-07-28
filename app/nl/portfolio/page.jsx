@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <>
       <Portfolio t={nl.portfolio} />
-      <PortfolioGallery t={nl} />
+  
       <Footer t={nl} locale="nl" />
     </>
   );

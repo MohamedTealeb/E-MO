@@ -197,7 +197,13 @@
      
         "icon": "🎨",
         "title": "Travaux de finition et restauration",
-     
+        "descriptionIntro": "Nous prenons soin de chaque détail final qui rend votre maison élégante et accueillante, avec une gamme complète de services de finition.",
+        "bullets": [
+          "Tous types de peinture intérieure et extérieure avec des couleurs modernes et une haute qualité.",
+          "Tous types de carrelage, en diverses formes et tailles pour s'adapter à chaque espace.",
+          "Travaux de décoration pour apporter une touche artistique et esthétique à votre intérieur."
+        ],
+        "descriptionOutro": "Nous utilisons les meilleurs matériaux et techniques modernes pour satisfaire vos goûts et obtenir les meilleurs résultats.",
         "details": [
           "Tous types de peinture",
           "Papier peint et décoration",
@@ -205,13 +211,20 @@
           "Plâtrage et enduits",
           "Restauration d'éléments historiques"
         ],
-        "longDescription": "🎨 Travaux de finition et restauration\n\nNous prenons soin de chaque détail final qui rend votre maison élégante et accueillante, avec une gamme complète de services de finition.\n\nNos prestations comprennent :\n\t•\tTous types de peinture intérieure et extérieure avec des couleurs modernes et une haute qualité.\n\t•\tTous types de carrelage, en diverses formes et tailles pour s’adapter à chaque espace.\n\t•\tTravaux de décoration pour apporter une touche artistique et esthétique à votre intérieur.\n\nNous utilisons les meilleurs matériaux et techniques modernes pour satisfaire vos goûts et obtenir les meilleurs résultats."
+        "longDescription": "🎨 Travaux de finition et restauration\n\nNous prenons soin de chaque détail final qui rend votre maison élégante et accueillante, avec une gamme complète de services de finition.\n\nNos prestations comprennent :\n\t•\tTous types de peinture intérieure et extérieure avec des couleurs modernes et une haute qualité.\n\t•\tTous types de carrelage, en diverses formes et tailles pour s'adapter à chaque espace.\n\t•\tTravaux de décoration pour apporter une touche artistique et esthétique à votre intérieur.\n\nNous utilisons les meilleurs matériaux et techniques modernes pour satisfaire vos goûts et obtenir les meilleurs résultats."
       },
       {
         "id": 2,
        
         "icon": "🪟",
         "title": "Menuiserie et cuisines sur mesure",
+        "title1": "Menuiserie et solutions de cuisine sur mesure",
+        "descriptionIntro": "Spécialisés dans la conception et la réalisation de menuiserie et cuisines personnalisées, nous répondons à toutes vos exigences fonctionnelles et esthétiques.",
+        "bullets": [
+          "Installation de cuisines équipées avec des designs modernes.",
+          "Pose de tiroirs et placards de haute qualité avec des finitions soignées."
+        ],
+        "descriptionOutro": "Chaque détail est conçu avec précision pour durer et s'adapter à votre mode de vie.",
         "description": "Menuiserie et solutions de cuisine sur mesure",
         "details": [
           "Cuisines sur mesure",
@@ -220,13 +233,20 @@
           "Rénovation et installation d'escaliers",
           "Travail du bois et meubles"
         ],
-        "longDescription": "🪟 Menuiserie et cuisines sur mesure\n\nSpécialisés dans la conception et la réalisation de menuiserie et cuisines personnalisées, nous répondons à toutes vos exigences fonctionnelles et esthétiques.\n\nNos services comprennent :\n\t•\tInstallation de cuisines équipées avec des designs modernes.\n\t•\tPose de tiroirs et placards de haute qualité avec des finitions soignées.\n\nChaque détail est conçu avec précision pour durer et s’adapter à votre mode de vie."
+        "longDescription": "🪟 Menuiserie et cuisines sur mesure\n\nSpécialisés dans la conception et la réalisation de menuiserie et cuisines personnalisées, nous répondons à toutes vos exigences fonctionnelles et esthétiques.\n\nNos services comprennent :\n\t•\tInstallation de cuisines équipées avec des designs modernes.\n\t•\tPose de tiroirs et placards de haute qualité avec des finitions soignées.\n\nChaque détail est conçu avec précision pour durer et s'adapter à votre mode de vie."
       },
       {
         "id": 3,
     
         "icon": "🌳",
-        "title": " Aménagement et embellissement de jardins",
+        "title": "Aménagement et embellissement de jardins",
+        "title1": "Conception et aménagement complets de jardins pour votre espace extérieur",
+        "descriptionIntro": "Parce que les espaces extérieurs sont une partie importante de la maison, nous offrons des services d'aménagement paysager pour faire de votre jardin un véritable havre de paix.",
+        "bullets": [
+          "Embellissement des jardins avec des designs innovants et confortables.",
+          "Pose de revêtements extérieurs ajoutant une touche pratique et élégante au jardin."
+        ],
+        "descriptionOutro": "Faites de votre jardin un espace de détente et de beauté naturelle avec les experts E&MO.",
         "description": "Conception et aménagement complets de jardins pour votre espace extérieur",
         "details": [
           "Conception et planification de jardins",
@@ -235,13 +255,20 @@
           "Éclairage et irrigation",
           "Mobilier de jardin et accessoires"
         ],
-        "longDescription": "🌳 Aménagement et embellissement des jardins\n\nParce que les espaces extérieurs sont une partie importante de la maison, nous offrons des services d’aménagement paysager pour faire de votre jardin un véritable havre de paix.\n\nNos prestations incluent :\n\t•\tEmbellissement des jardins avec des designs innovants et confortables.\n\t•\tPose de revêtements extérieurs ajoutant une touche pratique et élégante au jardin.\n\nFaites de votre jardin un espace de détente et de beauté naturelle avec les experts E&MO."
+        "longDescription": "🌳 Aménagement et embellissement des jardins\n\nParce que les espaces extérieurs sont une partie importante de la maison, nous offrons des services d'aménagement paysager pour faire de votre jardin un véritable havre de paix.\n\nNos prestations incluent :\n\t•\tEmbellissement des jardins avec des designs innovants et confortables.\n\t•\tPose de revêtements extérieurs ajoutant une touche pratique et élégante au jardin.\n\nFaites de votre jardin un espace de détente et de beauté naturelle avec les experts E&MO."
       },
       {
         "id": 4,
      
         "icon": "🛡",
         "title": "Isolation externe",
+        "title1": "Isolation professionnelle pour l'efficacité énergétique et le confort",
+        "descriptionIntro": "Protégez votre maison de l'humidité et des intempéries grâce à nos services professionnels d'isolation extérieure.",
+        "bullets": [
+          "Isolation extérieure en pierre : protection et esthétique réunies.",
+          "Isolation crépie : une finition moderne avec une efficacité thermique optimale."
+        ],
+        "descriptionOutro": "Nous utilisons les meilleures techniques pour garder votre maison confortable et sécurisée.",
         "description": "Isolation professionnelle pour l'efficacité énergétique et le confort",
         "details": [
           "Isolation de façade et isolation de murs creux",
@@ -250,7 +277,7 @@
           "Isolation thermique et acoustique",
           "Mesures d'économie d'énergie"
         ],
-        "longDescription": "🛡 Isolation extérieure\n\nProtégez votre maison de l’humidité et des intempéries grâce à nos services professionnels d’isolation extérieure.\n\nNos solutions incluent :\n\t•\tIsolation extérieure en pierre : protection et esthétique réunies.\n\t•\tIsolation crépie : une finition moderne avec une efficacité thermique optimale.\n\nNous utilisons les meilleures techniques pour garder votre maison confortable et sécurisée."
+        "longDescription": "🛡 Isolation extérieure\n\nProtégez votre maison de l'humidité et des intempéries grâce à nos services professionnels d'isolation extérieure.\n\nNos solutions incluent :\n\t•\tIsolation extérieure en pierre : protection et esthétique réunies.\n\t•\tIsolation crépie : une finition moderne avec une efficacité thermique optimale.\n\nNous utilisons les meilleures techniques pour garder votre maison confortable et sécurisée."
       }
     ],
     "whatWeOffer": "Ce que nous offrons :",
@@ -324,7 +351,7 @@
     "text": "Découvrez quelques-uns de nos projets de rénovation récents. Chaque projet reflète notre engagement envers la qualité et le design."
   },
   "contact": {
-    "title": "E&MO – Entreprise de construction et de rénovation en Belgique",
+    "title": "Contactez-nous dès aujourd'hui",
     "subtitle": "Contactez-nous dès aujourd'hui",
     "text": "Vous avez un projet de construction ou de rénovation ? L'équipe E&MO est prête à vous aider ! Vous pouvez nous contacter facilement par les moyens suivants pour une consultation gratuite et un devis personnalisé.",
     "whyContactUs": "Pourquoi nous contacter ?",

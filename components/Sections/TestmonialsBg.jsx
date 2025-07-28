@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import { FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const TestmonialsBg = ({ t }) => {
   if (!t?.testimonials) return null;
@@ -17,79 +18,95 @@ const TestmonialsBg = ({ t }) => {
   const currentItem = items[currentIndex];
 
   return (
-    <section
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
-      style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(/WhatsApp.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        width: '100vw',
-        minHeight: '100vh',
-      }}
-    >
-      {/* عمود الأرقام - مخفي في الموبايل، ظاهر في التابلت والكمبيوتر */}
-      <div className="hidden sm:flex absolute left-0 top-0 h-full flex-col items-center justify-center z-20 px-2 lg:px-4 select-none">
-        <div className="flex flex-col gap-2 lg:gap-4">
-          {items.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              className={`text-white text-sm lg:text-lg font-bold transition-all duration-200 focus:outline-none ${
-                idx === currentIndex ? 'scale-125 border-l-4 border-white pl-2' : 'opacity-60 hover:opacity-100'
-              }`}
-              style={{ minWidth: 20 }}
-            >
-              {idx + 1}
-            </button>
-          ))}
+    <section className="min-h-screen mt-20 bg-gray-100">
+      {/* Hero Section with Background Image */}
+      <div className="relative w-full h-[320px] md:h-[500px] flex items-center justify-center mb-16 overflow-hidden shadow-2xl">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/unsplash_cc0Gg3BegjE.png')" }}></div>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center w-full h-full px-4 z-10">
+          <div className="bg-white rounded-lg p-8 shadow-xl w-[400px] max-w-full flex flex-col items-center justify-center mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
+              {title}
+            </h1>
+            <div className="text-gray-600 text-lg font-medium text-center">
+              Accueil / {title}
+            </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <div className="flex flex-col items-center gap-1">
+            <img 
+              src="/ep_arrow-down-bold.png" 
+              alt="Scroll down" 
+              className="w-8 h-8 filter brightness-0 invert"
+            />
+            <img 
+              src="/ep_arrow-down-bold.png" 
+              alt="Scroll down" 
+              className="w-8 h-8 filter brightness-0 invert -mt-2"
+            />
+          </div>
         </div>
       </div>
 
-      {/* مؤشرات النقاط للموبايل */}
-      <div className="sm:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
-        {items.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentIndex(idx)}
-            className={`w-2 h-2 rounded-full transition-all duration-200 ${
-              idx === currentIndex ? 'bg-white scale-125' : 'bg-white/50'
-            }`}
-          />
-        ))}
-      </div>
+      {/* Testimonial Carousel Section */}
+      <div className="container mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto relative">
+          {/* Main Testimonial Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 relative z-20">
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                {currentItem.name}
+              </h3>
+              <p className="text-gray-600 text-base leading-relaxed mb-6">
+                {currentItem.text}
+              </p>
+              <div className="flex items-center justify-center gap-1 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <FaStar key={i} className="text-orange-500 text-lg" />
+                ))}
+              </div>
+              <div className="text-gray-700 font-medium">5.0</div>
+            </div>
+          </div>
 
-      {/* المحتوى */}
-      <div className="relative z-10 text-center px-2 sm:px-4 max-w-4xl mx-auto w-full">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 lg:mb-12 text-center drop-shadow-lg">
-          {title}
-        </h2>
-        {/* البطاقة الرئيسية */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/20 shadow-2xl mx-2 sm:mx-4">
-          <div className="text-white text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-4 sm:mb-6">
-            {currentItem.text}
+          {/* Background Cards Stack */}
+          <div className="absolute top-4 left-4 right-4 z-10">
+            <div className="bg-gray-300 rounded-2xl h-full w-full transform rotate-2"></div>
           </div>
-          <div className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-            {currentItem.name}
+          <div className="absolute top-8 left-8 right-8 z-0">
+            <div className="bg-gray-400 rounded-2xl h-full w-full transform rotate-1"></div>
           </div>
-        </div>
-        {/* الأسهم */}
-        <div className="flex justify-center items-center gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8">
+
+          {/* Navigation Arrows */}
           <button 
             onClick={prevTestimonial}
-            className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 bg-gray-700 hover:bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
           >
-            <span className="text-white text-lg sm:text-2xl">←</span>
+            <FaChevronLeft className="text-white text-lg" />
           </button>
-          <div className="text-white text-sm sm:text-base lg:text-lg">
-            {currentIndex + 1} / {items.length}
-          </div>
+          
           <button 
             onClick={nextTestimonial}
-            className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 w-12 h-12 bg-gray-700 hover:bg-gray-800 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
           >
-            <span className="text-white text-lg sm:text-2xl">→</span>
+            <FaChevronRight className="text-white text-lg" />
           </button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-8">
+            {items.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                  idx === currentIndex ? 'bg-gray-700 scale-125' : 'bg-gray-300'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
