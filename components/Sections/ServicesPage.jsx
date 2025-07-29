@@ -25,19 +25,44 @@ const ServicesPage = ({ t }) => {
 
   // فتح الخدمة المحددة عند تحميل الصفحة
   useEffect(() => {
-    const savedService = localStorage.getItem('selectedService');
-    if (savedService) {
-      try {
-        const service = JSON.parse(savedService);
-        setSelectedService(service);
-        setIsModalOpen(true);
-        // مسح الخدمة المحفوظة بعد فتحها
-        localStorage.removeItem('selectedService');
-      } catch (error) {
-        console.error('Error parsing saved service:', error);
-        localStorage.removeItem('selectedService');
+    const checkForSavedService = () => {
+      const savedService = localStorage.getItem('selectedService');
+      console.log('Checking for saved service:', savedService);
+      
+      if (savedService) {
+        try {
+          const service = JSON.parse(savedService);
+          console.log('Opening modal for service:', service.title);
+          setSelectedService(service);
+          setIsModalOpen(true);
+          // مسح الخدمة المحفوظة بعد فتحها
+          localStorage.removeItem('selectedService');
+        } catch (error) {
+          console.error('Error parsing saved service:', error);
+          localStorage.removeItem('selectedService');
+        }
       }
-    }
+    };
+
+    // فحص فوري عند تحميل الصفحة
+    checkForSavedService();
+
+    // إضافة event listener للتغييرات في localStorage
+    const handleStorageChange = (e) => {
+      if (e.key === 'selectedService' && e.newValue) {
+        checkForSavedService();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    // فحص دوري كل 100ms للتأكد من وجود خدمة محفوظة
+    const interval = setInterval(checkForSavedService, 100);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
   }, []);
 
   const handleToggle = (idx) => {
@@ -94,32 +119,32 @@ const ServicesPage = ({ t }) => {
   return (
     <section className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-16 px-4">
       {/* Hero Section with Background Image */}
-      <div className="bg-white px-6 sm:px-12 md:px-24 lg:px-30 py-12">
+      <div className="bg-white px-4 sm:px-6 md:px-12 lg:px-24 xl:px-30 py-8 sm:py-10 md:py-12">
         {/* Container خاص بالصورة فقط */}
-        <div className="relative h-[320px] md:h-[700px] rounded-3xl overflow-hidden shadow-2xl">
+        <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[700px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl">
           {/* Background image */}
           <div 
-            className="absolute inset-0 bg-cover bg-center" 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
             style={{ backgroundImage: "url('/Rectangle 59.png')" }} 
           ></div>
 
           {/* Overlay فوق الصورة فقط */}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/50 sm:bg-black/60" />
 
           {/* Content فوق الصورة */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-10">
-            <div className="bg-white rounded-lg p-8 shadow-xl w-[400px] max-w-full flex flex-col items-center justify-center mx-auto">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 z-10">
+            <div className="bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-lg sm:shadow-xl w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] max-w-[90%] flex flex-col items-center justify-center mx-auto">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 text-center leading-tight">
                 {services.title}
               </h1>
-              <div className="text-gray-600 text-lg font-medium text-center">
+              <div className="text-gray-600 text-sm sm:text-base md:text-lg font-medium text-center">
                 {services?.Home} / {services?.title}
               </div>
             </div>
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
             <div 
               className="flex flex-col items-center gap-1 cursor-pointer hover:opacity-80 transition-all duration-300 hover:scale-110"
               onClick={handleScrollDown}
@@ -128,12 +153,12 @@ const ServicesPage = ({ t }) => {
               <img 
                 src="/ep_arrow-down-bold.png" 
                 alt="Scroll down" 
-                className="w-8 h-8 filter brightness-0 invert scroll-pulse"
+                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 filter brightness-0 invert scroll-pulse"
               />
               <img 
                 src="/ep_arrow-down-bold.png" 
                 alt="Scroll down" 
-                className="w-8 h-8 filter brightness-0 invert -mt-2 scroll-pulse"
+                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 filter brightness-0 invert -mt-1 sm:-mt-2 scroll-pulse"
                 style={{ animationDelay: '0.2s' }}
               />
             </div>

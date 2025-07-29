@@ -64,12 +64,21 @@ const Navbar = ({ forceDarkText = false }) => {
 
   const handleServiceClick = useCallback((subItem, e) => {
     e.preventDefault();
+    e.stopPropagation();
     
-    // البحث عن الخدمة المقابلة في translations
-    const serviceIndex = translations.services?.serviceSubItems?.findIndex(item => item.href === subItem.href);
+    console.log('Service clicked:', subItem);
+    
+    // استخراج الرقم من href (مثل /fr/services/0 -> 0)
+    const hrefMatch = subItem.href.match(/\/services\/(\d+)$/);
+    const serviceIndex = hrefMatch ? parseInt(hrefMatch[1]) : -1;
+    
+    console.log('Service index:', serviceIndex);
+    console.log('Available services:', translations.services?.items);
     
     if (serviceIndex !== -1 && translations.services?.items?.[serviceIndex]) {
       const selectedService = translations.services.items[serviceIndex];
+      
+      console.log('Selected service:', selectedService);
       
       // حفظ الخدمة المحددة في localStorage
       localStorage.setItem('selectedService', JSON.stringify(selectedService));
@@ -79,8 +88,11 @@ const Navbar = ({ forceDarkText = false }) => {
       setDesktopDropdownOpen(false);
       
       // التوجيه إلى صفحة الخدمات
-      const newPath = subItem.href.replace(/\/[0-4]$/, ''); // إزالة الرقم من نهاية المسار
+      const newPath = subItem.href.replace(/\/\d+$/, ''); // إزالة الرقم من نهاية المسار
+      console.log('Navigating to:', newPath);
       router.push(newPath);
+    } else {
+      console.error('Service not found for index:', serviceIndex);
     }
   }, [translations, router]);
 
@@ -148,17 +160,18 @@ const Navbar = ({ forceDarkText = false }) => {
                   </button>
                 </div>
                 <div
-                  className={`absolute left-1/2 mt-2 z-50 transition-all duration-200 ${desktopDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'} w-72 sm:w-96 max-w-lg min-w-[200px] sm:min-w-[300px]`}
+                  className={`absolute left-1/2 mt-1 z-50 transition-all duration-200 ${desktopDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'} w-64 sm:w-72 max-w-lg min-w-[256px] sm:min-w-[288px]`}
                   style={{ pointerEvents: desktopDropdownOpen ? 'auto' : 'none', transform: `translateX(-50%) ${desktopDropdownOpen ? '' : ' translateY(-8px)'}` }}
                 >
-                  <div className="bg-white border border-gray-200 shadow-2xl rounded-2xl py-2 sm:py-4 px-2">
+                  <div className="bg-white border border-gray-200 shadow-lg rounded-xl py-1 sm:py-2 px-1">
                     {translations.services?.serviceSubItems?.map((subItem, idx) => (
                       <button
                         key={idx}
                         onClick={(e) => handleServiceClick(subItem, e)}
-                        className="block w-full text-left rounded-lg px-4 sm:px-7 py-2 sm:py-3 text-main text-base sm:text-lg whitespace-nowrap transition-colors duration-150 hover:bg-secondary/10 hover:text-secondary pl-1 cursor-pointer"
+                        className="block w-full text-left rounded-md px-3 sm:px-4 py-1.5 sm:py-2 text-main text-xs sm:text-sm transition-colors duration-150 hover:bg-secondary/10 hover:text-secondary cursor-pointer"
+                        type="button"
                       >
-                        {subItem.label}
+                        <span className="inline-block align-middle">{subItem.label}</span>
                       </button>
                     ))}
                   </div>
