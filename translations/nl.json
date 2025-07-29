@@ -552,6 +552,29 @@
       "conclusion": "Wij gebruiken de beste technieken om uw huis comfortabel en veilig te houden."
     }
   },
-  "quoteButton": "Offerte aanvragen"
- 
+  "quoteButton": "Offerte aanvragen",
+  "customServiceCards": [
+    {
+      "icon": "🚚",
+      "title": "Meubelverhuizing",
+      "description": "Onze meubelverhuizers zorgen voor een snelle, veilige en zorgeloze verhuizing tot aan de 10e verdieping."
+    },
+    {
+      "icon": "🅿️",
+      "title": "Plaatsing van parkeerpanelen",
+      "description": "Wij zorgen snel voor uw parkeerpanelen voor een stressvrije verhuizing."
+    },
+    {
+      "icon": "📦",
+      "title": "Meubelopslag",
+      "description": "Veilige en flexibele opslag voor uw meubels, tijdelijk of langdurig."
+    },
+    {
+      "icon": "🛠️",
+      "title": "Extra service",
+      "description": "Persoonlijke begeleiding en advies bij elke stap van uw verhuizing of opslag."
+    }
+  ],
+  "customServiceSectionTitle": "ONZE DIENSTEN",
+  "customServiceSectionSubtitle": "Wat bieden wij?"
 }

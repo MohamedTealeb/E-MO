@@ -28,6 +28,9 @@ const emojiToIconName = {
   '🅿️': 'FaParking',
   '📦': 'FaBoxOpen',
   '🛠️': 'FaTools',
+  '🚛': 'FaTruckMoving',
+  '📦': 'FaBoxOpen',
+  '🛠': 'FaTools',
 };
 const iconsMap = {
   FaTruckMoving,
@@ -335,18 +338,18 @@ const About = ({ t, locale }) => {
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2">{t?.about?.customServiceSectionSubtitle || t?.customServiceSectionSubtitle}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {t?.customServiceCards?.map((card, idx) => {
+            {(t?.about?.customServiceCards || t?.customServiceCards)?.map((card, idx) => {
               const iconName = emojiToIconName[card.icon] || 'FaTools';
               const Icon = iconsMap[iconName] || FaTools;
               return (
-                <div key={idx} className="bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                <div key={idx} className="bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col hover:shadow-xl transition-shadow duration-300">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg flex items-center justify-center mb-3 sm:mb-4 bg-gray-50">
                     <Icon className="text-main text-2xl sm:text-3xl md:text-4xl" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{card.description}</p>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed flex-grow">{card.description}</p>
                 </div>
               );
             })}

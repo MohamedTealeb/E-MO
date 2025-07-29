@@ -549,7 +549,29 @@
       }
     ]
   },
-   "quoteButton": "Demander un devis"
- 
- 
+   "quoteButton": "Demander un devis",
+  "customServiceCards": [
+    {
+      "icon": "🚚",
+      "title": "Monte-meubles",
+      "description": "Nos monte-meubles assurent un déménagement rapide, sécurisé et sans souci jusqu'au 10e étage."
+    },
+    {
+      "icon": "🅿️",
+      "title": "Placement de panneau de stationnement",
+      "description": "Nous nous occupons rapidement de vos panneaux de stationnement pour un déménagement sans stress."
+    },
+    {
+      "icon": "📦",
+      "title": "Stockage de meubles",
+      "description": "Stockage sécurisé et flexible pour vos meubles, temporaire ou longue durée."
+    },
+    {
+      "icon": "🛠️",
+      "title": "Service supplémentaire",
+      "description": "Accompagnement personnalisé et conseils à chaque étape de votre déménagement ou stockage."
+    }
+  ],
+  "customServiceSectionTitle": "NOS SERVICES",
+  "customServiceSectionSubtitle": "Que proposons-nous ?"
 }
