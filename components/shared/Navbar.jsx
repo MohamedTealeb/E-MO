@@ -144,7 +144,7 @@ const Navbar = ({ forceDarkText = false }) => {
                     tabIndex={-1}
                     aria-label="Show submenu"
                   >
-                    <svg className="w-4 h-4" style={{transform: desktopDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'}} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    <svg className="w-4 h-4  " style={{transform: desktopDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'}} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                   </button>
                 </div>
                 <div
@@ -179,7 +179,7 @@ const Navbar = ({ forceDarkText = false }) => {
         {/* Right side - Search and Language - Hidden on Mobile */}
         <div className="hidden lg:flex items-center gap-2 lg:gap-4">
           {/* Search Icon */}
-          <button className="p-2 text-black hover:text-secondary transition-colors">
+          <button className="p-2 cursor-pointer text-black hover:text-secondary transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -187,7 +187,7 @@ const Navbar = ({ forceDarkText = false }) => {
           {/* Language Selector */}
           <button
             onClick={() => handleLocaleChange({ target: { value: locale === 'fr' ? 'nl' : 'fr' } })}
-            className="p-2 text-black hover:text-secondary transition-colors"
+            className="p-2 cursor-pointer text-black hover:text-secondary transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

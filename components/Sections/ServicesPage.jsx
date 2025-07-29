@@ -147,7 +147,7 @@ const ServicesPage = ({ t }) => {
           {t.services.items.map((item, index) => (
             <div 
               key={item.id} 
-              className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden  hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               onClick={() => handleServiceClick(item)}
             >
               {/* Image Section */}
@@ -155,7 +155,8 @@ const ServicesPage = ({ t }) => {
                 <img 
                   src={Images[index]?.src || `/unsplash_B0aCvAVSX8E.png`}
                   alt={item.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
+                  style={{ aspectRatio: '4/3' }}
                 />
               </div>
               
@@ -180,13 +181,13 @@ const ServicesPage = ({ t }) => {
                   <div className="space-y-2">
                     {item.bullets && item.bullets.map((bullet, bulletIndex) => (
                       <div key={bulletIndex} className="flex items-start gap-2">
-                        <span className="text-red-600 mt-1">•</span>
+                        <span className="text-gray-500 mt-1">•</span>
                         <span>{bullet}</span>
                       </div>
                     ))}
                     {!item.bullets && item.details && item.details.slice(0, 3).map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-start gap-2">
-                        <span className="text-red-600 mt-1">•</span>
+                        <span className="text-gray-500 mt-1">•</span>
                         <span>{detail}</span>
                       </div>
                     ))}
@@ -199,7 +200,7 @@ const ServicesPage = ({ t }) => {
                 
                 {/* Button */}
                 <div className="text-center">
-                  <button className="bg-main text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors">
+                  <button className="bg-main cursor-pointer text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors">
                     Demander un devis
                   </button>
                 </div>
@@ -212,28 +213,31 @@ const ServicesPage = ({ t }) => {
       {/* Service Modal */}
       {isModalOpen && selectedService && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             {/* Modal Header with Image */}
-            <div className="relative h-64 md:h-80">
-              <img 
-                src={Images[selectedService.id]?.src || `/unsplash_B0aCvAVSX8E.png`}
-                alt={selectedService.title} 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/40" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-main/90 rounded-lg p-6 text-white text-center">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                    {selectedService.title}
-                  </h2>
+            <div className="relative bg-white p-8">
+              <div className="relative h-64 md:h-130 rounded-lg overflow-hidden">
+                <img 
+                  src={Images[selectedService.id]?.src || `/unsplash_B0aCvAVSX8E.png`}
+                  alt={selectedService.title} 
+                  className="w-full h-full object-cover object-center"
+                  style={{ aspectRatio: '4/3' }}
+                />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className=" rounded-lg p-6 text-white text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                      {selectedService.title}
+                    </h2>
+                  </div>
                 </div>
+                <button 
+                  onClick={closeModal}
+                  className="absolute top-4  cursor-pointer right-4 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors"
+                >
+                  <FaTimes className="w-5 h-5" />
+                </button>
               </div>
-              <button 
-                onClick={closeModal}
-                className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors"
-              >
-                <FaTimes className="w-5 h-5" />
-              </button>
             </div>
             
             {/* Modal Content */}
@@ -268,11 +272,7 @@ const ServicesPage = ({ t }) => {
               </div>
               
               {/* Modal Button */}
-              <div className="text-center">
-                <button className="bg-main text-white font-bold py-4 px-10 rounded-xl hover:bg-blue-800 transition-colors text-lg">
-                  Demander un devis
-                </button>
-              </div>
+            
             </div>
           </div>
         </div>
@@ -288,7 +288,7 @@ const ServicesPage = ({ t }) => {
             {services.teamReadyToHelp}
           </p>
           <Link href={`/${t.locale || 'fr'}/contact`}>
-            <button className="bg-white text-main font-bold py-3 px-8 rounded-xl hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-main cursor-pointer font-bold py-3 px-8 rounded-xl hover:bg-gray-100 transition-colors">
               {services.contactUs}
             </button>
           </Link>
