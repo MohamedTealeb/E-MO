@@ -1,11 +1,12 @@
 'use client'
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { FaQuoteLeft } from 'react-icons/fa';
-import { Quote } from 'lucide-react';
+import { Quote, X } from 'lucide-react';
 
 const Blogs = ({ t }) => {
   const cardsRef = useRef([]);
+  const [selectedArticle, setSelectedArticle] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,6 +52,16 @@ const Blogs = ({ t }) => {
         behavior: 'smooth'
       });
     }
+  };
+
+  const handleArticleClick = (article) => {
+    setSelectedArticle(article);
+    document.body.style.overflow = 'hidden'; // منع التمرير في الخلفية
+  };
+
+  const handleCloseArticle = () => {
+    setSelectedArticle(null);
+    document.body.style.overflow = 'auto'; // إعادة تفعيل التمرير
   };
 
   if (!t?.blogs) return null;
@@ -108,6 +119,7 @@ const Blogs = ({ t }) => {
                 <div
                   ref={el => (cardsRef.current[idx] = el)}
                   className="bg-white rounded-xl shadow-md p-4 md:p-6 relative hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group w-full md:w-80"
+                  onClick={() => handleArticleClick(item)}
                 >
                   <div className="relative z-10 pt-2">
                     <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3 leading-tight pr-6 md:pr-8">
@@ -138,6 +150,7 @@ const Blogs = ({ t }) => {
                 <div
                   ref={el => (cardsRef.current[idx + 2] = el)}
                   className="bg-white rounded-xl shadow-md p-4 md:p-6 relative hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group w-full md:w-80"
+                  onClick={() => handleArticleClick(item)}
                 >
                   <div className="relative z-10 pt-2">
                     <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3 leading-tight pr-6 md:pr-8">
@@ -156,6 +169,67 @@ const Blogs = ({ t }) => {
           </div>
         </div>
       </div>
+
+      {/* Article Modal */}
+      {selectedArticle && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={handleCloseArticle}
+        >
+          <div 
+            className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+                {selectedArticle.title}
+              </h2>
+              <button
+                onClick={handleCloseArticle}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Close article"
+              >
+                <X className="w-6 h-6 text-gray-600" />
+              </button>
+            </div>
+            
+            {/* Content */}
+            <div className="p-6">
+              <div className="mb-6">
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                  {selectedArticle.title}
+                </h1>
+              
+                <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                  {selectedArticle.excerpt}
+                </p>
+              </div>
+              
+              {/* Full article content */}
+              <div className="prose prose-lg max-w-none">
+                {selectedArticle.fullContent ? (
+                  <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                    {selectedArticle.fullContent}
+                  </div>
+                ) : (
+                  <>
+                    <p className="text-gray-700 leading-relaxed">
+                      هذا هو المحتوى الكامل للمقال. يمكنك إضافة المزيد من المحتوى هنا مثل الفقرات والصور والعناوين الفرعية.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed mt-4">
+                      يمكنك أيضاً إضافة روابط ومقاطع فيديو أو أي محتوى آخر تريده في المقال.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed mt-4">
+                      هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
