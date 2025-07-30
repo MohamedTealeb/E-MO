@@ -86,14 +86,14 @@ const Hero = () => {
   return (
     <section className="relative px-4 sm:px-8 md:px-16 lg:px-30 mt-20 h-screen w-full overflow-hidden bg-white transition-colors duration-500">
       {/* Background images */}
-      <div className="absolute px-4 sm:px-8 md:px-16 lg:px-30 inset-0 w-full h-full z-0">
+      <div className="absolute  sm:px-8 md:px-16 lg:px-30 inset-0 w-full h-full z-0">
         {carouselImages.map((img, index) => (
           <img
             key={img.src}
             src={img.src}
             alt={img.alt}
             ref={(el) => (imageRefs.current[index] = el)}
-            className={`absolute inset-0 px-4 sm:px-8 md:px-16 lg:px-20 w-full h-full object-cover transition-opacity duration-1000 ${
+            className={`absolute inset-0 sm:px-8 md:px-16 lg:px-20 w-full h-full object-cover transition-opacity duration-1000 ${
               index === current ? "z-10" : "z-0"
             }`}
             style={{ opacity: index === current ? 1 : 0 }}
