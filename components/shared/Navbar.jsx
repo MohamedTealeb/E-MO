@@ -80,21 +80,22 @@ const Navbar = ({ forceDarkText = false }) => {
       
       console.log('Selected service:', selectedService);
       
-      // حفظ الخدمة المحددة في localStorage
+      // حفظ الخدمة المحددة في localStorage كاحتياطي
       localStorage.setItem('selectedService', JSON.stringify(selectedService));
       
       // إغلاق القائمة في mobile
       setOpenSubmenu(null);
       setDesktopDropdownOpen(false);
       
-      // التوجيه إلى صفحة الخدمات
-      const newPath = subItem.href.replace(/\/\d+$/, ''); // إزالة الرقم من نهاية المسار
+      // التوجيه إلى صفحة الخدمات مع تمرير معرف الخدمة
+      const servicesPath = `/${locale}/services`;
+      const newPath = `${servicesPath}?service=${serviceIndex}`;
       console.log('Navigating to:', newPath);
       router.push(newPath);
     } else {
       console.error('Service not found for index:', serviceIndex);
     }
-  }, [translations, router]);
+  }, [translations, router, locale]);
 
   const navItems = [
     { href: `/${locale}`, label: labels.home },

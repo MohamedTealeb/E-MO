@@ -1,8 +1,10 @@
 'use client'
 import React, { useRef, useState } from 'react';
-import { FaHome, FaCompass, FaCouch, FaPlay } from 'react-icons/fa';
+import { FaHome, FaCompass, FaCouch, FaPlay, FaPause } from 'react-icons/fa';
 
 const Portfolio = ({ t }) => {
+  const [isPlaying, setIsPlaying] = useState(true);
+  
   if (!t) return null;
 
   const handleScrollDown = () => {
@@ -127,15 +129,61 @@ const Portfolio = ({ t }) => {
         {/* Video Gallery Section */}
         <div className="mb-10 sm:mb-15 md:mb-20">
           <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
-            <img 
-              src="/WhatsApp.jpg" 
-              alt="Video Gallery" 
-              className="w-full h-full object-cover"
-            />
+            <video 
+              src="/WhatsApp Video 2025-07-30 at 20.38.22_6cce70eb.mp4" 
+              className='w-full h-full object-cover cursor-pointer' 
+              autoPlay 
+              muted 
+              loop
+              playsInline
+              onClick={(e) => {
+                const video = e.target;
+                if (video.paused) {
+                  video.play();
+                  setIsPlaying(true);
+                } else {
+                  video.pause();
+                  setIsPlaying(false);
+                }
+              }}
+              onLoadedData={(e) => {
+                const video = e.target;
+                video.play().catch(error => {
+                  console.log('Video autoplay failed:', error);
+                });
+              }}
+              onError={(e) => {
+                console.log('Video loading error:', e);
+              }}
+            ></video>
+            
+            {/* Play/Pause Button */}
+            <div className="absolute inset-0 flex items-center justify-center z-20">
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const video = e.target.closest('.relative').querySelector('video');
+                  if (video.paused) {
+                    video.play();
+                    setIsPlaying(true);
+                  } else {
+                    video.pause();
+                    setIsPlaying(false);
+                  }
+                }}
+                className="bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 sm:p-4 md:p-5 shadow-lg transition-all duration-300 hover:scale-110"
+                title="تشغيل/إيقاف الفيديو"
+              >
+                {isPlaying ? (
+                  <FaPause className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                ) : (
+                  <FaPlay className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+                )}
+              </button>
+            </div>
+            
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <div className="bg-white rounded-full p-4 sm:p-5 md:p-6 shadow-lg cursor-pointer hover:scale-110 transition-transform">
-                <FaPlay className="text-2xl sm:text-3xl md:text-4xl text-gray-800" />
-              </div>
+             
             </div>
           </div>
         </div>
@@ -180,6 +228,62 @@ const Portfolio = ({ t }) => {
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img 
               src="/insulation.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/hero.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/p2.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/p6.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/home2.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/unsplash_mLx6oMw32PI.png" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-06-29 at 16.33.45_6691a55d.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-06-29 at 16.33.36_a6fae8f2.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/unsplash_zSlTu6fgzjo.png" 
               alt="Outdoor Deck" 
               className="w-full h-full object-cover"
             />

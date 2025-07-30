@@ -175,6 +175,7 @@ export const Contact = () => {
             <div className="text-center pt-8">
               <h3 className="text-xl font-bold text-main mb-3">Téléphone</h3>
               <p className="text-gray-700 text-lg font-semibold mb-1">+32 123 45 67 89</p>
+              <p className="text-gray-700 text-lg font-semibold mb-1">+0491129917</p>
               <p className="text-gray-600 text-sm">Lun-Ven: 8h-18h</p>
             </div>
           </div>
@@ -204,7 +205,7 @@ export const Contact = () => {
             </div>
             <div className="text-center pt-8">
               <h3 className="text-xl font-bold text-main mb-3">Adresse</h3>
-              <p className="text-gray-700 text-lg font-semibold mb-1">123 Rue Exemple</p>
+              <p className="text-gray-700 text-lg font-semibold mb-1">Driekoningenstraat 215 9100 Sint-Niklaas</p>
               <p className="text-gray-600 text-sm">1000 Ville, Belgique</p>
             </div>
           </div>
