@@ -80,22 +80,31 @@ const Navbar = ({ forceDarkText = false }) => {
       
       console.log('Selected service:', selectedService);
       
-      // حفظ الخدمة المحددة في localStorage كاحتياطي
+      // حفظ الخدمة المحددة في localStorage
       localStorage.setItem('selectedService', JSON.stringify(selectedService));
       
       // إغلاق القائمة في mobile
       setOpenSubmenu(null);
       setDesktopDropdownOpen(false);
       
-      // التوجيه إلى صفحة الخدمات مع تمرير معرف الخدمة
-      const servicesPath = `/${locale}/services`;
-      const newPath = `${servicesPath}?service=${serviceIndex}`;
+      // التوجيه إلى صفحة الخدمات
+      const newPath = subItem.href.replace(/\/\d+$/, ''); // إزالة الرقم من نهاية المسار
       console.log('Navigating to:', newPath);
+      
+      // إغلاق Sheet في mobile
+      const sheetContent = document.querySelector('[data-radix-sheet-content]');
+      if (sheetContent) {
+        const closeButton = sheetContent.querySelector('[data-radix-sheet-close]');
+        if (closeButton) {
+          closeButton.click();
+        }
+      }
+      
       router.push(newPath);
     } else {
       console.error('Service not found for index:', serviceIndex);
     }
-  }, [translations, router, locale]);
+  }, [translations, router]);
 
   const navItems = [
     { href: `/${locale}`, label: labels.home },
@@ -263,7 +272,17 @@ const Navbar = ({ forceDarkText = false }) => {
                               <Link
                                 href={item.href}
                                 className="text-base font-medium hover:text-secondary transition-colors flex-1 text-left"
-                                onClick={() => setOpenSubmenu(null)}
+                                onClick={() => {
+                                  setOpenSubmenu(null);
+                                  // إغلاق Sheet في mobile
+                                  const sheetContent = document.querySelector('[data-radix-sheet-content]');
+                                  if (sheetContent) {
+                                    const closeButton = sheetContent.querySelector('[data-radix-sheet-close]');
+                                    if (closeButton) {
+                                      closeButton.click();
+                                    }
+                                  }
+                                }}
                               >
                                 {item.label}
                               </Link>
@@ -298,6 +317,16 @@ const Navbar = ({ forceDarkText = false }) => {
                           <Link
                             href={item.href}
                             className="text-base font-medium hover:text-secondary transition-colors block py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
+                            onClick={() => {
+                              // إغلاق Sheet في mobile
+                              const sheetContent = document.querySelector('[data-radix-sheet-content]');
+                              if (sheetContent) {
+                                const closeButton = sheetContent.querySelector('[data-radix-sheet-close]');
+                                if (closeButton) {
+                                  closeButton.click();
+                                }
+                              }
+                            }}
                           >
                             {item.label}
                           </Link>

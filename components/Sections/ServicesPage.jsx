@@ -26,22 +26,6 @@ const ServicesPage = ({ t }) => {
   // فتح الخدمة المحددة عند تحميل الصفحة
   useEffect(() => {
     const checkForSavedService = () => {
-      // فحص معامل URL أولاً
-      const urlParams = new URLSearchParams(window.location.search);
-      const serviceIndex = urlParams.get('service');
-      
-      if (serviceIndex !== null && services?.items?.[parseInt(serviceIndex)]) {
-        const service = services.items[parseInt(serviceIndex)];
-        console.log('Opening modal for service from URL:', service.title);
-        setSelectedService(service);
-        setIsModalOpen(true);
-        // إزالة معامل URL من الرابط
-        const newUrl = window.location.pathname;
-        window.history.replaceState({}, '', newUrl);
-        return;
-      }
-      
-      // فحص localStorage كاحتياطي
       const savedService = localStorage.getItem('selectedService');
       console.log('Checking for saved service:', savedService);
       
@@ -79,7 +63,7 @@ const ServicesPage = ({ t }) => {
       window.removeEventListener('storage', handleStorageChange);
       clearInterval(interval);
     };
-  }, [services]);
+  }, []);
 
   const handleToggle = (idx) => {
     const newExpanded = new Set(expandedCards);
