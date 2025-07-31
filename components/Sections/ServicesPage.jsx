@@ -78,14 +78,23 @@ const ServicesPage = ({ t }) => {
   const handleServiceClick = (service) => {
     setSelectedService(service);
     setIsModalOpen(true);
+    // منع التمرير في الخلفية عند فتح المودال
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedService(null);
+    // إعادة التمرير عند إغلاق المودال
+    document.body.style.overflow = 'unset';
   };
 
-
+  // إغلاق المودال عند الضغط خارج المحتوى
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
 
   const handleScrollDown = () => {
     // التمرير إلى منتصف الصفحة
@@ -172,7 +181,7 @@ const ServicesPage = ({ t }) => {
           {t.services.items.map((item, index) => (
             <div 
               key={item.id} 
-              className="bg-white rounded-2xl shadow-lg overflow-hidden  hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               onClick={() => handleServiceClick(item)}
             >
               {/* Image Section */}
@@ -225,7 +234,7 @@ const ServicesPage = ({ t }) => {
                 
                 {/* Button */}
                 <div className="text-center">
-                  <button className="bg-main cursor-pointer text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors">
+                  <button className="bg-main text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors">
                     Demander un devis
                   </button>
                 </div>
@@ -235,69 +244,88 @@ const ServicesPage = ({ t }) => {
         </div>
       </div>
 
-      {/* Service Modal */}
+      {/* Service Modal - Improved for Mobile */}
       {isModalOpen && selectedService && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div 
+          className="fixed inset-0 bg-black/60 flex items-center justify-center z-[9999] p-2 sm:p-4"
+          onClick={handleBackdropClick}
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 9999
+          }}
+        >
+          <div 
+            className="bg-white rounded-2xl w-full max-w-4xl max-h-[95vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxHeight: '95vh',
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
             {/* Modal Header with Image */}
-            <div className="relative bg-white p-8">
-              <div className="relative h-64 md:h-130 rounded-lg overflow-hidden">
+            <div className="relative bg-white">
+              <div className="relative h-48 sm:h-64 md:h-80 rounded-t-2xl overflow-hidden">
                 <img 
                   src={Images[selectedService.id]?.src || `/unsplash_B0aCvAVSX8E.png`}
                   alt={selectedService.title} 
                   className="w-full h-full object-cover object-center"
-                  style={{ aspectRatio: '4/3' }}
                 />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className=" rounded-lg p-6 text-white text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                  <div className="rounded-lg p-4 sm:p-6 text-white text-center">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
                       {selectedService.title}
                     </h2>
                   </div>
                 </div>
                 <button 
                   onClick={closeModal}
-                  className="absolute top-4  cursor-pointer right-4 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors z-10"
+                  style={{ touchAction: 'manipulation' }}
                 >
-                  <FaTimes className="w-5 h-5" />
+                  <FaTimes className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>
             
             {/* Modal Content */}
-            <div className="p-6 md:p-8">
+            <div className="p-4 sm:p-6 md:p-8">
               <div className="text-gray-600 mb-6">
-                <p className="mb-4 leading-relaxed text-lg">
+                <p className="mb-4 leading-relaxed text-base sm:text-lg">
                   {selectedService.descriptionIntro || selectedService.description || "Service description"}
                 </p>
                 
-                <h4 className="text-xl font-bold mb-4 text-gray-800">
+                <h4 className="text-lg sm:text-xl font-bold mb-4 text-gray-800">
                   Nos services incluent :
                 </h4>
                 
                 <div className="space-y-3">
                   {selectedService.bullets && selectedService.bullets.map((bullet, bulletIndex) => (
                     <div key={bulletIndex} className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1 text-lg">✓</span>
-                      <span className="text-lg">{bullet}</span>
+                      <span className="text-green-600 mt-1 text-base sm:text-lg flex-shrink-0">✓</span>
+                      <span className="text-base sm:text-lg">{bullet}</span>
                     </div>
                   ))}
                   {!selectedService.bullets && selectedService.details && selectedService.details.slice(0, 4).map((detail, detailIndex) => (
                     <div key={detailIndex} className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1 text-lg">✓</span>
-                      <span className="text-lg">{detail}</span>
+                      <span className="text-green-600 mt-1 text-base sm:text-lg flex-shrink-0">✓</span>
+                      <span className="text-base sm:text-lg">{detail}</span>
                     </div>
                   ))}
                 </div>
                 
-                <p className="mt-6 italic text-lg">
+                <p className="mt-6 italic text-base sm:text-lg">
                   {selectedService.descriptionOutro || "Notre expertise garantit des résultats de qualité."}
                 </p>
               </div>
               
               {/* Modal Button */}
-            
+          
             </div>
           </div>
         </div>

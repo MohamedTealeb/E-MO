@@ -199,21 +199,21 @@ const Portfolio = ({ t }) => {
           </div>
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img 
-              src="/WhatsApp Image 2025-07-27 at 1.16.46 AM 1 (10).png" 
+              src="/WhatsApp Image 2025-07-30 at 21.54.39_ef559245.jpg" 
               alt="Greenhouse" 
               className="w-full h-full object-cover"
             />
           </div>
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:col-span-2 md:col-span-1">
             <img 
-              src="/WhatsApp Image 2025-07-27 at 1.16.46 AM (3) 1.png" 
+              src="/WhatsApp Image 2025-07-30 at 21.53.52_e3bafed6.jpg" 
               alt="Outdoor Deck" 
               className="w-full h-full object-cover"
             />
           </div>
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img 
-              src="/c284d157df128df821a114b42ed83112bf042cac (2).jpg" 
+              src="/WhatsApp Image 2025-07-30 at 21.53.52_426d2106.jpg" 
               alt="Outdoor Deck" 
               className="w-full h-full object-cover"
             />
@@ -255,14 +255,14 @@ const Portfolio = ({ t }) => {
           </div>
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img 
-              src="/home2.jpg" 
+              src="/WhatsApp Image 2025-07-30 at 21.54.47_e76c7cb3.jpg" 
               alt="Outdoor Deck" 
               className="w-full h-full object-cover"
             />
           </div>
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img 
-              src="/unsplash_mLx6oMw32PI.png" 
+              src="/WhatsApp Image 2025-07-30 at 21.54.48_381c3247.jpg" 
               alt="Outdoor Deck" 
               className="w-full h-full object-cover"
             />
@@ -283,7 +283,28 @@ const Portfolio = ({ t }) => {
           </div>
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img 
-              src="/unsplash_zSlTu6fgzjo.png" 
+              src="/WhatsApp Image 2025-07-30 at 21.54.48_a65703e0.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.53.40_049ef7f9.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.53.41_aa0d93bb.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.53.43_be7e15f7.jpg" 
               alt="Outdoor Deck" 
               className="w-full h-full object-cover"
             />

@@ -90,6 +90,15 @@ const Slider_Hero = ({ t }) => {
     { src: "/unsplash_cc0Gg3BegjE.png", alt: "Bathroom" }
   ];
 
+  // Auto slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, 3000); // كل 3 ثواني
+
+    return () => clearInterval(interval); // تنظيف التايمر عند إزالة المكون
+  }, [images.length]);
+
   const handleImageClick = (index) => {
     setActiveIndex(index);
   };
