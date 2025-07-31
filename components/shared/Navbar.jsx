@@ -27,7 +27,10 @@ const Navbar = ({ forceDarkText = false }) => {
   const [scrolled, setScrolled] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const dropdownTimer = useRef();
+
+
 
   // Scroll listener
   useEffect(() => {
@@ -91,14 +94,8 @@ const Navbar = ({ forceDarkText = false }) => {
       const newPath = subItem.href.replace(/\/\d+$/, ''); // إزالة الرقم من نهاية المسار
       console.log('Navigating to:', newPath);
       
-      // إغلاق Sheet في mobile
-      const sheetContent = document.querySelector('[data-radix-sheet-content]');
-      if (sheetContent) {
-        const closeButton = sheetContent.querySelector('[data-radix-sheet-close]');
-        if (closeButton) {
-          closeButton.click();
-        }
-      }
+      // إغلاق Sheet في mobile فوراً
+      setIsSheetOpen(false);
       
       router.push(newPath);
     } else {
@@ -239,7 +236,12 @@ const Navbar = ({ forceDarkText = false }) => {
           </button>
           
           {/* Menu Button */}
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={(open) => {
+            setIsSheetOpen(open);
+            if (!open) {
+              setOpenSubmenu(null);
+            }
+          }}>
             <SheetTrigger asChild>
               <button
                 className={`p-3 cursor-pointer z-50 bg-white rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
@@ -250,14 +252,36 @@ const Navbar = ({ forceDarkText = false }) => {
                 <HiMenu className="h-6 w-6" />
               </button>
             </SheetTrigger>
-            <SheetContent side="left" className="bg-white text-black p-0 w-[85vw] max-w-[320px] border-r border-gray-200">
+            <SheetContent 
+              side="left" 
+              className="bg-white text-black p-0 w-[85vw] max-w-[320px] border-r border-gray-200"
+              onPointerDownOutside={() => {
+                setIsSheetOpen(false);
+                setOpenSubmenu(null);
+              }}
+              onEscapeKeyDown={() => {
+                setIsSheetOpen(false);
+                setOpenSubmenu(null);
+              }}
+            >
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="p-4 border-b border-gray-200 bg-gray-50">
                   <div className="flex items-center justify-between">
                     <h2 className="text-lg font-bold text-black">Menu</h2>
-                  
+                    <button
+                      onClick={() => {
+                        setIsSheetOpen(false);
+                        setOpenSubmenu(null);
+                      }}
+                      className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+                      aria-label="Close menu"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
                 
@@ -274,14 +298,8 @@ const Navbar = ({ forceDarkText = false }) => {
                                 className="text-base font-medium hover:text-secondary transition-colors flex-1 text-left"
                                 onClick={() => {
                                   setOpenSubmenu(null);
-                                  // إغلاق Sheet في mobile
-                                  const sheetContent = document.querySelector('[data-radix-sheet-content]');
-                                  if (sheetContent) {
-                                    const closeButton = sheetContent.querySelector('[data-radix-sheet-close]');
-                                    if (closeButton) {
-                                      closeButton.click();
-                                    }
-                                  }
+                                  // إغلاق Sheet في mobile فوراً
+                                  setIsSheetOpen(false);
                                 }}
                               >
                                 {item.label}
@@ -318,14 +336,8 @@ const Navbar = ({ forceDarkText = false }) => {
                             href={item.href}
                             className="text-base font-medium hover:text-secondary transition-colors block py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
                             onClick={() => {
-                              // إغلاق Sheet في mobile
-                              const sheetContent = document.querySelector('[data-radix-sheet-content]');
-                              if (sheetContent) {
-                                const closeButton = sheetContent.querySelector('[data-radix-sheet-close]');
-                                if (closeButton) {
-                                  closeButton.click();
-                                }
-                              }
+                              // إغلاق Sheet في mobile فوراً
+                              setIsSheetOpen(false);
                             }}
                           >
                             {item.label}

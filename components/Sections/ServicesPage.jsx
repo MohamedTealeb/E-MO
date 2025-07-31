@@ -22,48 +22,55 @@ const ServicesPage = ({ t }) => {
 
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
-  // فتح الخدمة المحددة عند تحميل الصفحة
+  const modalRef = useRef(null);
+
   useEffect(() => {
-    const checkForSavedService = () => {
-      const savedService = localStorage.getItem('selectedService');
-      console.log('Checking for saved service:', savedService);
-      
-      if (savedService) {
-        try {
-          const service = JSON.parse(savedService);
-          console.log('Opening modal for service:', service.title);
-          setSelectedService(service);
-          setIsModalOpen(true);
-          // مسح الخدمة المحفوظة بعد فتحها
-          localStorage.removeItem('selectedService');
-        } catch (error) {
-          console.error('Error parsing saved service:', error);
-          localStorage.removeItem('selectedService');
-        }
-      }
-    };
-
-    // فحص فوري عند تحميل الصفحة
-    checkForSavedService();
-
-    // إضافة event listener للتغييرات في localStorage
-    const handleStorageChange = (e) => {
-      if (e.key === 'selectedService' && e.newValue) {
-        checkForSavedService();
-      }
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    
-    // فحص دوري كل 100ms للتأكد من وجود خدمة محفوظة
-    const interval = setInterval(checkForSavedService, 100);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      clearInterval(interval);
-    };
+    setIsReady(true);
   }, []);
+
+  // New clean implementation for handling modal opening
+  useEffect(() => {
+    const savedService = localStorage.getItem('selectedService');
+    if (savedService && isReady) {
+      try {
+        const service = JSON.parse(savedService);
+        setSelectedService(service);
+        setIsModalOpen(true);
+        document.body.style.overflow = 'hidden';
+        localStorage.removeItem('selectedService');
+        
+        // Ensure modal is properly focused and scrollable
+        setTimeout(() => {
+          if (modalRef.current) {
+            modalRef.current.focus();
+            modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Trigger scroll event for mobile compatibility
+            modalRef.current.dispatchEvent(new Event('touchstart', { bubbles: true }));
+            modalRef.current.scrollTo(0, 1);
+          }
+        }, 150);
+      } catch (error) {
+        console.error('Error parsing saved service:', error);
+        localStorage.removeItem('selectedService');
+      }
+    }
+  }, [isReady]);
+
+  useEffect(() => {
+    if (isModalOpen && modalRef.current) {
+      modalRef.current.focus();
+      modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Hack for iOS/Safari: trigger a scroll event and a small scrollTo
+      setTimeout(() => {
+        if (modalRef.current) {
+          modalRef.current.dispatchEvent(new Event('touchstart', { bubbles: true }));
+          modalRef.current.scrollTo(0, 1);
+        }
+      }, 100);
+    }
+  }, [isModalOpen]);
 
   const handleToggle = (idx) => {
     const newExpanded = new Set(expandedCards);
@@ -78,15 +85,13 @@ const ServicesPage = ({ t }) => {
   const handleServiceClick = (service) => {
     setSelectedService(service);
     setIsModalOpen(true);
-    // منع التمرير في الخلفية عند فتح المودال
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; // Lock background scroll
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedService(null);
-    // إعادة التمرير عند إغلاق المودال
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = 'unset'; // Restore background scroll
   };
 
   // إغلاق المودال عند الضغط خارج المحتوى
@@ -255,21 +260,28 @@ const ServicesPage = ({ t }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            zIndex: 9999
+            zIndex: 9999,
+            padding: '8px'
           }}
         >
           <div 
-            className="bg-white rounded-2xl w-full max-w-4xl max-h-[95vh] overflow-y-auto relative"
+            ref={modalRef}
+            tabIndex={-1}
+            className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] sm:max-h-[95vh] overflow-y-auto relative"
             onClick={(e) => e.stopPropagation()}
             style={{
-              maxHeight: '95vh',
-              overflowY: 'auto',
-              WebkitOverflowScrolling: 'touch'
+              maxHeight: '90vh',
+              overflowY: 'scroll',
+              WebkitOverflowScrolling: 'touch',
+              overscrollBehavior: 'contain',
+              touchAction: 'manipulation',
+              display: 'flex',
+              flexDirection: 'column'
             }}
           >
             {/* Modal Header with Image */}
-            <div className="relative bg-white">
-              <div className="relative h-48 sm:h-64 md:h-80 rounded-t-2xl overflow-hidden">
+            <div className="relative bg-white flex-shrink-0">
+              <div className="relative h-40 sm:h-48 md:h-64 lg:h-80 rounded-t-2xl overflow-hidden">
                 <img 
                   src={Images[selectedService.id]?.src || `/unsplash_B0aCvAVSX8E.png`}
                   alt={selectedService.title} 
@@ -277,15 +289,15 @@ const ServicesPage = ({ t }) => {
                 />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rounded-lg p-4 sm:p-6 text-white text-center">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                  <div className="rounded-lg p-3 sm:p-4 md:p-6 text-white text-center">
+                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2">
                       {selectedService.title}
                     </h2>
                   </div>
                 </div>
                 <button 
                   onClick={closeModal}
-                  className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors z-10"
+                  className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors z-10"
                   style={{ touchAction: 'manipulation' }}
                 >
                   <FaTimes className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -294,40 +306,40 @@ const ServicesPage = ({ t }) => {
             </div>
             
             {/* Modal Content */}
-            <div className="p-4 sm:p-6 md:p-8 pb-8">
-              <div className="text-gray-600 mb-6">
-                <p className="mb-4 leading-relaxed text-base sm:text-lg">
+            <div className="p-3 sm:p-4 md:p-6 lg:p-8 pb-6 flex-1">
+              <div className="text-gray-600 mb-4">
+                <p className="mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base md:text-lg">
                   {selectedService.descriptionIntro || selectedService.description || "Service description"}
                 </p>
                 
-                <h4 className="text-lg sm:text-xl font-bold mb-4 text-gray-800">
+                <h4 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 text-gray-800">
                   Nos services incluent :
                 </h4>
                 
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {selectedService.bullets && selectedService.bullets.map((bullet, bulletIndex) => (
-                    <div key={bulletIndex} className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1 text-base sm:text-lg flex-shrink-0">✓</span>
-                      <span className="text-base sm:text-lg">{bullet}</span>
+                    <div key={bulletIndex} className="flex items-start gap-2 sm:gap-3">
+                      <span className="text-green-600 mt-1 text-sm sm:text-base md:text-lg flex-shrink-0">✓</span>
+                      <span className="text-sm sm:text-base md:text-lg">{bullet}</span>
                     </div>
                   ))}
                   {!selectedService.bullets && selectedService.details && selectedService.details.slice(0, 4).map((detail, detailIndex) => (
-                    <div key={detailIndex} className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1 text-base sm:text-lg flex-shrink-0">✓</span>
-                      <span className="text-base sm:text-lg">{detail}</span>
+                    <div key={detailIndex} className="flex items-start gap-2 sm:gap-3">
+                      <span className="text-green-600 mt-1 text-sm sm:text-base md:text-lg flex-shrink-0">✓</span>
+                      <span className="text-sm sm:text-base md:text-lg">{detail}</span>
                     </div>
                   ))}
                 </div>
                 
-                <p className="mt-6 italic text-base sm:text-lg">
+                <p className="mt-4 sm:mt-6 italic text-sm sm:text-base md:text-lg">
                   {selectedService.descriptionOutro || "Notre expertise garantit des résultats de qualité."}
                 </p>
               </div>
               
               {/* Modal Button */}
-              <div className="text-center pt-4">
+              <div className="text-center pt-3 sm:pt-4">
                 <button 
-                  className="bg-main text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors w-full sm:w-auto"
+                  className="bg-main text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg hover:bg-blue-800 transition-colors w-full sm:w-auto text-sm sm:text-base"
                   onClick={closeModal}
                 >
                   Fermer
