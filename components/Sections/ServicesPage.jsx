@@ -294,7 +294,7 @@ const ServicesPage = ({ t }) => {
             </div>
             
             {/* Modal Content */}
-            <div className="p-4 sm:p-6 md:p-8">
+            <div className="p-4 sm:p-6 md:p-8 pb-8">
               <div className="text-gray-600 mb-6">
                 <p className="mb-4 leading-relaxed text-base sm:text-lg">
                   {selectedService.descriptionIntro || selectedService.description || "Service description"}
@@ -325,7 +325,14 @@ const ServicesPage = ({ t }) => {
               </div>
               
               {/* Modal Button */}
-          
+              <div className="text-center pt-4">
+                <button 
+                  className="bg-main text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors w-full sm:w-auto"
+                  onClick={closeModal}
+                >
+                  Fermer
+                </button>
+              </div>
             </div>
           </div>
         </div>

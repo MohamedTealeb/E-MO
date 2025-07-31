@@ -304,7 +304,70 @@ const Portfolio = ({ t }) => {
           </div>
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img 
+              src="/WhatsApp Image 2025-07-30 at 21.53.43_37327ecb.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
               src="/WhatsApp Image 2025-07-30 at 21.53.43_be7e15f7.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.53.45_2b42f6bd.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.53.45_275f8fce.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.53.45_c9594ce5.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.54.41_28eb7d5b.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.54.41_034b18ee.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.54.46_822e74c3.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.54.45_9a9fa924.jpg" 
+              alt="Outdoor Deck" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/WhatsApp Image 2025-07-30 at 21.53.46_a0330450.jpg" 
               alt="Outdoor Deck" 
               className="w-full h-full object-cover"
             />

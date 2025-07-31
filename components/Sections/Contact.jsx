@@ -174,8 +174,8 @@ export const Contact = () => {
             </div>
             <div className="text-center pt-8">
               <h3 className="text-xl font-bold text-main mb-3">Téléphone</h3>
-              <p className="text-gray-700 text-lg font-semibold mb-1">+32 123 45 67 89</p>
-              <p className="text-gray-700 text-lg font-semibold mb-1">+0491129917</p>
+              <p className="text-gray-700 text-lg font-semibold mb-1">+32491129917</p>
+              <p className="text-gray-700 text-lg font-semibold mb-1">+32465218194</p>
               <p className="text-gray-600 text-sm">Lun-Ven: 8h-18h</p>
             </div>
           </div>

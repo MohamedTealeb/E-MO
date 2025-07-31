@@ -82,13 +82,13 @@ const Footer = ({ t, locale }) => {
               </div>
               <div className="flex items-center justify-center md:justify-end space-x-2">
                 <span className="text-red-500 text-sm">📞</span>
-                <span className="text-gray-300 text-xs sm:text-sm">+32 123 45 67 89</span>
+                <span className="text-gray-300 text-xs sm:text-sm">+32491129917</span>
              
               </div>
               <div className="flex items-center justify-center md:justify-end space-x-2">
                 <span className="text-red-500 text-sm">📞</span>
                 
-                <span className="text-gray-300 text-xs sm:text-sm">+04 911 29 917</span>
+                <span className="text-gray-300 text-xs sm:text-sm">+32465218194</span>
               </div>
               <div className="flex items-center justify-center md:justify-end space-x-2">
                 <span className="text-red-500 text-sm">✉️</span>
