@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/public/HLogo.png';
 import { FaFacebookF, FaInstagram, FaEnvelope } from 'react-icons/fa';
+import { FaTiktok } from 'react-icons/fa6';
 
 const Footer = ({ t, locale }) => {
   return (
@@ -29,15 +30,36 @@ const Footer = ({ t, locale }) => {
             
             {/* Social Media Icons */}
             <div className="flex justify-center md:justify-start space-x-2 sm:space-x-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
+              <a 
+                href="https://www.facebook.com/Emorenovation" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer"
+                aria-label="Follow us on Facebook"
+              >
                 <FaFacebookF className="text-white text-sm sm:text-lg" />
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer">
+              </a>
+              <a 
+                href="https://www.instagram.com/emorenovation/" 
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer"
+                aria-label="Follow us on Instagram"
+              >
                 <FaInstagram className="text-white text-sm sm:text-lg" />
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-400 rounded-lg flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer">
+              </a>
+              <a 
+                href="https://www.tiktok.com/@emorenovation?lang=en" 
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-black rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity cursor-pointer"
+                aria-label="Follow us on TikTok"
+              >
+                <FaTiktok className="text-white text-sm sm:text-lg" />
+              </a>
+              <a 
+                href="mailto:info@e-morenovation.be" 
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-400 rounded-lg flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer"
+                aria-label="Send us an email"
+              >
                 <FaEnvelope className="text-white text-sm sm:text-lg" />
-              </div>
+              </a>
             </div>
           </div>
 
@@ -80,20 +102,27 @@ const Footer = ({ t, locale }) => {
                 <span className="text-red-500 text-sm">📍</span>
                 <span className="text-gray-300 text-xs sm:text-sm">Driekoningenstraat 215 9100 Sint-Niklaas</span>
               </div>
-              <div className="flex items-center justify-center md:justify-end space-x-2">
+              <a 
+                href="tel:+32491129917" 
+                className="flex items-center justify-center md:justify-end space-x-2 hover:text-white transition-colors"
+              >
                 <span className="text-red-500 text-sm">📞</span>
-                <span className="text-gray-300 text-xs sm:text-sm">+32491129917</span>
-             
-              </div>
-              <div className="flex items-center justify-center md:justify-end space-x-2">
+                <span className="text-gray-300 text-xs sm:text-sm hover:text-white">+32491129917</span>
+              </a>
+              <a 
+                href="tel:+32465218194" 
+                className="flex items-center justify-center md:justify-end space-x-2 hover:text-white transition-colors"
+              >
                 <span className="text-red-500 text-sm">📞</span>
-                
-                <span className="text-gray-300 text-xs sm:text-sm">+32465218194</span>
-              </div>
-              <div className="flex items-center justify-center md:justify-end space-x-2">
+                <span className="text-gray-300 text-xs sm:text-sm hover:text-white">+32465218194</span>
+              </a>
+              <a 
+                href="mailto:info@emo-renovation.be" 
+                className="flex items-center justify-center md:justify-end space-x-2 hover:text-white transition-colors"
+              >
                 <span className="text-red-500 text-sm">✉️</span>
-                <span className="text-gray-300 text-xs sm:text-sm">info@emo-renovation.be</span>
-              </div>
+                <span className="text-gray-300 text-xs sm:text-sm hover:text-white">info@emo-renovation.be</span>
+              </a>
             </div>
           </div>
         </div>

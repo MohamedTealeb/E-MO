@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 const Images = [
-  { src: "/unsplash_rEJxpBskj3Q.png", alt: "Kitchen Renovation", label: "Kitchen", icon: "🧱" },
+  { src: "/WhatsApp Image 2025-07-27 at 1.06.04 AM 1 (1).png", alt: "Kitchen Renovation", label: "Kitchen", icon: "🧱" },
   { src: "/painting.jpg", alt: "Painting Services", label: "Painting", icon: "🎨" },
   { src: "/Rectangle 22.png", alt: "Bathroom Renovation", label: "Bathroom", icon: "🪟" },
   { src: "/Rectangle 24.png", alt: "Flooring Services", label: "Flooring", icon: "🌳" },
-  { src: "/Rectangle 26.png", alt: "Insulation Services", label: "Insulation", icon: "🛡" },
+  { src: "/WhatsApp Image 2025-07-27 at 1.16.46 AM (3) 1.png", alt: "Insulation Services", label: "Insulation", icon: "🛡" },
 ];
 
 const ServicesPage = ({ t }) => {
@@ -160,7 +160,7 @@ const ServicesPage = ({ t }) => {
           {/* Scroll indicator */}
           <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
             <div 
-              className="flex flex-col items-center gap-1 cursor-pointer hover:opacity-80 transition-all duration-300 hover:scale-110"
+              className="flex flex-col items-center gap-1 hover:opacity-80 transition-all duration-300 hover:scale-110"
               onClick={handleScrollDown}
               title="Scroll to content"
             >
@@ -186,11 +186,11 @@ const ServicesPage = ({ t }) => {
           {t.services.items.map((item, index) => (
             <div 
               key={item.id} 
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 "
               onClick={() => handleServiceClick(item)}
             >
               {/* Image Section */}
-              <div className="relative h-64 md:h-80">
+              <div className="relative h-64 md:h-96">
                 <img 
                   src={Images[index]?.src || `/unsplash_B0aCvAVSX8E.png`}
                   alt={item.title} 
@@ -238,9 +238,9 @@ const ServicesPage = ({ t }) => {
                 </div>
                 
                 {/* Button */}
-                <div className="text-center">
-                  <button className="bg-main text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors">
-                    Demander un devis
+                <div className="text-center ">
+                  <button className="bg-main cursor-pointer  w-75 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors">
+                    {t?.buttons?.requestQuote || "Demander un devis"}
                   </button>
                 </div>
               </div>

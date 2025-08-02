@@ -204,20 +204,8 @@ const Portfolio = ({ t }) => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:col-span-2 md:col-span-1">
-            <img 
-              src="/WhatsApp Image 2025-07-30 at 21.53.52_e3bafed6.jpg" 
-              alt="Outdoor Deck" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-            <img 
-              src="/WhatsApp Image 2025-07-30 at 21.53.52_426d2106.jpg" 
-              alt="Outdoor Deck" 
-              className="w-full h-full object-cover"
-            />
-          </div>
+        
+       
           <div className="relative h-[200px] sm:h-[250px] md:h-[300px] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img 
               src="/kitchen.jpg" 
