@@ -25,7 +25,7 @@ const Service2 = ({ t }) => {
     },
     {
       before: "/p4.jpg",
-      after: "/about.jpg",
+      after: "/About.jpg",
       title: "Rénovation cuisine"
     },
     {
