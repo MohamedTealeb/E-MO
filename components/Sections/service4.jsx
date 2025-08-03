@@ -157,7 +157,7 @@ const Service4 = ({ t }) => {
 <div className="max-w-6xl mx-auto mt-6 md:mt-30">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
     {/* First Image */}
-    <div className="rounded-full overflow-hidden shadow-lg bg-white">
+    <div className="rounded-xl overflow-hidden shadow-lg bg-white">
       <img
        src="/WhatsApp Image 2025-07-31 at 11.28.45 PM 1.png"
        
@@ -167,7 +167,7 @@ const Service4 = ({ t }) => {
     </div>
 
     {/* Second Image */}
-    <div className="rounded-full overflow-hidden shadow-lg bg-white">
+    <div className="rounded-xl overflow-hidden shadow-lg bg-white">
       <img
         src="/WhatsApp Image 2025-07-27 at 1.16.44 AM (1) 3.png"
         alt="Service Image 2"
@@ -176,7 +176,7 @@ const Service4 = ({ t }) => {
     </div>
 
     {/* Third Image */}
-    <div className="rounded-full overflow-hidden shadow-lg bg-white">
+    <div className="rounded-xl overflow-hidden shadow-lg bg-white">
       <img
      src="/WhatsApp Image 2025-07-27 at 1.16.46 AM (1) 1 (1).png"
         alt="Service Image 3"

@@ -42,6 +42,11 @@ const Navbar = ({ forceDarkText = false }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Scroll to top when pathname changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+
   useEffect(() => {
     const loadTranslations = async () => {
       const saved = localStorage.getItem("preferred-locale") || currentLocale;
@@ -97,7 +102,12 @@ const Navbar = ({ forceDarkText = false }) => {
       // إغلاق Sheet في mobile فوراً
       setIsSheetOpen(false);
       
+      // التوجيه مع scroll إلى الأعلى
       router.push(servicePath);
+      // Scroll إلى الأعلى بعد التوجيه
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
     } else {
       console.error('Service not found for index:', serviceIndex);
     }
@@ -298,6 +308,8 @@ const Navbar = ({ forceDarkText = false }) => {
                                   setOpenSubmenu(null);
                                   // إغلاق Sheet في mobile فوراً
                                   setIsSheetOpen(false);
+                                  // Scroll إلى الأعلى
+                                  window.scrollTo({ top: 0, behavior: 'smooth' });
                                 }}
                               >
                                 {item.label}
@@ -336,6 +348,8 @@ const Navbar = ({ forceDarkText = false }) => {
                             onClick={() => {
                               // إغلاق Sheet في mobile فوراً
                               setIsSheetOpen(false);
+                              // Scroll إلى الأعلى
+                              window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
                           >
                             {item.label}
