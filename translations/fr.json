@@ -29,6 +29,8 @@
     "learnMore": "En savoir plus",
     "requestQuote": "Demander un devis"
   },
+  "before": "Avant",
+  "after": "Après",
   "AboutUS": {
     "title": "À propos de nous – E&MO, entreprise de construction et rénovation en Belgique",
     "text": "E&MO est votre partenaire idéal en Belgique pour tous vos travaux de construction, rénovation, finitions, menuiserie et aménagement paysager. Nous nous engageons à fournir des services de haute qualité à des prix compétitifs, utilisant des techniques modernes adaptées à tous vos besoins résidentiels et commerciaux.",
@@ -323,17 +325,22 @@
         "Installation de cuisines équipées avec des designs modernes.",
         "Pose de tiroirs et placards de haute qualité avec des finitions soignées."
       ],
-      "conclusion": "Chaque détail est conçu avec précision pour durer et s’adapter à votre mode de vie."
+      "textBox1": "Installation de cuisines équipées avec des designs modernes.",
+      "textBox2": "Pose de tiroirs et placards de haute qualité avec des finitions soignées.",
+      "textBox3": "Chaque détail est conçu avec précision pour durer et s'adapter à votre mode de vie."
     },
     "garden": {
       "title": "🌳  Aménagement et embellissement de jardins",
-      "intro": "Parce que les espaces extérieurs sont une partie importante de la maison, nous offrons des services d’aménagement paysager pour faire de votre jardin un véritable havre de paix.",
+      "intro": "Parce que les espaces extérieurs sont une partie importante de la maison, nous offrons des services d'aménagement paysager pour faire de votre jardin un véritable havre de paix.",
       "listTitle": "Nos services incluent :",
       "items": [
         "Embellissement des jardins avec des designs innovants et confortables.",
         "Pose de revêtements extérieurs ajoutant une touche pratique et élégante au jardin."
       ],
-      "conclusion": "Faites de votre jardin un espace de détente et de beauté naturelle avec les experts E&MO."
+      "conclusion": "Faites de votre jardin un espace de détente et de beauté naturelle avec les experts E&MO.",
+      "textBox1": "Embellissement des jardins avec des designs innovants et confortables.",
+      "textBox2": "Pose de revêtements extérieurs ajoutant une touche pratique et élégante au jardin.",
+      "textBox3": "Notre expertise garantit un résultat solide et esthétique."
     },
     "insulation": {
       "title": "🛡 Isolation externe",
@@ -343,7 +350,8 @@
         "Isolation extérieure en pierre : protection et esthétique réunies.",
         "Isolation crépie : une finition moderne avec une efficacité thermique optimale."
       ],
-      "conclusion": "Nous utilisons les meilleures techniques pour garder votre maison confortable et sécurisée."
+      "conclusion": "Notre expertise en peinture garantit un résultat durable et esthétique.",
+      "cnclusion": "Notre expertise garantit un résultat solide et esthétique."
     }
   },
 
@@ -429,8 +437,6 @@
       "button": "Demander un devis"
     }
   ],
-  "before": "Avant",
-  "after": "Après",
   "testimonials": {
     "title": "Ce que disent nos clients",
     "items": [

@@ -90,18 +90,18 @@ const Navbar = ({ forceDarkText = false }) => {
       setOpenSubmenu(null);
       setDesktopDropdownOpen(false);
       
-      // التوجيه إلى صفحة الخدمات
-      const newPath = subItem.href.replace(/\/\d+$/, ''); // إزالة الرقم من نهاية المسار
-      console.log('Navigating to:', newPath);
+      // التوجيه إلى صفحة الخدمة المحددة
+      const servicePath = `/${locale}/services/${serviceIndex + 1}`; // +1 لأن الصفحات تبدأ من 1
+      console.log('Navigating to:', servicePath);
       
       // إغلاق Sheet في mobile فوراً
       setIsSheetOpen(false);
       
-      router.push(newPath);
+      router.push(servicePath);
     } else {
       console.error('Service not found for index:', serviceIndex);
     }
-  }, [translations, router]);
+  }, [translations, router, locale]);
 
   const navItems = [
     { href: `/${locale}`, label: labels.home },

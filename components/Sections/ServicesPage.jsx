@@ -20,11 +20,12 @@ const ServicesPage = ({ t }) => {
   const [openIndex, setOpenIndex] = useState(null);
   const [expandedCards, setExpandedCards] = useState(new Set());
 
-  const [selectedService, setSelectedService] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // حذف المتغيرات غير المستخدمة للمودال
+  // const [selectedService, setSelectedService] = useState(null);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [isReady, setIsReady] = useState(false);
 
-  const modalRef = useRef(null);
+  // const modalRef = useRef(null);
 
   useEffect(() => {
     setIsReady(true);
@@ -36,20 +37,20 @@ const ServicesPage = ({ t }) => {
     if (savedService && isReady) {
       try {
         const service = JSON.parse(savedService);
-        setSelectedService(service);
-        setIsModalOpen(true);
+        // setSelectedService(service); // Removed as per edit hint
+        // setIsModalOpen(true); // Removed as per edit hint
         document.body.style.overflow = 'hidden';
         localStorage.removeItem('selectedService');
         
         // Ensure modal is properly focused and scrollable
         setTimeout(() => {
-          if (modalRef.current) {
-            modalRef.current.focus();
-            modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // if (modalRef.current) { // Removed as per edit hint
+          //   modalRef.current.focus(); // Removed as per edit hint
+          //   modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Removed as per edit hint
             // Trigger scroll event for mobile compatibility
-            modalRef.current.dispatchEvent(new Event('touchstart', { bubbles: true }));
-            modalRef.current.scrollTo(0, 1);
-          }
+            // modalRef.current.dispatchEvent(new Event('touchstart', { bubbles: true })); // Removed as per edit hint
+            // modalRef.current.scrollTo(0, 1); // Removed as per edit hint
+          // }
         }, 150);
       } catch (error) {
         console.error('Error parsing saved service:', error);
@@ -59,18 +60,18 @@ const ServicesPage = ({ t }) => {
   }, [isReady]);
 
   useEffect(() => {
-    if (isModalOpen && modalRef.current) {
-      modalRef.current.focus();
-      modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // if (isModalOpen && modalRef.current) { // Removed as per edit hint
+    //   modalRef.current.focus(); // Removed as per edit hint
+    //   modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Removed as per edit hint
       // Hack for iOS/Safari: trigger a scroll event and a small scrollTo
       setTimeout(() => {
-        if (modalRef.current) {
-          modalRef.current.dispatchEvent(new Event('touchstart', { bubbles: true }));
-          modalRef.current.scrollTo(0, 1);
-        }
+        // if (modalRef.current) { // Removed as per edit hint
+        //   modalRef.current.dispatchEvent(new Event('touchstart', { bubbles: true })); // Removed as per edit hint
+        //   modalRef.current.scrollTo(0, 1); // Removed as per edit hint
+        // }
       }, 100);
-    }
-  }, [isModalOpen]);
+    // }
+  }, []); // Removed isModalOpen from dependency array
 
   const handleToggle = (idx) => {
     const newExpanded = new Set(expandedCards);
@@ -83,23 +84,44 @@ const ServicesPage = ({ t }) => {
   };
 
   const handleServiceClick = (service) => {
-    setSelectedService(service);
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Lock background scroll
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedService(null);
-    document.body.style.overflow = 'unset'; // Restore background scroll
+    // فتح صفحة الخدمة المناسبة بدلاً من المودال
+    const serviceNumber = service.id || 1;
+    const currentLocale = t.locale || 'fr';
+    
+    // تحديد الخدمة المناسبة بناءً على index في المصفوفة
+    const serviceIndex = t.services.items.findIndex(item => item.id === service.id);
+    let serviceUrl;
+    
+    if (serviceIndex === 0) {
+      // الكارت الأول - يفتح service1
+      serviceUrl = `/${currentLocale}/services/1`;
+    } else if (serviceIndex === 1) {
+      // الكارت الثاني - يفتح service2
+      serviceUrl = `/${currentLocale}/services/2`;
+    } else if (serviceIndex === 2) {
+      // الكارت الثالث - يفتح service3
+      serviceUrl = `/${currentLocale}/services/3`;
+    } else if (serviceIndex === 3) {
+      // الكارت الرابع - يفتح service4
+      serviceUrl = `/${currentLocale}/services/4`;
+    } else if (serviceIndex === 4) {
+      // الكارت الخامس - يفتح service5
+      serviceUrl = `/${currentLocale}/services/5`;
+    } else {
+      // باقي الكروت - تستخدم SingleServicePage
+      serviceUrl = `/${currentLocale}/services/${serviceNumber}`;
+    }
+    
+    console.log('Navigating to service page:', serviceUrl, 'for service index:', serviceIndex);
+    router.push(serviceUrl);
   };
 
   // إغلاق المودال عند الضغط خارج المحتوى
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  };
+  // const handleBackdropClick = (e) => { // Removed as per edit hint
+  //   if (e.target === e.currentTarget) { // Removed as per edit hint
+  //     closeModal(); // Removed as per edit hint
+  //   } // Removed as per edit hint
+  // }; // Removed as per edit hint
 
   const handleScrollDown = () => {
     // التمرير إلى منتصف الصفحة
@@ -117,6 +139,32 @@ const ServicesPage = ({ t }) => {
     });
   };
 
+  const handleQuoteRequest = (serviceId = 0) => {
+    // تحديد الخدمة المناسبة بناءً على serviceId
+    const currentLocale = t.locale || 'fr';
+    
+    // تحديد الخدمة المناسبة بناءً على serviceId
+    let serviceNumber;
+    
+    // البحث عن الخدمة في المصفوفة
+    const serviceIndex = t.services.items.findIndex(item => item.id === serviceId);
+    
+    if (serviceIndex !== -1) {
+      // استخدام index + 1 لأن الخدمات تبدأ من 1
+      serviceNumber = serviceIndex + 1;
+    } else {
+      // إذا لم يتم العثور على الخدمة، استخدم serviceId مباشرة
+      serviceNumber = serviceId || 1;
+    }
+    
+    // فتح صفحة الخدمة المناسبة
+    const serviceUrl = `/${currentLocale}/services/${serviceNumber}`;
+    console.log('Navigating to service:', serviceNumber, 'URL:', serviceUrl);
+    
+    // استخدام window.location.href للانتقال
+    window.location.href = serviceUrl;
+  };
+
   // أنماط الكارت
   const getCardClass = (idx) => {
     return `group bg-white/90 backdrop-blur-lg rounded-3xl shadow-md border border-slate-200 p-0 flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden w-full`;
@@ -132,6 +180,8 @@ const ServicesPage = ({ t }) => {
 
   return (
     <section className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-16 px-4">
+   
+
       {/* Hero Section with Background Image */}
       <div className="bg-white px-4 sm:px-6 md:px-12 lg:px-24 xl:px-30 py-8 sm:py-10 md:py-12">
         {/* Container خاص بالصورة فقط */}
@@ -158,7 +208,7 @@ const ServicesPage = ({ t }) => {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <div className="absolute cursor-pointer bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
             <div 
               className="flex flex-col items-center gap-1 hover:opacity-80 transition-all duration-300 hover:scale-110"
               onClick={handleScrollDown}
@@ -186,7 +236,7 @@ const ServicesPage = ({ t }) => {
           {t.services.items.map((item, index) => (
             <div 
               key={item.id} 
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 "
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               onClick={() => handleServiceClick(item)}
             >
               {/* Image Section */}
@@ -239,7 +289,13 @@ const ServicesPage = ({ t }) => {
                 
                 {/* Button */}
                 <div className="text-center ">
-                  <button className="bg-main cursor-pointer  w-75 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors">
+                  <button 
+                    className="bg-main cursor-pointer w-75 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-800 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation(); // منع انتشار الحدث للكارت
+                      handleQuoteRequest(item.id);
+                    }}
+                  >
                     {t?.buttons?.requestQuote || "Demander un devis"}
                   </button>
                 </div>
@@ -248,107 +304,6 @@ const ServicesPage = ({ t }) => {
           ))}
         </div>
       </div>
-
-      {/* Service Modal - Improved for Mobile */}
-      {isModalOpen && selectedService && (
-        <div 
-          className="fixed inset-0 bg-black/60 flex items-center justify-center z-[9999] p-2 sm:p-4"
-          onClick={handleBackdropClick}
-          style={{ 
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 9999,
-            padding: '8px'
-          }}
-        >
-          <div 
-            ref={modalRef}
-            tabIndex={-1}
-            className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] sm:max-h-[95vh] overflow-y-auto relative"
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              maxHeight: '90vh',
-              overflowY: 'scroll',
-              WebkitOverflowScrolling: 'touch',
-              overscrollBehavior: 'contain',
-              touchAction: 'manipulation',
-              display: 'flex',
-              flexDirection: 'column'
-            }}
-          >
-            {/* Modal Header with Image */}
-            <div className="relative bg-white flex-shrink-0">
-              <div className="relative h-40 sm:h-48 md:h-64 lg:h-80 rounded-t-2xl overflow-hidden">
-                <img 
-                  src={Images[selectedService.id]?.src || `/unsplash_B0aCvAVSX8E.png`}
-                  alt={selectedService.title} 
-                  className="w-full h-full object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-black/40" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rounded-lg p-3 sm:p-4 md:p-6 text-white text-center">
-                    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2">
-                      {selectedService.title}
-                    </h2>
-                  </div>
-                </div>
-                <button 
-                  onClick={closeModal}
-                  className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors z-10"
-                  style={{ touchAction: 'manipulation' }}
-                >
-                  <FaTimes className="w-4 h-4 sm:w-5 sm:h-5" />
-                </button>
-              </div>
-            </div>
-            
-            {/* Modal Content */}
-            <div className="p-3 sm:p-4 md:p-6 lg:p-8 pb-6 flex-1">
-              <div className="text-gray-600 mb-4">
-                <p className="mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base md:text-lg">
-                  {selectedService.descriptionIntro || selectedService.description || "Service description"}
-                </p>
-                
-                <h4 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 text-gray-800">
-                  Nos services incluent :
-                </h4>
-                
-                <div className="space-y-2 sm:space-y-3">
-                  {selectedService.bullets && selectedService.bullets.map((bullet, bulletIndex) => (
-                    <div key={bulletIndex} className="flex items-start gap-2 sm:gap-3">
-                      <span className="text-green-600 mt-1 text-sm sm:text-base md:text-lg flex-shrink-0">✓</span>
-                      <span className="text-sm sm:text-base md:text-lg">{bullet}</span>
-                    </div>
-                  ))}
-                  {!selectedService.bullets && selectedService.details && selectedService.details.slice(0, 4).map((detail, detailIndex) => (
-                    <div key={detailIndex} className="flex items-start gap-2 sm:gap-3">
-                      <span className="text-green-600 mt-1 text-sm sm:text-base md:text-lg flex-shrink-0">✓</span>
-                      <span className="text-sm sm:text-base md:text-lg">{detail}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <p className="mt-4 sm:mt-6 italic text-sm sm:text-base md:text-lg">
-                  {selectedService.descriptionOutro || "Notre expertise garantit des résultats de qualité."}
-                </p>
-              </div>
-              
-              {/* Modal Button */}
-              <div className="text-center pt-3 sm:pt-4">
-                <button 
-                  className="bg-main text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg hover:bg-blue-800 transition-colors w-full sm:w-auto text-sm sm:text-base"
-                  onClick={closeModal}
-                >
-                  Fermer
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Bottom CTA */}
       <div className="mt-16 text-center">

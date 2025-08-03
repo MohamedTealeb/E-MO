@@ -29,6 +29,8 @@
     "learnMore": "Meer weten",
     "requestQuote": "Offerte aanvragen"
   },
+  "before": "Voor",
+  "after": "Na",
   "AboutUS": {
     "title": "Over ons – E&MO, bouw- en renovatiebedrijf in België",
     "text": "E&MO is uw ideale partner in België voor al uw bouw-, renovatie-, afwerkings-, timmerwerk- en tuinaanlegprojecten. Wij verbinden ons ertoe om hoogwaardige diensten te leveren tegen concurrerende prijzen, met gebruik van moderne technieken die geschikt zijn voor al uw residentiële en commerciële behoeften.",
@@ -378,8 +380,6 @@
       "button": "Offerte aanvragen"
     }
   ],
-  "before": "Voor",
-  "after": "Na",
   "testimonials": {
     "title": "Wat onze klanten zeggen",
     "items": [
@@ -521,7 +521,9 @@
         "Installatie van volledig uitgeruste keukens met moderne ontwerpen.",
         "Plaatsing van hoogwaardige lades en kasten met nette afwerking."
       ],
-      "conclusion": "Elk detail is met precisie ontworpen om lang mee te gaan en aan uw levensstijl aan te passen."
+      "textBox1": "Installatie van volledig uitgeruste keukens met moderne ontwerpen.",
+      "textBox2": "Plaatsing van hoogwaardige lades en kasten met nette afwerking.",
+      "textBox3": "Elk detail is met precisie ontworpen om lang mee te gaan en aan uw levensstijl aan te passen."
     },
     "garden": {
       "title": "🌳 Tuincoördinatie en verfraaiing",
@@ -531,7 +533,10 @@
         "Verfraaiing van tuinen met innovatieve en comfortabele ontwerpen.",
         "Plaatsing van buitenbekleding die een praktische en elegante touch aan de tuin toevoegt."
       ],
-      "conclusion": "Maak van uw tuin een ontspannings- en natuurschoonruimte met de experts van E&MO."
+      "conclusion": "Maak van uw tuin een ontspannings- en natuurschoonruimte met de experts van E&MO.",
+      "textBox1": "Verfraaiing van tuinen met innovatieve en comfortabele ontwerpen.",
+      "textBox2": "Plaatsing van buitenbekleding die een praktische en elegante touch aan de tuin toevoegt.",
+      "textBox3": "Onze expertise garandeert een solide en esthetisch resultaat."
     },
     "insulation": {
       "title": "🛡 Externe isolatie",
@@ -541,7 +546,7 @@
         "Buitenisolatie in steen: bescherming en esthetiek gecombineerd.",
         "Crepi-isolatie: een moderne afwerking met optimale thermische efficiëntie."
       ],
-      "conclusion": "Wij gebruiken de beste technieken om uw huis comfortabel en veilig te houden."
+      "conclusion": "Onze expertise in schilderwerk garandeert een duurzaam en esthetisch resultaat."
     }
   },
   "quoteButton": "Offerte aanvragen",
