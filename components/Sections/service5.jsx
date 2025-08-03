@@ -8,6 +8,14 @@ const Service5 = ({ t }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [activeDragIndex, setActiveDragIndex] = useState(null);
   const dragRefs = useRef([]);
+
+  // Ensure scroll is enabled on this page
+  useEffect(() => {
+    document.body.style.overflow = 'auto';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
   
   const serviceData = t?.services?.items?.[4] || t?.services?.items?.[4]; // service 4 (insulation services)
   const serviceImage = { 

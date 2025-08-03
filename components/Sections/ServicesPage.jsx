@@ -37,41 +37,30 @@ const ServicesPage = ({ t }) => {
     if (savedService && isReady) {
       try {
         const service = JSON.parse(savedService);
-        // setSelectedService(service); // Removed as per edit hint
-        // setIsModalOpen(true); // Removed as per edit hint
-        document.body.style.overflow = 'hidden';
         localStorage.removeItem('selectedService');
         
-        // Ensure modal is properly focused and scrollable
-        setTimeout(() => {
-          // if (modalRef.current) { // Removed as per edit hint
-          //   modalRef.current.focus(); // Removed as per edit hint
-          //   modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Removed as per edit hint
-            // Trigger scroll event for mobile compatibility
-            // modalRef.current.dispatchEvent(new Event('touchstart', { bubbles: true })); // Removed as per edit hint
-            // modalRef.current.scrollTo(0, 1); // Removed as per edit hint
-          // }
-        }, 150);
+        // Navigate to the specific service page instead of opening modal
+        const serviceIndex = service.href?.match(/\/services\/(\d+)$/)?.[1];
+        if (serviceIndex) {
+          router.push(`/fr/services/${serviceIndex}`);
+        }
       } catch (error) {
         console.error('Error parsing saved service:', error);
         localStorage.removeItem('selectedService');
       }
     }
-  }, [isReady]);
+  }, [isReady, router]);
 
+  // Cleanup effect to ensure scroll is always enabled
   useEffect(() => {
-    // if (isModalOpen && modalRef.current) { // Removed as per edit hint
-    //   modalRef.current.focus(); // Removed as per edit hint
-    //   modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Removed as per edit hint
-      // Hack for iOS/Safari: trigger a scroll event and a small scrollTo
-      setTimeout(() => {
-        // if (modalRef.current) { // Removed as per edit hint
-        //   modalRef.current.dispatchEvent(new Event('touchstart', { bubbles: true })); // Removed as per edit hint
-        //   modalRef.current.scrollTo(0, 1); // Removed as per edit hint
-        // }
-      }, 100);
-    // }
-  }, []); // Removed isModalOpen from dependency array
+    // Make sure body scroll is always enabled on this page
+    document.body.style.overflow = 'auto';
+    
+    return () => {
+      // Cleanup on unmount
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   const handleToggle = (idx) => {
     const newExpanded = new Set(expandedCards);

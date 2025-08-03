@@ -8,6 +8,14 @@ const Service4 = ({ t }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [activeDragIndex, setActiveDragIndex] = useState(null);
   const dragRefs = useRef([]);
+
+  // Ensure scroll is enabled on this page
+  useEffect(() => {
+    document.body.style.overflow = 'auto';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
   
   const serviceData = t?.services?.items?.[3] || t?.services?.items?.[3]; // service 3 (flooring services)
   const garden = t?.serviceDetails?.garden; // garden service details

@@ -3,6 +3,13 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 
 const Service2 = ({ t }) => {
+  // Ensure scroll is enabled on this page
+  useEffect(() => {
+    document.body.style.overflow = 'auto';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
   const [currentImage, setCurrentImage] = useState('before');
   const [dragPositions, setDragPositions] = useState([50, 50, 50, 50]); // Separate position for each image
   const [isDragging, setIsDragging] = useState(false);
